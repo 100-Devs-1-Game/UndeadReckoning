@@ -1,0 +1,197 @@
+[gd_scene load_steps=39 format=3 uid="uid://cwhpy8mwx2xao"]
+
+[ext_resource type="Script" uid="uid://hqloy5qy3o61" path="res://terrain/Chunk.gd" id="1_lexys"]
+[ext_resource type="Shader" uid="uid://bpwnc8pfgalf5" path="res://terrain/Chunk.gdshader" id="2_s3wkh"]
+[ext_resource type="Shader" uid="uid://3ilk2slsbdee" path="res://terrain/water.gdshader" id="4_fbyps"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lexys"]
+seed = 39
+frequency = 0.0018
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3wkh"]
+seed = 94
+frequency = 0.0019
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r8y4k"]
+seed = 60
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fbyps"]
+seed = 68
+
+[sub_resource type="Gradient" id="Gradient_r8y4k"]
+colors = PackedColorArray(3.73013e-07, 0.321645, 0.124654, 1, 1.05286e-07, 0.23307, 0.054501, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j2u7c"]
+frequency = 0.0388
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uym3e"]
+seamless = true
+color_ramp = SubResource("Gradient_r8y4k")
+noise = SubResource("FastNoiseLite_j2u7c")
+
+[sub_resource type="Gradient" id="Gradient_ni86q"]
+colors = PackedColorArray(0.28102, 0.175632, 0.0517959, 1, 0.233727, 0.138, 0.021423, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x4yda"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0qwu"]
+color_ramp = SubResource("Gradient_ni86q")
+noise = SubResource("FastNoiseLite_x4yda")
+
+[sub_resource type="Gradient" id="Gradient_fbyps"]
+colors = PackedColorArray(0.664117, 0.617495, 0.517728, 1, 0.670947, 0.601144, 0.4006, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uym3e"]
+frequency = 0.0449
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qtmie"]
+seamless = true
+color_ramp = SubResource("Gradient_fbyps")
+noise = SubResource("FastNoiseLite_uym3e")
+
+[sub_resource type="Gradient" id="Gradient_dw44g"]
+colors = PackedColorArray(0.41598, 0.41598, 0.41598, 1, 0.355314, 0.355314, 0.355314, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7cxre"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_05o6f"]
+seamless = true
+color_ramp = SubResource("Gradient_dw44g")
+noise = SubResource("FastNoiseLite_7cxre")
+
+[sub_resource type="Gradient" id="Gradient_s3wkh"]
+colors = PackedColorArray(0.808998, 0.808998, 0.808998, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_811cv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j2u7c"]
+seamless = true
+color_ramp = SubResource("Gradient_s3wkh")
+noise = SubResource("FastNoiseLite_811cv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8y4k"]
+render_priority = 0
+shader = ExtResource("2_s3wkh")
+shader_parameter/albedo_tint = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo_snow = SubResource("NoiseTexture2D_j2u7c")
+shader_parameter/texture_albedo_grass = SubResource("NoiseTexture2D_uym3e")
+shader_parameter/texture_albedo_sand = SubResource("NoiseTexture2D_qtmie")
+shader_parameter/texture_albedo_slope = SubResource("NoiseTexture2D_05o6f")
+shader_parameter/texture_albedo_path = SubResource("NoiseTexture2D_a0qwu")
+shader_parameter/snow_start_height = 80.0
+shader_parameter/snow_full_height = 100.0
+shader_parameter/sand_start_height = 9.5e-06
+shader_parameter/sand_full_height = -9.99999
+shader_parameter/slope_threshold = 0.7
+shader_parameter/slope_blend_range = 0.2
+shader_parameter/path_fade_start_y = 8.0
+shader_parameter/path_fade_end_y = 10.0
+shader_parameter/path_low_fade_start_y = 0.0
+shader_parameter/path_low_fade_end_y = -4.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/world_uv_scale = 0.1
+
+[sub_resource type="Gradient" id="Gradient_05o6f"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_beg16"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x4yda"]
+color_ramp = SubResource("Gradient_05o6f")
+noise = SubResource("FastNoiseLite_beg16")
+
+[sub_resource type="Gradient" id="Gradient_qtmie"]
+colors = PackedColorArray(0.753984, 0.753984, 0.753984, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_05o6f"]
+frequency = 0.1307
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ni86q"]
+seamless = true
+color_ramp = SubResource("Gradient_qtmie")
+noise = SubResource("FastNoiseLite_05o6f")
+
+[sub_resource type="Gradient" id="Gradient_811cv"]
+colors = PackedColorArray(0.625597, 0.625597, 0.625597, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qtmie"]
+frequency = 0.1455
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dw44g"]
+seamless = true
+as_normal_map = true
+color_ramp = SubResource("Gradient_811cv")
+noise = SubResource("FastNoiseLite_qtmie")
+
+[sub_resource type="Gradient" id="Gradient_7cxre"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ni86q"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_beg16"]
+color_ramp = SubResource("Gradient_7cxre")
+noise = SubResource("FastNoiseLite_ni86q")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_811cv"]
+render_priority = 0
+shader = ExtResource("4_fbyps")
+shader_parameter/albedo = Color(0.1678, 0.478156, 0.771222, 1)
+shader_parameter/texture_albedo = SubResource("NoiseTexture2D_ni86q")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.15
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_dw44g")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(2.78, 2.78, 2.78)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/depth_fade_distance = 1.0
+shader_parameter/absorbance = 2.0
+shader_parameter/shallow_color = Color(0.22, 0.66, 1, 1)
+shader_parameter/deep_color = Color(0, 0.25, 0.45, 1)
+shader_parameter/foam_amount = 0.4
+shader_parameter/foam_color = Color(0.560955, 0.560955, 0.560955, 1)
+shader_parameter/foam_noise = SubResource("NoiseTexture2D_x4yda")
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_beg16")
+shader_parameter/wave_scale = 4.0
+shader_parameter/height_scale = 0.5
+shader_parameter/wave_speed = 0.015
+
+[sub_resource type="MultiMesh" id="MultiMesh_s3wkh"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_811cv"]
+
+[node name="Chunk" type="Node3D" node_paths=PackedStringArray("mesh_instance", "collision_shape")]
+script = ExtResource("1_lexys")
+mesh_instance = NodePath("MeshInstance3D")
+collision_shape = NodePath("StaticBody3D/CollisionShape3D")
+chunk_size_x = 8
+chunk_size_z = 8
+vertices_x = 9
+vertices_z = 9
+noise_continent = SubResource("FastNoiseLite_lexys")
+noise_mountain = SubResource("FastNoiseLite_s3wkh")
+mountain_scale = 222.0
+mountain_start_height = 5.0
+noise_valley = SubResource("FastNoiseLite_r8y4k")
+noise_erosion = SubResource("FastNoiseLite_fbyps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_r8y4k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_811cv")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_s3wkh")
+
+[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_811cv")

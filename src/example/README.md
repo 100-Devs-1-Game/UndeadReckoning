@@ -1,4 +1,5 @@
 # Simplified Flight Simulation Library (addon) for Godot Engine
+https://github.com/fbcosentino/godot-simplified-flightsim
 
 This addon in a simple flight simulation system, in pure GDScript, and generic enough to cover several types of aircrafts and spacecrafts.
 
@@ -154,15 +155,15 @@ func _ready():
 	ModuleType = "flaps"
 
 func process_physic_frame(_delta):
-    aircraft.lift_intensity *= lerp(1.0, LiftFlapFactor, flap_position)          # apply LiftFlapFactor proportionally
-    aircraft.drag_intensity_vector.z *= lerp(1.0, DragFlapFactor, flap_position) # apply DragFlapFactor proportionally
+	aircraft.lift_intensity *= lerp(1.0, LiftFlapFactor, flap_position)          # apply LiftFlapFactor proportionally
+	aircraft.drag_intensity_vector.z *= lerp(1.0, DragFlapFactor, flap_position) # apply DragFlapFactor proportionally
 
 func flap_set_position(value: float):
-    flap_position = clamp(value, 0.0, 1.0)
-    emit_signal("update_interface", {"flap": flap_position })
+	flap_position = clamp(value, 0.0, 1.0)
+	emit_signal("update_interface", {"flap": flap_position })
 
 func flap_increase_position(step: float):
-    flap_set_position(flap_position + step)
+	flap_set_position(flap_position + step)
 
 ```
 
@@ -177,7 +178,7 @@ var flaps_module = null
 
 func _ready():
 	ReceiveInput = true
-    
+	
 func setup(aircraft_node):
 	aircraft = aircraft_node
 	flaps_module = aircraft.find_modules_by_type("flaps").pop_front()

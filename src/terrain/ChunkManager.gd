@@ -60,6 +60,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if not player or not is_instance_valid(player):
+		return
+		
 	# Handle chunk loading/unloading based on its own interval.
 	update_timer += delta
 	if update_timer >= update_interval:

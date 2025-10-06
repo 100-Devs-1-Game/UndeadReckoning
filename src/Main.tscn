@@ -1,25 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://d0grl6tdrab08"]
+[gd_scene load_steps=16 format=3 uid="uid://d0grl6tdrab08"]
 
 [ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="1_sqvbp"]
 [ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="2_hri7i"]
-[ext_resource type="PackedScene" uid="uid://d0mgf4yjnwxgl" path="res://addons/simplified_flightsim/Aircraft/Aircraft.tscn" id="3_w3rk5"]
-[ext_resource type="PackedScene" uid="uid://bpna5btnwpvpr" path="res://example/scenes/Airplane/visuals/Engine/Engine.tscn" id="4_5mvff"]
-[ext_resource type="PackedScene" uid="uid://d3iie083tp8bk" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="5_oye8v"]
-[ext_resource type="PackedScene" uid="uid://nhbm7re0glcb" path="res://example/scenes/Airplane/visuals/LandingGear/LandingGear.tscn" id="6_40n85"]
-[ext_resource type="PackedScene" uid="uid://dl0obdnutyqx3" path="res://example/scenes/Airplane/visuals/Flaps/Flaps.tscn" id="7_gb15f"]
-[ext_resource type="PackedScene" uid="uid://cuhxgecwm28ng" path="res://addons/simplified_flightsim/aircraft_modules/EnergyContainer/EnergyContainer.tscn" id="8_sph85"]
-[ext_resource type="PackedScene" uid="uid://2pej6qvsslvh" path="res://addons/simplified_flightsim/aircraft_modules/Engine/Engine.tscn" id="9_o7g6l"]
-[ext_resource type="PackedScene" uid="uid://dwgwme28nhk5s" path="res://addons/simplified_flightsim/aircraft_modules/Steering/Steering.tscn" id="10_vi5kq"]
-[ext_resource type="PackedScene" uid="uid://dt6mupocobxi1" path="res://addons/simplified_flightsim/aircraft_modules/Flaps/Flaps.tscn" id="11_5mkgo"]
-[ext_resource type="AudioStream" uid="uid://cqkqskpah2gx7" path="res://example/sfx/aircraft_modules/flaps/flap_loop.ogg" id="12_3ccbu"]
-[ext_resource type="PackedScene" uid="uid://ck3hy1ua4an2y" path="res://addons/simplified_flightsim/aircraft_modules/LandingGear/LandingGear.tscn" id="13_ny7u2"]
-[ext_resource type="AudioStream" uid="uid://cvxa8h3yftguj" path="res://example/sfx/aircraft_modules/landing_gear/deploy.wav" id="14_x3yn0"]
-[ext_resource type="AudioStream" uid="uid://ch1k8klfyw0mq" path="res://example/sfx/aircraft_modules/landing_gear/stow.wav" id="15_1w2xm"]
-[ext_resource type="PackedScene" uid="uid://6ytnwt6pu7qc" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlEngine.tscn" id="16_gngx1"]
-[ext_resource type="PackedScene" uid="uid://d0a0fapw5ynvs" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlSteering.tscn" id="17_jt61w"]
-[ext_resource type="PackedScene" uid="uid://dqsmy2wed3eh7" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlLandingGear.tscn" id="18_v8qla"]
-[ext_resource type="PackedScene" uid="uid://n1sq0e2d5xwg" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlFlaps.tscn" id="19_y1tbi"]
-[ext_resource type="PackedScene" uid="uid://bafvgx2bkxkvh" path="res://addons/simplified_flightsim/aircraft_modules/Instruments/InstrumentAttitude.tscn" id="20_c2s76"]
+[ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://our_aircraft.tscn" id="3_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="21_f4ese"]
 [ext_resource type="PackedScene" uid="uid://bu2hixfhu8ndm" path="res://example/ui/UIEnginePower/UIEnginePower.tscn" id="22_rchyr"]
 [ext_resource type="PackedScene" uid="uid://dsel16gi76dnm" path="res://example/ui/UIEnergyContainer/UIFuelLevel.tscn" id="23_pljue"]
@@ -48,32 +31,7 @@ fog_sky_affect = 0.161
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_r0du0"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_154ft"]
-radius = 0.7
-height = 4.0
-radial_segments = 16
-rings = 2
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_eqjp6"]
-bottom_radius = 0.3
-height = 2.5
-radial_segments = 16
-rings = 1
-
-[sub_resource type="BoxMesh" id="BoxMesh_y4ogd"]
-size = Vector3(8, 0.1, 1.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_5p4on"]
-size = Vector3(3, 0.1, 0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ci50e"]
-size = Vector3(0.1, 1, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hm4so"]
-size = Vector3(8, 1, 6)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_daric"]
-size = Vector3(1.6, 1.4, 3.4)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wkp8b"]
 
 [node name="Main" type="Node3D"]
 
@@ -94,93 +52,16 @@ update_interval = 0.2
 overall_scale = 2.0
 noise_path = SubResource("FastNoiseLite_r0du0")
 
-[node name="Aircraft" parent="." instance=ExtResource("3_w3rk5")]
+[node name="Aircraft" parent="." instance=ExtResource("3_wkp8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
-center_of_mass_mode = 1
-
-[node name="Model" type="Node3D" parent="Aircraft"]
-
-[node name="StaticParts" type="Node3D" parent="Aircraft/Model"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
-transform = Transform3D(1, -8.74228e-08, 8.74228e-08, 8.74228e-08, -4.37114e-08, -1, 8.74228e-08, 1, -4.37114e-08, 0, 0, -1.0191)
-mesh = SubResource("CapsuleMesh_154ft")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance2" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 1.33447)
-mesh = SubResource("CylinderMesh_eqjp6")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292487, -0.559304)
-mesh = SubResource("BoxMesh_y4ogd")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance4" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0388618, 2.33686)
-mesh = SubResource("BoxMesh_5p4on")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance5" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.591909, 2.33686)
-mesh = SubResource("BoxMesh_ci50e")
-skeleton = NodePath("../..")
-
-[node name="MovingParts" type="Node3D" parent="Aircraft/Model"]
-
-[node name="Engine" parent="Aircraft/Model/MovingParts" instance=ExtResource("4_5mvff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.60584)
-
-[node name="Steering" parent="Aircraft/Model/MovingParts" instance=ExtResource("5_oye8v")]
-
-[node name="LandingGear" parent="Aircraft/Model/MovingParts" instance=ExtResource("6_40n85")]
-
-[node name="Flaps" parent="Aircraft/Model/MovingParts" instance=ExtResource("7_gb15f")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Aircraft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, 0.015686, -0.22049)
-shape = SubResource("BoxShape3D_hm4so")
-
-[node name="LandingGearCollisionShape" type="CollisionShape3D" parent="Aircraft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, -0.872238, -0.800049)
-shape = SubResource("BoxShape3D_daric")
-
-[node name="EnergyContainer" parent="Aircraft" instance=ExtResource("8_sph85")]
-UINode = NodePath("../../Interface/UIFuelLevel")
-
-[node name="Engine" parent="Aircraft" instance=ExtResource("9_o7g6l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-08, 0, 0)
-auto_start = true
-UINode = NodePath("../../Interface/UIEnginePower")
-ProcessPhysics = true
-
-[node name="Steering" parent="Aircraft" instance=ExtResource("10_vi5kq")]
-
-[node name="Flaps" parent="Aircraft" instance=ExtResource("11_5mkgo")]
-UINode = NodePath("../../Interface/UIFlaps")
-FlapSoundLoop = ExtResource("12_3ccbu")
-
-[node name="LandingGear" parent="Aircraft" instance=ExtResource("13_ny7u2")]
-GearCollisionShape = NodePath("../LandingGearCollisionShape")
-InitialState = 1
-DeploySound = ExtResource("14_x3yn0")
-StowSound = ExtResource("15_1w2xm")
-UINode = NodePath("../../Interface/UILandingGear")
-
-[node name="ControlEngine" parent="Aircraft" instance=ExtResource("16_gngx1")]
-
-[node name="ControlSteering" parent="Aircraft" instance=ExtResource("17_jt61w")]
-
-[node name="ControlLandingGear" parent="Aircraft" instance=ExtResource("18_v8qla")]
-
-[node name="ControlFlaps" parent="Aircraft" instance=ExtResource("19_y1tbi")]
-
-[node name="InstrumentAttitude" parent="Aircraft" instance=ExtResource("20_c2s76")]
-UINode = NodePath("../../Interface/UIAttitude")
 
 [node name="CameraTripod" parent="." instance=ExtResource("21_f4ese")]
 TargetNode = NodePath("../Aircraft")
+
+[node name="Dynamic Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic Floor"]
+shape = SubResource("WorldBoundaryShape3D_wkp8b")
 
 [node name="Interface" type="Control" parent="."]
 layout_mode = 3

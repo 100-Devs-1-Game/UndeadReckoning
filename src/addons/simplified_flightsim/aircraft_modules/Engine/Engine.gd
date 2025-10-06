@@ -6,6 +6,8 @@ class_name AircraftModule_Engine
 
 signal update_interface(values)
 
+@export var auto_start: bool= false
+
 @export var PowerFactor: float = 20.0
 @export var EnginePosition: Vector3 = Vector3.ZERO # Deprecated, use node's own position instead
 
@@ -54,6 +56,10 @@ func _ready():
 	ModuleType = "engine"
 	UsesEnergy = true
 	EnergyType = "fuel"
+	
+	if auto_start:
+		engine_start()
+		
 
 func setup(aircraft_node):
 	aircraft = aircraft_node

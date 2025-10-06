@@ -95,7 +95,7 @@ overall_scale = 2.0
 noise_path = SubResource("FastNoiseLite_r0du0")
 
 [node name="Aircraft" parent="." instance=ExtResource("3_w3rk5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
 center_of_mass_mode = 1
 
 [node name="Model" type="Node3D" parent="Aircraft"]
@@ -151,6 +151,7 @@ UINode = NodePath("../../Interface/UIFuelLevel")
 
 [node name="Engine" parent="Aircraft" instance=ExtResource("9_o7g6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-08, 0, 0)
+auto_start = true
 UINode = NodePath("../../Interface/UIEnginePower")
 ProcessPhysics = true
 

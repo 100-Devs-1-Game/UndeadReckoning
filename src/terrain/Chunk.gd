@@ -119,9 +119,9 @@ func generate_terrain() -> void:
 	var mesh: ArrayMesh = st.commit()
 	mesh_instance.mesh = mesh
 	
-	var coll_shape = ConcavePolygonShape3D.new()
-	coll_shape.set_faces(mesh.get_faces())
-	collision_shape.shape = coll_shape
+	#var coll_shape = ConcavePolygonShape3D.new()
+	#coll_shape.set_faces(mesh.get_faces())
+	#collision_shape.shape = coll_shape
 
 
 	finished_generating.emit()

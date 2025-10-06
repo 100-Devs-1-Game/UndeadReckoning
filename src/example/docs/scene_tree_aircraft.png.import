@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvycuhpml6r4a"
-path="res://.godot/imported/lift_point.png-24300e48b62b3c2a8df8bd885f33267d.ctex"
+uid="uid://cq7c64uxdvubn"
+path="res://.godot/imported/scene_tree_aircraft.png-0bc66ad9ad2903f990dfff5f4dc47606.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/lift_point.png"
-dest_files=["res://.godot/imported/lift_point.png-24300e48b62b3c2a8df8bd885f33267d.ctex"]
+source_file="res://example/docs/scene_tree_aircraft.png"
+dest_files=["res://.godot/imported/scene_tree_aircraft.png-0bc66ad9ad2903f990dfff5f4dc47606.ctex"]
 
 [params]
 

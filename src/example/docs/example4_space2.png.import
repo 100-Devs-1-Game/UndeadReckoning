@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r6qvqe7u658u"
-path="res://.godot/imported/steering_distance.png-0dadf9c25a0d34db2ef0c5e976749ce6.ctex"
+uid="uid://d3mgjkde6rish"
+path="res://.godot/imported/example4_space2.png-f77270d831c72c292a56621cc3386ddb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/steering_distance.png"
-dest_files=["res://.godot/imported/steering_distance.png-0dadf9c25a0d34db2ef0c5e976749ce6.ctex"]
+source_file="res://example/docs/example4_space2.png"
+dest_files=["res://.godot/imported/example4_space2.png-f77270d831c72c292a56621cc3386ddb.ctex"]
 
 [params]
 

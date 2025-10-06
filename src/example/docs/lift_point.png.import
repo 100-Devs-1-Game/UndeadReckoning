@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfjw0m20nllpg"
-path="res://.godot/imported/example3_helicopter.png-bf452e9132f966883299e21bd55be55d.ctex"
+uid="uid://dvycuhpml6r4a"
+path="res://.godot/imported/lift_point.png-00e4326d52a2628c1a6b419b425a0b43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/example3_helicopter.png"
-dest_files=["res://.godot/imported/example3_helicopter.png-bf452e9132f966883299e21bd55be55d.ctex"]
+source_file="res://example/docs/lift_point.png"
+dest_files=["res://.godot/imported/lift_point.png-00e4326d52a2628c1a6b419b425a0b43.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://johta32ghjwl"
-path="res://.godot/imported/example4_space1.png-d7246464d8beb3e6efddf19a6a6ff543.ctex"
+uid="uid://dfjw0m20nllpg"
+path="res://.godot/imported/example3_helicopter.png-9ebc4486078e0a58ab4402cc428739c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/example4_space1.png"
-dest_files=["res://.godot/imported/example4_space1.png-d7246464d8beb3e6efddf19a6a6ff543.ctex"]
+source_file="res://example/docs/example3_helicopter.png"
+dest_files=["res://.godot/imported/example3_helicopter.png-9ebc4486078e0a58ab4402cc428739c6.ctex"]
 
 [params]
 

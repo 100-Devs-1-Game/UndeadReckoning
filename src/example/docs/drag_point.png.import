@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgpbamhmftf1h"
-path="res://.godot/imported/modules_control_diagram.png-e41ee9c562125fbfe1749be1ac7cbcd6.ctex"
+uid="uid://bi1bl1tbnyihu"
+path="res://.godot/imported/drag_point.png-036470c2758fd8d762940314b90a4c2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/modules_control_diagram.png"
-dest_files=["res://.godot/imported/modules_control_diagram.png-e41ee9c562125fbfe1749be1ac7cbcd6.ctex"]
+source_file="res://example/docs/drag_point.png"
+dest_files=["res://.godot/imported/drag_point.png-036470c2758fd8d762940314b90a4c2b.ctex"]
 
 [params]
 

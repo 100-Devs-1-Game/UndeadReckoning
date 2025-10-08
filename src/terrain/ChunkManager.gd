@@ -54,6 +54,9 @@ func _ready() -> void:
 		set_process(false)
 		return
 
+	if not player or not is_instance_valid(player):
+		return
+
 	# Initial chunk load, centering the world on the player's starting position.
 	var player_chunk_pos = get_chunk_coords_from_pos(player.global_position)
 	update_chunks(player_chunk_pos)

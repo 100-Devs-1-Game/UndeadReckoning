@@ -1,7 +1,7 @@
+Why isnt speedometer and altitudometer working by default?
+
 Why isn't landing gear animation working? test in Example scene
 
-Shift + F/V for full/no throttle
-
-Make Aircraft in Main local and then pack into a custom scene we will be using across tests ( Main.tscn, Flat plane, ..)
-
 Fake dynamic terrain collision
+
+Make a placeholder cockpit with instruments displayed as text labels

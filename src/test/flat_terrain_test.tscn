@@ -58,6 +58,7 @@ script = ExtResource("1_30l3t")
 [node name="Sandbox" type="Node" parent="." node_paths=PackedStringArray("aircraft")]
 script = ExtResource("2_762fy")
 aircraft = NodePath("../Aircraft")
+wind_gust_chance = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fos0i")
@@ -78,7 +79,7 @@ overall_scale = 2.0
 noise_path = SubResource("FastNoiseLite_r0du0")
 
 [node name="Aircraft" parent="." instance=ExtResource("3_4hq13")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
 
 [node name="CameraTripod" parent="." instance=ExtResource("4_jhrm6")]
 TargetNode = NodePath("../Aircraft")

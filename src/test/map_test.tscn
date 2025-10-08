@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c06kb4t34v4mn"]
+
+[ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="1_fo6rm"]
+[ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="2_qlk8p"]
+[ext_resource type="Resource" uid="uid://dxv2q5x1wwfic" path="res://terrain/default_terrain_generator.tres" id="3_qlk8p"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0t083"]
+
+[node name="Map Test" type="Node3D"]
+
+[node name="Dummy Player" type="Node3D" parent="."]
+
+[node name="ChunkManager" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("1_fo6rm")
+player = NodePath("../Dummy Player")
+chunk_scene = ExtResource("2_qlk8p")
+terrain_generator = ExtResource("3_qlk8p")
+render_distance = 24
+load_trigger_distance = 6
+update_interval = 0.2
+overall_scale = 2.0
+noise_path = SubResource("FastNoiseLite_0t083")

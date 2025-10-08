@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="TerrainGenerator" load_steps=6 format=3 uid="uid://dxv2q5x1wwfic"]
+
+[ext_resource type="Script" uid="uid://baxnfmwgxyqri" path="res://terrain/terrain_generator.gd" id="1_stptp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lexys"]
+seed = 39
+frequency = 0.0018
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fbyps"]
+seed = 68
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3wkh"]
+seed = 94
+frequency = 0.0019
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r8y4k"]
+seed = 60
+
+[resource]
+script = ExtResource("1_stptp")
+noise_continent = SubResource("FastNoiseLite_lexys")
+continent_slope_scale = 8.0
+continent_min_height = -10.0
+continent_max_height = 25.0
+noise_mountain = SubResource("FastNoiseLite_s3wkh")
+mountain_scale = 220.0
+mountain_start_height = 5.0
+mountain_fade_height = 10.0
+noise_valley = SubResource("FastNoiseLite_r8y4k")
+valley_carve_scale = 15.0
+valley_apply_threshold = 5.0
+noise_erosion = SubResource("FastNoiseLite_fbyps")
+erosion_scale = 2.5
+metadata/_custom_type_script = "uid://baxnfmwgxyqri"

@@ -7,6 +7,7 @@ extends Node3D
 # --- Node & Scene References ---
 @export var player: Node3D
 @export var chunk_scene: PackedScene
+@export var terrain_generator: BaseTerrainGenerator
 
 # --- World Generation Parameters ---
 @export var render_distance: int = 4
@@ -136,7 +137,7 @@ func load_chunk(coord: Vector2i) -> void:
 
 	if chunk.has_method("initialize_chunk"):
 		# Provide the chunk its coordinates and the global path noise generator.
-		chunk.initialize_chunk(coord, noise_path)
+		chunk.initialize_chunk(coord, terrain_generator, noise_path)
 		active_chunks[coord] = chunk
 	else:
 		printerr("Instantiated chunk scene does not have 'initialize_chunk' method!")

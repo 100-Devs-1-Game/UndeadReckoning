@@ -1,22 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://cwhpy8mwx2xao"]
+[gd_scene load_steps=35 format=3 uid="uid://cwhpy8mwx2xao"]
 
 [ext_resource type="Script" uid="uid://hqloy5qy3o61" path="res://terrain/Chunk.gd" id="1_lexys"]
 [ext_resource type="Shader" uid="uid://bpwnc8pfgalf5" path="res://terrain/Chunk.gdshader" id="2_s3wkh"]
 [ext_resource type="Shader" uid="uid://3ilk2slsbdee" path="res://terrain/water.gdshader" id="4_fbyps"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_lexys"]
-seed = 39
-frequency = 0.0018
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3wkh"]
-seed = 94
-frequency = 0.0019
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r8y4k"]
-seed = 60
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_fbyps"]
-seed = 68
 
 [sub_resource type="Gradient" id="Gradient_r8y4k"]
 colors = PackedColorArray(3.73013e-07, 0.321645, 0.124654, 1, 1.05286e-07, 0.23307, 0.054501, 1)
@@ -172,12 +158,6 @@ chunk_size_x = 8
 chunk_size_z = 8
 vertices_x = 9
 vertices_z = 9
-noise_continent = SubResource("FastNoiseLite_lexys")
-noise_mountain = SubResource("FastNoiseLite_s3wkh")
-mountain_scale = 222.0
-mountain_start_height = 5.0
-noise_valley = SubResource("FastNoiseLite_r8y4k")
-noise_erosion = SubResource("FastNoiseLite_fbyps")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_r8y4k")

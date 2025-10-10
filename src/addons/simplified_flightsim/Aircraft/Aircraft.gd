@@ -7,6 +7,7 @@ signal parked
 signal moved
 signal stall_changed(state)
 signal atmospheric_calculations_requested
+signal setup_finished
 
 const AIR_DENSITY_RHO = 1.225
 const SPECIFIC_HEAT_CAPACITY_AIR = 0.718
@@ -129,6 +130,7 @@ func _ready():
 	# We need to make sure the modules Array is fully populated before calling
 	# setup() (that's why setup() exists, instead of just using _ready())
 	setup()
+	setup_finished.emit()
 
 func setup():
 	for module in modules:

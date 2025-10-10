@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="1_sqvbp"]
 [ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="2_hri7i"]
 [ext_resource type="Resource" uid="uid://dxv2q5x1wwfic" path="res://terrain/default_terrain_generator.tres" id="3_20pc6"]
-[ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://our_aircraft.tscn" id="3_wkp8b"]
+[ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://plane/our_aircraft.tscn" id="3_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="21_f4ese"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r0du0"]

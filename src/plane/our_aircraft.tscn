@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://2yq1l46lpknc"]
 
-[ext_resource type="Script" uid="uid://jxxcruvbldpe" path="res://addons/simplified_flightsim/Aircraft/Aircraft.gd" id="1_da0ov"]
+[ext_resource type="Script" uid="uid://yoc1xpjtiwtk" path="res://plane/our_aircraft.gd" id="1_u4a2k"]
 [ext_resource type="PackedScene" uid="uid://bpna5btnwpvpr" path="res://example/scenes/Airplane/visuals/Engine/Engine.tscn" id="2_jd2wb"]
 [ext_resource type="PackedScene" uid="uid://d3iie083tp8bk" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="3_qiacu"]
 [ext_resource type="PackedScene" uid="uid://nhbm7re0glcb" path="res://example/scenes/Airplane/visuals/LandingGear/LandingGear.tscn" id="4_v8d62"]
@@ -58,7 +58,7 @@ center_of_mass_mode = 1
 contact_monitor = true
 max_contacts_reported = 3
 angular_damp = 1.0
-script = ExtResource("1_da0ov")
+script = ExtResource("1_u4a2k")
 
 [node name="Model" type="Node3D" parent="."]
 

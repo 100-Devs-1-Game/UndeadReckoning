@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0grl6tdrab08"]
+[gd_scene load_steps=12 format=3 uid="uid://d0grl6tdrab08"]
 
+[ext_resource type="Script" uid="uid://sqf6y6dttjlp" path="res://game/game.gd" id="1_3dxm6"]
 [ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="1_sqvbp"]
 [ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="2_hri7i"]
 [ext_resource type="Resource" uid="uid://dxv2q5x1wwfic" path="res://terrain/default_terrain_generator.tres" id="3_20pc6"]
@@ -29,6 +30,7 @@ fog_sky_affect = 0.161
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wkp8b"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_3dxm6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fos0i")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://2yq1l46lpknc"]
+[gd_scene load_steps=33 format=3 uid="uid://2yq1l46lpknc"]
 
 [ext_resource type="Script" uid="uid://yoc1xpjtiwtk" path="res://plane/our_aircraft.gd" id="1_u4a2k"]
 [ext_resource type="PackedScene" uid="uid://bpna5btnwpvpr" path="res://example/scenes/Airplane/visuals/Engine/Engine.tscn" id="2_jd2wb"]
 [ext_resource type="PackedScene" uid="uid://d3iie083tp8bk" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="3_qiacu"]
 [ext_resource type="PackedScene" uid="uid://nhbm7re0glcb" path="res://example/scenes/Airplane/visuals/LandingGear/LandingGear.tscn" id="4_v8d62"]
 [ext_resource type="PackedScene" uid="uid://dl0obdnutyqx3" path="res://example/scenes/Airplane/visuals/Flaps/Flaps.tscn" id="5_oam62"]
+[ext_resource type="PackedScene" uid="uid://bclq6x6hk0cgq" path="res://plane/placeholder_cockpit.tscn" id="6_40qx2"]
 [ext_resource type="PackedScene" uid="uid://cuhxgecwm28ng" path="res://addons/simplified_flightsim/aircraft_modules/EnergyContainer/EnergyContainer.tscn" id="6_wg0hh"]
 [ext_resource type="PackedScene" uid="uid://2pej6qvsslvh" path="res://addons/simplified_flightsim/aircraft_modules/Engine/Engine.tscn" id="7_ti7pa"]
 [ext_resource type="PackedScene" uid="uid://dwgwme28nhk5s" path="res://addons/simplified_flightsim/aircraft_modules/Steering/Steering.tscn" id="8_h6343"]
@@ -100,6 +101,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.60584)
 
 [node name="Flaps" parent="Model/MovingParts" instance=ExtResource("5_oam62")]
 
+[node name="Cockpit" parent="." node_paths=PackedStringArray("aircraft") instance=ExtResource("6_40qx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.37108)
+aircraft = NodePath("..")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, 0.015686, -0.22049)
 shape = SubResource("BoxShape3D_hm4so")
@@ -116,6 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-08, 0, 0)
 auto_start = true
 UINode = NodePath("../Builtin Interface/Interface/UIEnginePower")
 ProcessPhysics = true
+ModuleType = "engine"
 
 [node name="Steering" parent="." instance=ExtResource("8_h6343")]
 

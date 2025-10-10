@@ -1,8 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://b35pl341w5ys3"]
+[gd_scene load_steps=20 format=3 uid="uid://b35pl341w5ys3"]
 
-[ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="1_2db0g"]
 [ext_resource type="Script" uid="uid://dywvkt87urhsw" path="res://test/flat_terrain_test.gd" id="1_30l3t"]
-[ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="2_30l3t"]
 [ext_resource type="Script" uid="uid://dephv51hxmknh" path="res://test/sandbox.gd" id="2_762fy"]
 [ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://our_aircraft.tscn" id="3_4hq13"]
 [ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="4_jhrm6"]
@@ -30,8 +28,6 @@ glow_enabled = true
 fog_enabled = true
 fog_density = 0.001
 fog_sky_affect = 0.161
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r0du0"]
 
 [sub_resource type="Gradient" id="Gradient_2db0g"]
 colors = PackedColorArray(0, 1, 0, 1, 0.204149, 0.394064, 0.240407, 1)
@@ -66,17 +62,6 @@ environment = SubResource("Environment_fos0i")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
-
-[node name="ChunkManager" type="Node3D" parent="." node_paths=PackedStringArray("player")]
-visible = false
-script = ExtResource("1_2db0g")
-player = NodePath("../Aircraft")
-chunk_scene = ExtResource("2_30l3t")
-render_distance = 24
-load_trigger_distance = 6
-update_interval = 0.2
-overall_scale = 2.0
-noise_path = SubResource("FastNoiseLite_r0du0")
 
 [node name="Aircraft" parent="." instance=ExtResource("3_4hq13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)

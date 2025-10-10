@@ -38,6 +38,8 @@
 class_name AircraftModule
 extends Node
 
+signal update_interface(values)
+
 
 enum KeyScancodes {
 	KEY_NONE = -1,

@@ -39,6 +39,8 @@
 class_name AircraftModuleSpatial
 extends Node3D
 
+signal update_interface(values)
+
 @export var ReceiveInput: bool = false
 @export var ProcessPhysics: bool = false
 @export var ProcessRender: bool = false

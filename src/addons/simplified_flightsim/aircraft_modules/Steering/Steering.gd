@@ -1,8 +1,6 @@
 extends AircraftModule
 class_name AircraftModule_Steering
 
-signal update_interface(values)
-
 enum SteeringTypes {
 	AIR_PASSIVE, # Ailerons, rudder, anything passive based on air flow
 	THRUSTED # Rocket, ions, anything not based on external environment but uses fuel

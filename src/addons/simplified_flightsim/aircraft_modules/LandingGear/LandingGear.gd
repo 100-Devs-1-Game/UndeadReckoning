@@ -4,8 +4,6 @@
 extends AircraftModuleSpatial
 class_name AircraftModule_LandingGear
 
-signal update_interface(values)
-
 @export var GearCollisionShape: NodePath
 @onready var landing_gear_collision_shape = get_node_or_null(GearCollisionShape)
 

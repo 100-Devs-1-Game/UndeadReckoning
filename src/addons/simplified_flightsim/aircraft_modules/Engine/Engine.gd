@@ -4,8 +4,6 @@
 extends AircraftModuleSpatial
 class_name AircraftModule_Engine
 
-signal update_interface(values)
-
 @export var auto_start: bool= false
 
 @export var PowerFactor: float = 20.0

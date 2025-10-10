@@ -1,8 +1,6 @@
 extends AircraftModule
 class_name AircraftModule_EnergyContainer
 
-signal update_interface(values)
-
 @export var ContainerActive: bool = true
 
 @export var MaxCapacity: float = 100.0

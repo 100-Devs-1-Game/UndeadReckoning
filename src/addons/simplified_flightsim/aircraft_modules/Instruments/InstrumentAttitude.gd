@@ -1,9 +1,6 @@
 extends AircraftModule
 class_name AircraftModule_InstrumentAttitude
 
-signal update_interface(values)
-
-
 
 # You don't really *need* to use this property, as any node can receive the
 # signals. This is just a helper to automatically connect all possible signals

@@ -4,8 +4,6 @@
 extends AircraftModule
 class_name AircraftModule_Flaps
 
-signal update_interface(values)
-
 # When flap is fully deployed, lift is multiplied by this factor
 @export var LiftFlapFactor: float = 1.2
 

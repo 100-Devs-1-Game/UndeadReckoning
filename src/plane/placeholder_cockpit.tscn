@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bclq6x6hk0cgq"]
+
+[ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_v1erl"]
+[ext_resource type="PackedScene" uid="uid://bl7sajgcp867a" path="res://plane/placeholder_instrument.tscn" id="2_02xg3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ovbsc"]
+size = Vector3(2.295, 1, 0.075)
+
+[node name="Cockpit" type="Node3D"]
+script = ExtResource("1_v1erl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165421, 0.502168)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+flip_faces = true
+radius = 1.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49968, -0.629981)
+operation = 2
+size = Vector3(2.19, 0.89, 0.83)
+
+[node name="Panel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.428871, -0.233951)
+mesh = SubResource("BoxMesh_ovbsc")
+
+[node name="Placeholder Instrument" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.433065, 0.335659, 0.0488384)
+cockpit = NodePath("../..")
+connect_to_module = "engine"

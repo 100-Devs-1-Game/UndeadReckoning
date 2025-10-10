@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl7sajgcp867a"]
+
+[ext_resource type="Script" uid="uid://cuxxve5ritomw" path="res://plane/instrument.gd" id="1_ntqyv"]
+
+[node name="Placeholder Instrument" type="Node3D"]
+script = ExtResource("1_ntqyv")
+
+[node name="Label3D" type="Label3D" parent="."]
+modulate = Color(0.692956, 0.354732, 0.290801, 1)
+text = "Speed"
+font_size = 12
+outline_size = 2

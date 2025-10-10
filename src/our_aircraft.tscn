@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://2yq1l46lpknc"]
+[gd_scene load_steps=32 format=3 uid="uid://2yq1l46lpknc"]
 
 [ext_resource type="Script" uid="uid://jxxcruvbldpe" path="res://addons/simplified_flightsim/Aircraft/Aircraft.gd" id="1_da0ov"]
 [ext_resource type="PackedScene" uid="uid://bpna5btnwpvpr" path="res://example/scenes/Airplane/visuals/Engine/Engine.tscn" id="2_jd2wb"]
@@ -18,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://dqsmy2wed3eh7" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlLandingGear.tscn" id="16_64l01"]
 [ext_resource type="PackedScene" uid="uid://n1sq0e2d5xwg" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlFlaps.tscn" id="17_x4s74"]
 [ext_resource type="PackedScene" uid="uid://bafvgx2bkxkvh" path="res://addons/simplified_flightsim/aircraft_modules/Instruments/InstrumentAttitude.tscn" id="18_n3epa"]
+[ext_resource type="PackedScene" uid="uid://bu2hixfhu8ndm" path="res://example/ui/UIEnginePower/UIEnginePower.tscn" id="19_ti7pa"]
+[ext_resource type="PackedScene" uid="uid://dsel16gi76dnm" path="res://example/ui/UIEnergyContainer/UIFuelLevel.tscn" id="20_h6343"]
+[ext_resource type="PackedScene" uid="uid://b8s77ar81hq22" path="res://example/ui/UILandingGear/UILandingGear.tscn" id="21_owflo"]
+[ext_resource type="PackedScene" uid="uid://c4dncgm8qjt7u" path="res://example/ui/UIFlaps/UIFlaps.tscn" id="22_umfmc"]
+[ext_resource type="PackedScene" uid="uid://dhg4sb4ifrvh8" path="res://example/ui/UIAttitude/UIAttitude.tscn" id="23_ljo44"]
+[ext_resource type="PackedScene" uid="uid://bmut2y2xaqj6x" path="res://example/ui/UIAltSpeed/UIAltSpeed.tscn" id="24_8uiky"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_154ft"]
 radius = 0.7
@@ -103,18 +109,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, -0.872238, -0.80
 shape = SubResource("BoxShape3D_daric")
 
 [node name="EnergyContainer" parent="." instance=ExtResource("6_wg0hh")]
-UINode = NodePath("../../Interface/UIFuelLevel")
+UINode = NodePath("../Builtin Interface/Interface/UIFuelLevel")
 
 [node name="Engine" parent="." instance=ExtResource("7_ti7pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-08, 0, 0)
 auto_start = true
-UINode = NodePath("../../Interface/UIEnginePower")
+UINode = NodePath("../Builtin Interface/Interface/UIEnginePower")
 ProcessPhysics = true
 
 [node name="Steering" parent="." instance=ExtResource("8_h6343")]
 
 [node name="Flaps" parent="." instance=ExtResource("9_owflo")]
-UINode = NodePath("../../Interface/UIFlaps")
+UINode = NodePath("../Builtin Interface/Interface/UIFlaps")
 FlapSoundLoop = ExtResource("10_umfmc")
 
 [node name="LandingGear" parent="." instance=ExtResource("11_ljo44")]
@@ -122,7 +128,7 @@ GearCollisionShape = NodePath("../LandingGearCollisionShape")
 InitialState = 1
 DeploySound = ExtResource("12_8uiky")
 StowSound = ExtResource("13_v55f5")
-UINode = NodePath("../../Interface/UILandingGear")
+UINode = NodePath("../Builtin Interface/Interface/UILandingGear")
 
 [node name="ControlEngine" parent="." instance=ExtResource("14_ofsdp")]
 
@@ -133,4 +139,126 @@ UINode = NodePath("../../Interface/UILandingGear")
 [node name="ControlFlaps" parent="." instance=ExtResource("17_x4s74")]
 
 [node name="InstrumentAttitude" parent="." instance=ExtResource("18_n3epa")]
-UINode = NodePath("../../Interface/UIAttitude")
+UINode = NodePath("../Builtin Interface/Interface/UIAttitude")
+
+[node name="Builtin Interface" type="CanvasLayer" parent="."]
+
+[node name="Interface" type="Control" parent="Builtin Interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UIEnginePower" parent="Builtin Interface/Interface" instance=ExtResource("19_ti7pa")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -138.0
+offset_right = 74.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="UIFuelLevel" parent="Builtin Interface/Interface" instance=ExtResource("20_h6343")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = -139.0
+offset_right = 145.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UILandingGear" parent="Builtin Interface/Interface" instance=ExtResource("21_owflo")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 153.0
+offset_top = -139.0
+offset_right = 263.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UIFlaps" parent="Builtin Interface/Interface" instance=ExtResource("22_umfmc")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = -139.0
+offset_right = 382.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UIAttitude" parent="Builtin Interface/Interface" instance=ExtResource("23_ljo44")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 395.0
+offset_top = -139.0
+offset_right = 611.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UIAltSpeed" parent="Builtin Interface/Interface" instance=ExtResource("24_8uiky")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 674.0
+offset_top = -139.0
+offset_right = 785.0
+offset_bottom = -11.0
+grow_vertical = 0
+AircraftNode = NodePath("../../..")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Builtin Interface/Interface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -177.0
+offset_top = 26.0
+offset_bottom = 279.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "CONTROLS
+
+P - Start engine
+O - Cut engine off
+F, V - Engine throttle up/down
+
+A,D - Ailerons left/right (roll)
+W,S - Elevator up/down (pitch)
+Q,E - Rudder left/right (yaw)
+
+G,B - Flaps up/down
+J,M - Landing gear up/down"
+
+[node name="Hint" type="Label" parent="Builtin Interface/Interface"]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -174.0
+offset_right = 217.0
+offset_bottom = -160.0
+text = "Park on runway to refuel tank"
+
+[node name="BtnBack" type="Button" parent="Builtin Interface/Interface"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 163.0
+offset_bottom = 24.0
+focus_mode = 0
+text = "<- Back to example list"

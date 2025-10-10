@@ -1,15 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://b35pl341w5ys3"]
+[gd_scene load_steps=14 format=3 uid="uid://b35pl341w5ys3"]
 
 [ext_resource type="Script" uid="uid://dywvkt87urhsw" path="res://test/flat_terrain_test.gd" id="1_30l3t"]
 [ext_resource type="Script" uid="uid://dephv51hxmknh" path="res://test/sandbox.gd" id="2_762fy"]
 [ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://our_aircraft.tscn" id="3_4hq13"]
 [ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="4_jhrm6"]
-[ext_resource type="PackedScene" uid="uid://bu2hixfhu8ndm" path="res://example/ui/UIEnginePower/UIEnginePower.tscn" id="5_jv7bj"]
-[ext_resource type="PackedScene" uid="uid://dsel16gi76dnm" path="res://example/ui/UIEnergyContainer/UIFuelLevel.tscn" id="6_80phf"]
-[ext_resource type="PackedScene" uid="uid://b8s77ar81hq22" path="res://example/ui/UILandingGear/UILandingGear.tscn" id="7_k0b5h"]
-[ext_resource type="PackedScene" uid="uid://c4dncgm8qjt7u" path="res://example/ui/UIFlaps/UIFlaps.tscn" id="8_ujy2m"]
-[ext_resource type="PackedScene" uid="uid://dhg4sb4ifrvh8" path="res://example/ui/UIAttitude/UIAttitude.tscn" id="9_i8umr"]
-[ext_resource type="PackedScene" uid="uid://bmut2y2xaqj6x" path="res://example/ui/UIAltSpeed/UIAltSpeed.tscn" id="10_s2f1u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r0du0"]
 sky_top_color = Color(0.246609, 0.468349, 1, 1)
@@ -76,125 +70,5 @@ mesh = SubResource("PlaneMesh_jv7bj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_wkp8b")
-
-[node name="Interface" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="UIEnginePower" parent="Interface" instance=ExtResource("5_jv7bj")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -138.0
-offset_right = 74.0
-offset_bottom = -10.0
-grow_vertical = 0
-
-[node name="UIFuelLevel" parent="Interface" instance=ExtResource("6_80phf")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 81.0
-offset_top = -139.0
-offset_right = 145.0
-offset_bottom = -11.0
-grow_vertical = 0
-
-[node name="UILandingGear" parent="Interface" instance=ExtResource("7_k0b5h")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 153.0
-offset_top = -139.0
-offset_right = 263.0
-offset_bottom = -11.0
-grow_vertical = 0
-
-[node name="UIFlaps" parent="Interface" instance=ExtResource("8_ujy2m")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 272.0
-offset_top = -139.0
-offset_right = 382.0
-offset_bottom = -11.0
-grow_vertical = 0
-
-[node name="UIAttitude" parent="Interface" instance=ExtResource("9_i8umr")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 395.0
-offset_top = -139.0
-offset_right = 611.0
-offset_bottom = -11.0
-grow_vertical = 0
-
-[node name="UIAltSpeed" parent="Interface" instance=ExtResource("10_s2f1u")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 674.0
-offset_top = -139.0
-offset_right = 785.0
-offset_bottom = -11.0
-grow_vertical = 0
-AircraftNode = NodePath("../../Aircraft")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Interface"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -177.0
-offset_top = 26.0
-offset_bottom = 279.0
-grow_horizontal = 0
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 12
-bbcode_enabled = true
-text = "CONTROLS
-
-P - Start engine
-O - Cut engine off
-F, V - Engine throttle up/down
-
-A,D - Ailerons left/right (roll)
-W,S - Elevator up/down (pitch)
-Q,E - Rudder left/right (yaw)
-
-G,B - Flaps up/down
-J,M - Landing gear up/down"
-
-[node name="Hint" type="Label" parent="Interface"]
-layout_mode = 0
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -174.0
-offset_right = 217.0
-offset_bottom = -160.0
-text = "Park on runway to refuel tank"
-
-[node name="BtnBack" type="Button" parent="Interface"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 163.0
-offset_bottom = 24.0
-focus_mode = 0
-text = "<- Back to example list"
 
 [connection signal="crashed" from="Aircraft" to="." method="_on_aircraft_crashed"]

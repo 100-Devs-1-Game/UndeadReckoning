@@ -139,6 +139,7 @@ offset_top = -139.0
 offset_right = 785.0
 offset_bottom = -11.0
 grow_vertical = 0
+AircraftNode = NodePath("../../Aircraft")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Interface"]
 layout_mode = 1

@@ -115,6 +115,7 @@ shape = SubResource("BoxShape3D_daric")
 
 [node name="EnergyContainer" parent="." instance=ExtResource("6_wg0hh")]
 UINode = NodePath("../Builtin Interface/Interface/UIFuelLevel")
+ModuleType = "Fuel"
 
 [node name="Engine" parent="." instance=ExtResource("7_ti7pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-08, 0, 0)
@@ -124,6 +125,7 @@ ProcessPhysics = true
 ModuleType = "engine"
 
 [node name="Steering" parent="." instance=ExtResource("8_h6343")]
+ModuleType = "Steering"
 
 [node name="Flaps" parent="." instance=ExtResource("9_owflo")]
 UINode = NodePath("../Builtin Interface/Interface/UIFlaps")
@@ -146,6 +148,7 @@ UINode = NodePath("../Builtin Interface/Interface/UILandingGear")
 
 [node name="InstrumentAttitude" parent="." instance=ExtResource("18_n3epa")]
 UINode = NodePath("../Builtin Interface/Interface/UIAttitude")
+ModuleType = "InstrumentAttitude"
 
 [node name="Builtin Interface" type="CanvasLayer" parent="."]
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bclq6x6hk0cgq"]
+[gd_scene load_steps=6 format=3 uid="uid://bclq6x6hk0cgq"]
 
 [ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_v1erl"]
 [ext_resource type="PackedScene" uid="uid://bl7sajgcp867a" path="res://plane/placeholder_instrument.tscn" id="2_02xg3"]
+[ext_resource type="Script" uid="uid://bgn7w6iinfcjw" path="res://plane/placeholder_instrument_speed.gd" id="3_02xg3"]
+[ext_resource type="Script" uid="uid://cqa6ok0suwfmh" path="res://plane/placeholder_instrument_altitude.gd" id="4_4at1g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ovbsc"]
 size = Vector3(2.295, 1, 0.075)
@@ -34,6 +36,12 @@ Power %d%%"
 cockpit = NodePath("../..")
 connect_to_module = "engine"
 
+[node name="Placeholder Instrument5" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592672, 0.241035, 0.0488384)
+script = ExtResource("3_02xg3")
+display_format = ""
+cockpit = NodePath("../..")
+
 [node name="Placeholder Instrument2" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208656, 0.417716, 0.0488384)
 display_value = "roll"
@@ -54,3 +62,9 @@ display_value = "bearing"
 display_format = "Bearing %d°"
 cockpit = NodePath("../..")
 connect_to_module = "InstrumentAttitude"
+
+[node name="Placeholder Instrument6" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244908, 0.392982, 0.0488384)
+script = ExtResource("4_4at1g")
+display_format = ""
+cockpit = NodePath("../..")

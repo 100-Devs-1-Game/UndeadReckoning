@@ -27,30 +27,30 @@ mesh = SubResource("BoxMesh_ovbsc")
 
 [node name="Placeholder Instrument" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592672, 0.38479, 0.0488384)
-cockpit = NodePath("../..")
-connect_to_module = "engine"
 display_value = "engine_power"
 value_factor = 100.0
 display_format = "Engine
 Power %d%%"
+cockpit = NodePath("../..")
+connect_to_module = "engine"
 
 [node name="Placeholder Instrument2" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208656, 0.417716, 0.0488384)
-cockpit = NodePath("../..")
-connect_to_module = "InstrumentAttitude"
 display_value = "roll"
 display_format = "Roll %d°"
+cockpit = NodePath("../..")
+connect_to_module = "InstrumentAttitude"
 
 [node name="Placeholder Instrument3" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208656, 0.296859, 0.0488384)
-cockpit = NodePath("../..")
-connect_to_module = "InstrumentAttitude"
 display_value = "pitch"
 display_format = "Pitch %d°"
+cockpit = NodePath("../..")
+connect_to_module = "InstrumentAttitude"
 
 [node name="Placeholder Instrument4" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208656, 0.170967, 0.0488384)
-cockpit = NodePath("../..")
-connect_to_module = "InstrumentAttitude"
 display_value = "bearing"
 display_format = "Bearing %d°"
+cockpit = NodePath("../..")
+connect_to_module = "InstrumentAttitude"

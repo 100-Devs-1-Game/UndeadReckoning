@@ -6,6 +6,8 @@ extends AircraftModule
 class_name AircraftModule_ControlSteering
 
 @export var ControlActive: bool = true
+@export var enable_mouse_steering: bool = true
+@export var mouse_sensitivity: float = 0.1
 
 # There should be only one steering and one steering control in the aircraft
 var steering_module = null
@@ -49,3 +51,7 @@ func receive_input(event):
 			axis_y -= 1.0
 		
 		steering_module.set_y(axis_y)
+	
+	elif event is InputEventMouseMotion and enable_mouse_steering:
+		steering_module.set_x(event.relative.y * mouse_sensitivity)
+		steering_module.set_z(event.relative.x * mouse_sensitivity)

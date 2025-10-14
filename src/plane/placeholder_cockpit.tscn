@@ -26,6 +26,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.428871, -0.233951)
 mesh = SubResource("BoxMesh_ovbsc")
 
 [node name="Placeholder Instrument" parent="Panel" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.433065, 0.335659, 0.0488384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592672, 0.335659, 0.0488384)
 cockpit = NodePath("../..")
 connect_to_module = "engine"
+display_value = "engine_power"
+value_factor = 100.0
+display_format = "Engine
+Power %d%%"

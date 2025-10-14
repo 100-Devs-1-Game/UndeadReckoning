@@ -7,6 +7,6 @@ script = ExtResource("1_ntqyv")
 
 [node name="Label3D" type="Label3D" parent="."]
 modulate = Color(0.692956, 0.354732, 0.290801, 1)
-text = "Speed"
+text = "Placeholder"
 font_size = 12
 outline_size = 2

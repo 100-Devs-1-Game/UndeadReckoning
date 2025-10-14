@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bclq6x6hk0cgq"]
+[gd_scene load_steps=10 format=3 uid="uid://bclq6x6hk0cgq"]
 
 [ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_v1erl"]
 [ext_resource type="PackedScene" uid="uid://bl7sajgcp867a" path="res://plane/placeholder_instrument.tscn" id="2_02xg3"]
@@ -8,8 +8,26 @@
 [sub_resource type="BoxMesh" id="BoxMesh_ovbsc"]
 size = Vector3(2.295, 1, 0.075)
 
-[node name="Cockpit" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4at1g"]
+albedo_color = Color(0.635294, 0.376471, 0.376471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m08ja"]
+material = SubResource("StandardMaterial3D_4at1g")
+size = Vector3(0.02, 0.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2llf"]
+albedo_color = Color(0.635294, 0.376471, 0.376471, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oye7h"]
+material = SubResource("StandardMaterial3D_c2llf")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.04
+
+[node name="Cockpit" type="Node3D" node_paths=PackedStringArray("steering_joint", "steering_handle_joint")]
 script = ExtResource("1_v1erl")
+steering_joint = NodePath("Steering Joint")
+steering_handle_joint = NodePath("Steering Joint/MeshInstance3D/Steering Handle Joint")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165421, 0.502168)
@@ -68,3 +86,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244908, 0.392982, 0.0488384
 script = ExtResource("4_4at1g")
 display_format = ""
 cockpit = NodePath("../..")
+
+[node name="Steering Joint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.572788, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Steering Joint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223835, 0)
+mesh = SubResource("BoxMesh_m08ja")
+skeleton = NodePath("../..")
+
+[node name="Steering Handle Joint" type="Node3D" parent="Steering Joint/MeshInstance3D"]
+transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0.259628, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Steering Joint/MeshInstance3D/Steering Handle Joint"]
+mesh = SubResource("CylinderMesh_oye7h")
+skeleton = NodePath("../..")

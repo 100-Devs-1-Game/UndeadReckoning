@@ -96,8 +96,9 @@ mesh = SubResource("BoxMesh_m08ja")
 skeleton = NodePath("../..")
 
 [node name="Steering Handle Joint" type="Node3D" parent="Steering Joint/MeshInstance3D"]
-transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0.259628, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259628, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Steering Joint/MeshInstance3D/Steering Handle Joint"]
+transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_oye7h")
 skeleton = NodePath("../..")

@@ -1,10 +1,13 @@
+class_name CameraTripod
 extends Node3D
 
 
 @export var TargetNode: NodePath
-@onready var target_node = get_node_or_null(TargetNode)
-
 @export var RotationSpeed: float = 1.0
+
+@onready var target_node = get_node_or_null(TargetNode)
+@onready var camera: Camera3D = $Camera3D
+
 
 func _process(delta):
 	if target_node and is_instance_valid(target_node):

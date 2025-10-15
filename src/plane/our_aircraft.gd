@@ -3,6 +3,7 @@ extends Aircraft
 
 @export var enable_builtin_interface: bool= false
 
+@onready var cockpit: Cockpit = $Cockpit
 @onready var builtin_interface: CanvasLayer = $"Builtin Interface"
 
 

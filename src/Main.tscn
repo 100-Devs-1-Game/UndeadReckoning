@@ -29,8 +29,11 @@ fog_sky_affect = 0.161
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wkp8b"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("tripod", "aircraft")]
 script = ExtResource("1_3dxm6")
+cockpit_view = true
+tripod = NodePath("CameraTripod")
+aircraft = NodePath("Aircraft")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fos0i")

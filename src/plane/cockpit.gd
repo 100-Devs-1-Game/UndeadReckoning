@@ -6,6 +6,8 @@ extends Node3D
 @export var steering_joint: Node3D
 @export var steering_handle_joint: Node3D
 
+@onready var camera: Camera3D = $Camera3D
+
 var target_steering_joint:= Node3D.new()
 var target_steering_handle_joint:= Node3D.new()
 

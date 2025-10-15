@@ -211,26 +211,4 @@ F, V - Engine throttle up/down
 
 A,D - Ailerons left/right (roll)
 W,S - Elevator up/down (pitch)
-Q,E - Rudder left/right (yaw)
-
-G,B - Flaps up/down
-J,M - Landing gear up/down"
-
-[node name="Hint" type="Label" parent="Builtin Interface/Interface"]
-layout_mode = 0
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -174.0
-offset_right = 217.0
-offset_bottom = -160.0
-text = "Park on runway to refuel tank"
-
-[node name="BtnBack" type="Button" parent="Builtin Interface/Interface"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 163.0
-offset_bottom = 24.0
-focus_mode = 0
-text = "<- Back to example list"
+Q,E - Rudder left/right (yaw)"

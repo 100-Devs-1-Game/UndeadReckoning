@@ -17,33 +17,38 @@ const RATIO_OF_SPECIFIC_HEATS = 1.4 # for dry air at 300K
 const SPEED_OF_SOUND = 343.0 # mach 1
 const EARTH_GRAVITY = 9.8 # for g-force calculation
 
-# Lift factor combines lift coefficient and wing area
-# Must be higher than DragFactor.z or the plane won't take off
+## Lift factor combines lift coefficient and wing area
+## Must be higher than DragFactor.z or the plane won't take off
 @export var LiftFactor: float = 0.03
-@export var LiftPointDistance: float = 0.0 # meters ahead of center of mass
+## meters ahead of center of mass
+@export var LiftPointDistance: float = 0.0
 
-# Drag factor combines drag coefficient and reference area
+## Drag factor combines drag coefficient and reference area
 @export var DragFactor: Vector3 = Vector3(1, 2, 0.02)
-@export var DragPointDistance: float = 1.0 # meters behind center of mass
+## meters behind center of mass
+@export var DragPointDistance: float = 1.0
 
+@export var AirDensity: float = 1.0
+
+@export var MaxLandingForce: float = 1.0
+
+## Normalized to Earth average at sea level
+@export var Gravity: float = 1.0
+@export var SeaLevelFromOrigin: float = 0.0
+@export var AltitudeEnabled: bool = true
+
+@export_group("Ignore")
+@export var GForceFactor: float = 1.0 # Used by both G-Force and Load Factor
 @export var DragHeatRate: float = 0.1
 @export var RadiationCoolingRate: float = 1.0
 
 @export var MachSpeedScaling: float = 1.0
-@export var GForceFactor: float = 1.0 # Used by both G-Force and Load Factor
 
 @export var MaxTemperature: float = 900.0 # Celsius
 @export var EnableTemperatureCalculations: bool = false
 
-@export var AirDensity: float = 1.0
 @export var AirTemperature: float = 25.0: set = set_temperature
 @onready var air_temperature_K = ZERO_C_IN_K + AirTemperature
-
-@export var MaxLandingForce: float = 1.0
-
-@export var Gravity: float = 1.0 # Normalized to Earth average at sea level
-@export var SeaLevelFromOrigin: float = 0.0
-@export var AltitudeEnabled: bool = true
 
 # Linear world is Godot default: reference Y axis is always UP, reference -Z axis is always NORTH
 # Spherical world is real life: away from reference origin is UP, reference Y axis is magnetic NORTH

@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://ck7w2ofw16nsi"]
+
+[ext_resource type="Script" uid="uid://dywvkt87urhsw" path="res://test/flat_terrain_test.gd" id="1_7ftv1"]
+[ext_resource type="Script" uid="uid://dephv51hxmknh" path="res://test/sandbox.gd" id="2_nba71"]
+[ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://plane/our_aircraft.tscn" id="3_cvvwh"]
+[ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="4_y6u4w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r0du0"]
+sky_top_color = Color(0.246609, 0.468349, 1, 1)
+sky_horizon_color = Color(0.571907, 0.697864, 0.719706, 1)
+sky_cover_modulate = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_cm0pq"]
+sky_material = SubResource("ProceduralSkyMaterial_r0du0")
+
+[sub_resource type="Environment" id="Environment_fos0i"]
+background_mode = 2
+sky = SubResource("Sky_cm0pq")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_density = 0.001
+fog_sky_affect = 0.161
+
+[sub_resource type="Gradient" id="Gradient_2db0g"]
+colors = PackedColorArray(0, 1, 0, 1, 0.204149, 0.394064, 0.240407, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_30l3t"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4hq13"]
+color_ramp = SubResource("Gradient_2db0g")
+noise = SubResource("FastNoiseLite_30l3t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhrm6"]
+albedo_texture = SubResource("NoiseTexture2D_4hq13")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jv7bj"]
+material = SubResource("StandardMaterial3D_jhrm6")
+size = Vector2(10000, 10000)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wkp8b"]
+
+[node name="Balancing Test" type="Node3D" node_paths=PackedStringArray("tripod", "aircraft")]
+script = ExtResource("1_7ftv1")
+tripod = NodePath("CameraTripod")
+aircraft = NodePath("Aircraft")
+
+[node name="Sandbox" type="Node" parent="." node_paths=PackedStringArray("aircraft")]
+script = ExtResource("2_nba71")
+aircraft = NodePath("../Aircraft")
+wind_gust_chance = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fos0i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Aircraft" parent="." instance=ExtResource("3_cvvwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
+enable_builtin_interface = true
+
+[node name="CameraTripod" parent="." instance=ExtResource("4_y6u4w")]
+TargetNode = NodePath("../Aircraft")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_jv7bj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_wkp8b")
+
+[connection signal="crashed" from="Aircraft" to="." method="_on_aircraft_crashed"]
+
+[editable path="Aircraft"]

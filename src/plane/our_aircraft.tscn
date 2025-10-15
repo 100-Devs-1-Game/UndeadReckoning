@@ -208,6 +208,9 @@ text = "CONTROLS
 P - Start engine
 O - Cut engine off
 F, V - Engine throttle up/down
+1 - 0% Power
+2 - 50% Power
+3 - 100% Power 
 
 A,D - Ailerons left/right (roll)
 W,S - Elevator up/down (pitch)

@@ -1,7 +1,7 @@
-Why isnt speedometer and altitudometer working by default?
-
-Why isn't landing gear animation working? test in Example scene
+Hold Alt for fine input control
 
 Fake dynamic terrain collision
 
-Make a placeholder cockpit with instruments displayed as text labels
+Input plugin
+
+Instant game over when touching ground with non-landing gear collider

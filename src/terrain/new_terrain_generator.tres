@@ -4,7 +4,7 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y1egl"]
 seed = 1
-frequency = 0.0001
+frequency = 0.001
 fractal_octaves = 7
 fractal_lacunarity = 1.385
 fractal_gain = 0.955
@@ -22,6 +22,6 @@ min_height = 0.0
 max_height = 300.0
 base_mountain_scale = 0.2
 noise_mountains = SubResource("FastNoiseLite_ci04p")
-mountains_threshold = 0.5
+mountains_threshold = 0.0
 mountain_max_height = 1500.0
 metadata/_custom_type_script = "uid://c1an50gjcejkf"

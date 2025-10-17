@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Undead Reckoning"
-run/main_scene="uid://ck7w2ofw16nsi"
+run/main_scene="uid://c06kb4t34v4mn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

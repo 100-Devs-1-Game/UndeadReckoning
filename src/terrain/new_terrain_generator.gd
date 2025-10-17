@@ -18,10 +18,11 @@ extends BaseTerrainGenerator
 func get_height_at(pos: Vector2)-> float:
 	var height: float= noise_height.get_noise_2dv(pos * base_noise_scale)
 	height= remap(height, -1.0, 1.0, min_height, max_height)
-	#var height: float= 0.0
+	#var height: float= randf() * 200
 
 	var mountains: float= noise_mountains.get_noise_2dv(pos * base_mountain_scale)
 	if mountains > mountains_threshold:
-		height= lerp(height, mountain_max_height, remap(mountains, mountains_threshold, 1.0, 0.0, 1.0))
+		var mountain_factor: float= remap(mountains, mountains_threshold, 1.0, 0.0, 1.0)
+		height= lerp(height, mountain_max_height, pow(mountain_factor, 2))
 	
 	return height

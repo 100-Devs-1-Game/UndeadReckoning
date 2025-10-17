@@ -1,28 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c06kb4t34v4mn"]
+[gd_scene load_steps=4 format=3 uid="uid://c06kb4t34v4mn"]
 
-[ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="1_fo6rm"]
 [ext_resource type="Script" uid="uid://d3rhkuxgufji" path="res://test/map_test.gd" id="1_qlk8p"]
-[ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="2_qlk8p"]
-[ext_resource type="Resource" uid="uid://dxv2q5x1wwfic" path="res://terrain/default_terrain_generator.tres" id="3_qlk8p"]
 [ext_resource type="Script" uid="uid://dxq7d0h441ged" path="res://test/test_map.gd" id="5_0ofh3"]
 [ext_resource type="Resource" uid="uid://dnkjaetg3w1oe" path="res://terrain/new_terrain_generator.tres" id="6_yhwk4"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0t083"]
-
 [node name="Map Test" type="Node3D"]
 script = ExtResource("1_qlk8p")
-
-[node name="Dummy Player" type="Node3D" parent="."]
-
-[node name="ChunkManager" type="Node3D" parent="."]
-script = ExtResource("1_fo6rm")
-chunk_scene = ExtResource("2_qlk8p")
-terrain_generator = ExtResource("3_qlk8p")
-render_distance = 24
-load_trigger_distance = 6
-update_interval = 0.2
-overall_scale = 2.0
-noise_path = SubResource("FastNoiseLite_0t083")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -33,12 +16,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Map" type="ColorRect" parent="CanvasLayer/CenterContainer"]
+[node name="Map" type="TextureRect" parent="CanvasLayer/CenterContainer"]
 custom_minimum_size = Vector2(1200, 800)
 layout_mode = 2
-color = Color(1, 0.717647, 1, 1)
+stretch_mode = 2
 script = ExtResource("5_0ofh3")
 terrain_generator = ExtResource("6_yhwk4")
-pixel_world_scale = 20.0
-max_height = 1500.0
+enable_elevation_lines = false
+pixel_world_scale = 25.0
 elevation_line_steps = 100.0

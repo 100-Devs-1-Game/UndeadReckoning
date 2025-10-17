@@ -14,8 +14,8 @@ uniform sampler2D texture_albedo_slope : source_color, filter_linear_mipmap, rep
 uniform sampler2D texture_albedo_path : source_color, filter_linear_mipmap, repeat_enable;
 
 // --- Height Blending ---
-uniform float snow_start_height : hint_range(0.0, 200.0) = 80.0;
-uniform float snow_full_height : hint_range(0.0, 200.0) = 100.0;
+uniform float snow_start_height : hint_range(0.0, 5000.0) = 80.0;
+uniform float snow_full_height : hint_range(0.0, 5000.0) = 100.0;
 uniform float sand_start_height : hint_range(-200.0, 50.0) = -5.0;
 uniform float sand_full_height : hint_range(-200.0, 50.0) = -25.0;
 

@@ -1,11 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://blrp5413gnfjq"]
+[gd_scene load_steps=11 format=3 uid="uid://blrp5413gnfjq"]
 
-[ext_resource type="Script" uid="uid://sqf6y6dttjlp" path="res://game/game.gd" id="1_4mlvv"]
+[ext_resource type="Script" uid="uid://dd0enwglpdfch" path="res://test/terrain_generator_test.gd" id="1_lo6g0"]
 [ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="2_tpw1s"]
 [ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="3_3i8pq"]
 [ext_resource type="Resource" uid="uid://dnkjaetg3w1oe" path="res://terrain/new_terrain_generator.tres" id="4_o2urc"]
-[ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://plane/our_aircraft.tscn" id="5_tm5sc"]
-[ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="6_4fvva"]
 [ext_resource type="Script" uid="uid://cougm86xu1xm7" path="res://test/free_camera.gd" id="7_sugxh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r0du0"]
@@ -17,12 +15,11 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 [sub_resource type="Sky" id="Sky_cm0pq"]
 sky_material = SubResource("ProceduralSkyMaterial_r0du0")
 
-[sub_resource type="Environment" id="Environment_fos0i"]
+[sub_resource type="Environment" id="Environment_lo6g0"]
 background_mode = 2
 sky = SubResource("Sky_cm0pq")
 tonemap_mode = 2
 glow_enabled = true
-fog_enabled = true
 fog_density = 0.001
 fog_sky_affect = 0.161
 
@@ -30,14 +27,11 @@ fog_sky_affect = 0.161
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wkp8b"]
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("tripod", "aircraft")]
-script = ExtResource("1_4mlvv")
-cockpit_view = true
-tripod = NodePath("CameraTripod")
-aircraft = NodePath("Aircraft")
+[node name="Terrain Test" type="Node3D"]
+script = ExtResource("1_lo6g0")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_fos0i")
+environment = SubResource("Environment_lo6g0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -55,13 +49,6 @@ chunk_size_x = 128
 chunk_size_z = 128
 overall_scale = 1.0
 noise_path = SubResource("FastNoiseLite_r0du0")
-
-[node name="Aircraft" parent="." instance=ExtResource("5_tm5sc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
-enable_builtin_interface = true
-
-[node name="CameraTripod" parent="." instance=ExtResource("6_4fvva")]
-TargetNode = NodePath("../Aircraft")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)

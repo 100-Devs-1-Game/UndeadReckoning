@@ -75,5 +75,3 @@ mesh = SubResource("PlaneMesh_jv7bj")
 shape = SubResource("WorldBoundaryShape3D_wkp8b")
 
 [connection signal="crashed" from="Aircraft" to="." method="_on_aircraft_crashed"]
-
-[editable path="Aircraft"]

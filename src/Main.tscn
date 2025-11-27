@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://sqf6y6dttjlp" path="res://game/game.gd" id="1_3dxm6"]
 [ext_resource type="Script" uid="uid://64ee4kogyt82" path="res://terrain/ChunkManager.gd" id="1_sqvbp"]
 [ext_resource type="PackedScene" uid="uid://cwhpy8mwx2xao" path="res://terrain/Chunk.tscn" id="2_hri7i"]
-[ext_resource type="Resource" uid="uid://dxv2q5x1wwfic" path="res://terrain/default_terrain_generator.tres" id="3_20pc6"]
 [ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://plane/our_aircraft.tscn" id="3_wkp8b"]
+[ext_resource type="Resource" uid="uid://dnkjaetg3w1oe" path="res://terrain/new_terrain_generator.tres" id="4_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="21_f4ese"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r0du0"]
@@ -46,15 +46,18 @@ shadow_enabled = true
 script = ExtResource("1_sqvbp")
 player = NodePath("../Aircraft")
 chunk_scene = ExtResource("2_hri7i")
-terrain_generator = ExtResource("3_20pc6")
-render_distance = 24
+terrain_generator = ExtResource("4_3dxm6")
+render_distance = 16
 load_trigger_distance = 6
 update_interval = 0.2
-overall_scale = 2.0
+chunk_size_x = 128
+chunk_size_z = 128
+overall_scale = 1.0
 noise_path = SubResource("FastNoiseLite_r0du0")
 
 [node name="Aircraft" parent="." instance=ExtResource("3_wkp8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
+enable_builtin_interface = true
 
 [node name="CameraTripod" parent="." instance=ExtResource("21_f4ese")]
 TargetNode = NodePath("../Aircraft")

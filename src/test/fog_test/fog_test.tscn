@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bci3jvkat8a56"]
+
+[ext_resource type="Script" uid="uid://k6sopgc8jjgc" path="res://test/fog_test/fog_test_camera.gd" id="1_pwyti"]
+
+[sub_resource type="Gradient" id="Gradient_pwyti"]
+colors = PackedColorArray(0.517184, 0.517184, 0.517184, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pwyti"]
+frequency = 0.0901
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_fr2eg"]
+width = 128
+height = 128
+depth = 256
+color_ramp = SubResource("Gradient_pwyti")
+noise = SubResource("FastNoiseLite_pwyti")
+
+[sub_resource type="FogMaterial" id="FogMaterial_p3j3h"]
+density = 0.1899
+density_texture = SubResource("NoiseTexture3D_fr2eg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_pwyti"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="Environment" id="Environment_pwyti"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[node name="Fog Test" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("1_pwyti")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.7653)
+size = Vector3(50, 50, 100)
+material = SubResource("FogMaterial_p3j3h")
+
+[node name="FogVolume2" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -87.3634)
+size = Vector3(50, 50, 100)
+material = SubResource("FogMaterial_p3j3h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.8398)
+visible = false
+mesh = SubResource("BoxMesh_pwyti")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.45217, 0.891932, 0, -0.891932, 0.45217, 0, 31.3318, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pwyti")

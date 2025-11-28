@@ -1,7 +1,8 @@
-extends Camera3D
+extends Node3D
 
 @export var speed: float= 10.0
 
 
 func _process(delta: float) -> void:
-	position.z-= delta * speed
+	if Input.is_action_pressed("ui_select"):
+		position.z-= delta * speed

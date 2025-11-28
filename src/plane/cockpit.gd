@@ -9,13 +9,12 @@ extends Node3D
 @onready var camera: Camera3D = $Camera3D
 
 var target_steering_joint:= Node3D.new()
-var target_steering_handle_joint:= Node3D.new()
+
 
 
 
 func _ready() -> void:
 	target_steering_joint.basis= steering_joint.basis
-	target_steering_handle_joint.basis= steering_handle_joint.basis
 	
 	await aircraft.setup_finished
 	
@@ -25,10 +24,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	steering_joint.basis= steering_joint.basis.slerp(target_steering_joint.basis, delta).orthonormalized()
-	steering_handle_joint.basis= steering_handle_joint.basis.slerp(target_steering_handle_joint.basis, delta).orthonormalized()
 
 
 func _on_update_steering(values: Dictionary):
-	target_steering_joint.rotation_degrees.x= values["axis_x"] * 10
-	target_steering_joint.rotation_degrees.z= values["axis_y"] * 10
-	target_steering_handle_joint.rotation_degrees.z= -values["axis_z"] * 10
+	target_steering_joint.rotation_degrees.x= values["axis_x"] * 100
+	target_steering_joint.rotation_degrees.z= -values["axis_z"] * 100

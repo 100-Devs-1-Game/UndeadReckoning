@@ -13,6 +13,9 @@ class_name AircraftModule_ControlSteering
 # There should be only one steering and one steering control in the aircraft
 var steering_module = null
 
+var is_pitch_locked:= false
+var locked_pitch: float= 0.0
+
 func _ready():
 	ReceiveInput = true
 
@@ -55,6 +58,16 @@ func receive_input(event):
 		
 		steering_module.set_y(clampf(axis_y, -factor, factor))
 	
+		if Input.is_key_pressed(KEY_R):
+			is_pitch_locked= not is_pitch_locked
+			locked_pitch= aircraft.instrument_attitude.current_pitch
+	
 	elif event is InputEventMouseMotion and enable_mouse_steering:
 		steering_module.set_x(clampf(event.relative.y * mouse_sensitivity, -factor, factor))
 		steering_module.set_z(clampf(event.relative.x * mouse_sensitivity, -factor, factor))
+
+
+func process_physic_frame(_delta):
+	if is_pitch_locked and not is_equal_approx(locked_pitch, aircraft.instrument_attitude.current_pitch):
+		var pitch_delta: float= locked_pitch - aircraft.instrument_attitude.current_pitch
+		steering_module.set_x(clampf(sqrt(abs(pitch_delta) * 2) * sign(pitch_delta), -1.0, 1.0 ))

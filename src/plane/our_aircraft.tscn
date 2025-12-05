@@ -131,6 +131,7 @@ StowSound = ExtResource("13_v55f5")
 
 [node name="ControlSteering" parent="." instance=ExtResource("15_2oefp")]
 input_limit = 0.15
+ProcessPhysics = true
 
 [node name="InstrumentAttitude" parent="." instance=ExtResource("18_n3epa")]
 UINode = NodePath("../Builtin Interface/Interface/UIAttitude")

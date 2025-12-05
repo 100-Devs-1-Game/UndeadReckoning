@@ -7,10 +7,9 @@
 [ext_resource type="Script" uid="uid://cqa6ok0suwfmh" path="res://plane/placeholder_instrument_altitude.gd" id="4_4at1g"]
 [ext_resource type="PackedScene" uid="uid://c3xuvp3utw8ne" path="res://plane/flight_stick.tscn" id="6_oye7h"]
 
-[node name="Cockpit" type="Node3D" node_paths=PackedStringArray("steering_joint", "steering_handle_joint")]
+[node name="Cockpit" type="Node3D" node_paths=PackedStringArray("steering_joint")]
 script = ExtResource("1_v1erl")
 steering_joint = NodePath("Steering Joint")
-steering_handle_joint = NodePath("")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165421, 0.502168)

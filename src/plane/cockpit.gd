@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	steering_joint.basis= steering_joint.basis.slerp(target_steering_joint.basis, delta).orthonormalized()
+	steering_joint.basis= steering_joint.basis.slerp(target_steering_joint.basis, delta * 5).orthonormalized()
 
 
 func _on_update_steering(values: Dictionary):

@@ -116,10 +116,7 @@ func process_physic_frame(delta):
 		
 		var thruster_rotated_position_front = -aircraft.global_transform.basis.z*XPointDistance
 		aircraft.apply_force(force_vector_down, thruster_rotated_position_front)
-		#aircraft.unlock_pitch()
-	#else:
-		#aircraft.lock_pitch()
-	
+
 	# =================================
 	# Y - RUDDER
 	

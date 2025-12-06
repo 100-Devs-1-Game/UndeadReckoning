@@ -15,6 +15,8 @@ var steering_module = null
 
 var is_pitch_locked:= false
 var locked_pitch: float= 0.0
+var mouse_steer_target: Vector2
+
 
 func _ready():
 	ReceiveInput = true
@@ -59,15 +61,37 @@ func receive_input(event):
 		steering_module.set_y(clampf(axis_y, -factor, factor))
 	
 		if Input.is_key_pressed(KEY_R):
-			is_pitch_locked= not is_pitch_locked
-			locked_pitch= aircraft.instrument_attitude.current_pitch
+			toggle_pitch_lock()
 	
 	elif event is InputEventMouseMotion and enable_mouse_steering:
-		steering_module.set_x(clampf(event.relative.y * mouse_sensitivity, -factor, factor))
-		steering_module.set_z(clampf(event.relative.x * mouse_sensitivity, -factor, factor))
-
+		mouse_steer_target+= Vector2(event.relative.y, event.relative.x) * mouse_sensitivity
+		mouse_steer_target= mouse_steer_target.limit_length(factor)
+		steering_module.set_x(pow(mouse_steer_target.x / factor, 5) * factor)
+		steering_module.set_z(pow(mouse_steer_target.y / factor, 5) * factor)
+	
+	elif event is InputEventMouseButton:
+		if not event.pressed:
+			return
+			
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			toggle_pitch_lock()
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			mouse_steer_target= Vector2.ZERO
+			steering_module.set_x(0)
+			steering_module.set_z(0)
+			
 
 func process_physic_frame(_delta):
 	if is_pitch_locked and not is_equal_approx(locked_pitch, aircraft.instrument_attitude.current_pitch):
 		var pitch_delta: float= locked_pitch - aircraft.instrument_attitude.current_pitch
 		steering_module.set_x(clampf(sqrt(abs(pitch_delta) * 2) * sign(pitch_delta), -1.0, 1.0 ))
+
+
+func toggle_pitch_lock():
+	is_pitch_locked= not is_pitch_locked
+	locked_pitch= aircraft.instrument_attitude.current_pitch
+	if is_pitch_locked:
+		mouse_steer_target= Vector2.ZERO
+		steering_module.set_x(0)
+		steering_module.set_z(0)
+		

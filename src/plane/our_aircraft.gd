@@ -6,6 +6,7 @@ extends Aircraft
 @onready var cockpit: Cockpit = $Cockpit
 @onready var builtin_interface: CanvasLayer = $"Builtin Interface"
 @onready var instrument_attitude: AircraftModule_InstrumentAttitude = $InstrumentAttitude
+@onready var engine: AircraftModule_Engine = $Engine
 
 
 

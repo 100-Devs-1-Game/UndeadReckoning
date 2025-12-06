@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bclq6x6hk0cgq"]
+[gd_scene load_steps=11 format=3 uid="uid://bclq6x6hk0cgq"]
 
 [ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_v1erl"]
 [ext_resource type="PackedScene" uid="uid://bl7sajgcp867a" path="res://plane/placeholder_instrument.tscn" id="2_02xg3"]
@@ -6,6 +6,24 @@
 [ext_resource type="Script" uid="uid://bgn7w6iinfcjw" path="res://plane/placeholder_instrument_speed.gd" id="3_02xg3"]
 [ext_resource type="Script" uid="uid://cqa6ok0suwfmh" path="res://plane/placeholder_instrument_altitude.gd" id="4_4at1g"]
 [ext_resource type="PackedScene" uid="uid://c3xuvp3utw8ne" path="res://plane/flight_stick.tscn" id="6_oye7h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2llf"]
+albedo_color = Color(0.412152, 0.412152, 0.412152, 1)
+metallic = 0.7
+roughness = 0.26
+
+[sub_resource type="BoxMesh" id="BoxMesh_oye7h"]
+material = SubResource("StandardMaterial3D_c2llf")
+size = Vector3(0.02, 0.5, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p573y"]
+albedo_color = Color(0.412152, 0.412152, 0.412152, 1)
+metallic = 0.7
+roughness = 0.26
+
+[sub_resource type="BoxMesh" id="BoxMesh_qv4f1"]
+material = SubResource("StandardMaterial3D_p573y")
+size = Vector3(0.3, 0.02, 0.1)
 
 [node name="Cockpit" type="Node3D" node_paths=PackedStringArray("steering_joint")]
 script = ExtResource("1_v1erl")
@@ -80,3 +98,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.89449, -0.214557)
 
 [node name="FlightStick" parent="Steering Joint" instance=ExtResource("6_oye7h")]
 transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, -0.6, 0, 0.6, -2.62268e-08, 0, 0.933143, -1.04333)
+
+[node name="Throttle Rail" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.45, -0.59, 0)
+
+[node name="Throttle Offset" type="Node3D" parent="Throttle Rail"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.165)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Throttle Rail/Throttle Offset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.220404, 0)
+mesh = SubResource("BoxMesh_oye7h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Throttle Rail/Throttle Offset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.220404, 0)
+mesh = SubResource("BoxMesh_oye7h")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Throttle Rail/Throttle Offset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478, 0)
+mesh = SubResource("BoxMesh_qv4f1")

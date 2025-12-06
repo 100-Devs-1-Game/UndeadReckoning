@@ -130,7 +130,6 @@ StowSound = ExtResource("13_v55f5")
 [node name="ControlEngine" parent="." instance=ExtResource("14_ofsdp")]
 
 [node name="ControlSteering" parent="." instance=ExtResource("15_2oefp")]
-input_limit = 0.15
 mouse_sensitivity = 0.005
 ProcessPhysics = true
 

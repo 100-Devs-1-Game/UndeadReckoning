@@ -44,6 +44,7 @@ size = Vector3(2.19, 0.89, 0.83)
 
 [node name="Panel" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.428871, -0.515838)
+layers = 2
 
 [node name="InstrumentalPanel" parent="Panel" instance=ExtResource("2_c2llf")]
 transform = Transform3D(0.6, 0, 0, 0, 0.0206781, -0.599644, 0, 0.599644, 0.0206781, 0, 0.314714, -0.875)
@@ -117,3 +118,7 @@ mesh = SubResource("BoxMesh_oye7h")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Throttle Rail/Throttle Offset"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478, 0)
 mesh = SubResource("BoxMesh_qv4f1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816913, 1.02987)
+omni_attenuation = -0.234

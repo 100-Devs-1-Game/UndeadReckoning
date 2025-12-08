@@ -2,8 +2,8 @@ class_name OurAircraft
 extends Aircraft
 
 @export var enable_builtin_interface: bool= false
+@export var cockpit: Cockpit
 
-@onready var cockpit: Cockpit = $Cockpit
 @onready var builtin_interface: CanvasLayer = $"Builtin Interface"
 @onready var instrument_attitude: AircraftModule_InstrumentAttitude = $InstrumentAttitude
 @onready var engine: AircraftModule_Engine = $Engine

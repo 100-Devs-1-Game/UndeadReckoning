@@ -35,6 +35,8 @@ func _input(event: InputEvent) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if mode == DisplayServer.WINDOW_MODE_WINDOWED else DisplayServer.WINDOW_MODE_FULLSCREEN)
 		if event.keycode == KEY_C:
 			for camera in cameras:
+				if not camera or not is_instance_valid(camera):
+					continue
 				if camera.current:
 					var idx:= cameras.find(camera)
 					idx= wrapi(idx + 1, 0, cameras.size())

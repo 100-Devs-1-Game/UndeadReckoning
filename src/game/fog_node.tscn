@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://56vo5nqgj2qo"]
 
 [sub_resource type="Gradient" id="Gradient_pwyti"]
+offsets = PackedFloat32Array(0, 0.656977)
 colors = PackedColorArray(0.351563, 0.351563, 0.351563, 1, 0, 0, 0, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pwyti"]
@@ -22,7 +23,7 @@ density_texture = SubResource("NoiseTexture3D_fr2eg")
 size = Vector3(2, 2, 5)
 
 [node name="FogVolume" type="FogVolume"]
-size = Vector3(50, 50, 100)
+size = Vector3(100, 100, 200)
 material = SubResource("FogMaterial_p3j3h")
 
 [node name="DebugMesh" type="MeshInstance3D" parent="."]

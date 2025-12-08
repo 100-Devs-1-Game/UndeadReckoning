@@ -16,6 +16,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not viewer or not is_instance_valid(viewer):
+		return
+		
 	var velocity: Vector3
 	if last_viewer_pos:
 		velocity= (viewer.global_position - last_viewer_pos) / delta

@@ -16,11 +16,13 @@ func _ready() -> void:
 	if aircraft:
 		camera= aircraft.cockpit.camera
 		cameras.append(camera)
+		aircraft.cockpit.show()
 		camera.current= cockpit_view
 	if tripod:
 		camera= tripod.camera
 		cameras.append(camera)
 		camera.current= not cockpit_view
+		aircraft.cockpit.hide()
 
 
 func _input(event: InputEvent) -> void:
@@ -37,5 +39,6 @@ func _input(event: InputEvent) -> void:
 					var idx:= cameras.find(camera)
 					idx= wrapi(idx + 1, 0, cameras.size())
 					cameras[idx].current= true
+					aircraft.cockpit.visible= camera != aircraft.cockpit.camera
 					break
 		

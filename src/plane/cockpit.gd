@@ -5,8 +5,11 @@ extends Node3D
 
 @export var steering_joint: Node3D
 @export var steering_handle_joint: Node3D
+@export var throttle_min_offset: float= .1
+@export var throttle_max_offset: float= -.1
 
 @onready var camera: Camera3D = $Camera3D
+@onready var throttle_offset: Node3D = %"Throttle Offset"
 
 var target_steering_joint:= Node3D.new()
 
@@ -23,9 +26,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	steering_joint.basis= steering_joint.basis.slerp(target_steering_joint.basis, delta).orthonormalized()
-
+	steering_joint.basis= steering_joint.basis.slerp(target_steering_joint.basis, delta * 5).orthonormalized()
+	throttle_offset.position.z= remap(aircraft.engine.current_power, 0.0, 1.0, throttle_min_offset, throttle_max_offset)
 
 func _on_update_steering(values: Dictionary):
 	target_steering_joint.rotation_degrees.x= values["axis_x"] * 100
 	target_steering_joint.rotation_degrees.z= -values["axis_z"] * 100
+	

@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://bci3jvkat8a56"]
+
+[ext_resource type="PackedScene" uid="uid://b1whmrvhe3wle" path="res://plane/instrumental_panel.tscn" id="1_8y8kb"]
+[ext_resource type="Script" uid="uid://k6sopgc8jjgc" path="res://test/fog_test/fog_test_camera.gd" id="1_pwyti"]
+[ext_resource type="PackedScene" uid="uid://c3xuvp3utw8ne" path="res://plane/flight_stick.tscn" id="5_ckyoi"]
+
+[sub_resource type="Gradient" id="Gradient_pwyti"]
+colors = PackedColorArray(0.351563, 0.351563, 0.351563, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pwyti"]
+frequency = 0.0901
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_fr2eg"]
+width = 128
+height = 128
+depth = 256
+color_ramp = SubResource("Gradient_pwyti")
+noise = SubResource("FastNoiseLite_pwyti")
+
+[sub_resource type="FogMaterial" id="FogMaterial_p3j3h"]
+density = 0.1899
+density_texture = SubResource("NoiseTexture3D_fr2eg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_pwyti"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="Environment" id="Environment_pwyti"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[node name="Fog Test" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165421, 0.502168)
+current = true
+script = ExtResource("1_pwyti")
+speed = 25.0
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.7653)
+size = Vector3(50, 50, 100)
+material = SubResource("FogMaterial_p3j3h")
+
+[node name="FogVolume2" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -87.3634)
+size = Vector3(50, 50, 100)
+material = SubResource("FogMaterial_p3j3h")
+
+[node name="FogVolume3" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -174.691)
+size = Vector3(50, 50, 100)
+material = SubResource("FogMaterial_p3j3h")
+
+[node name="FogVolume4" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -261.278)
+size = Vector3(50, 50, 100)
+material = SubResource("FogMaterial_p3j3h")
+
+[node name="FogVolume5" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -350.901)
+size = Vector3(50, 50, 100)
+material = SubResource("FogMaterial_p3j3h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.8398)
+visible = false
+mesh = SubResource("BoxMesh_pwyti")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.45217, 0.891932, 0, -0.891932, 0.45217, 0, 31.3318, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pwyti")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0516919, 0.512507)
+
+[node name="Cockpit" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Panel" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Cockpit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.428871, -0.515838)
+
+[node name="InstrumentalPanel" parent="SubViewportContainer/SubViewport/Cockpit/Panel" instance=ExtResource("1_8y8kb")]
+transform = Transform3D(0.6, 0, 0, 0, 0.0206781, -0.599644, 0, 0.599644, 0.0206781, 0, 0.314714, -0.875)
+
+[node name="Steering Joint" type="Node3D" parent="SubViewportContainer/SubViewport/Cockpit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.89449, -0.214557)
+
+[node name="FlightStick" parent="SubViewportContainer/SubViewport/Cockpit/Steering Joint" instance=ExtResource("5_ckyoi")]
+transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, -0.6, 0, 0.6, -2.62268e-08, 0, 0.933143, -1.04333)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.873687, 0.486488, 0, -0.486488, 0.873687, 0, 0, 0)

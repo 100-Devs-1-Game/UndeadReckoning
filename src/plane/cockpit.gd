@@ -4,7 +4,6 @@ extends Node3D
 @export var aircraft: OurAircraft
 
 @export var steering_joint: Node3D
-@export var steering_handle_joint: Node3D
 @export var throttle_min_offset: float= .1
 @export var throttle_max_offset: float= -.1
 

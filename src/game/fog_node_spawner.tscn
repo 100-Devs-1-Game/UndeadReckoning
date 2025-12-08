@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cup5h8or24rap"]
+
+[ext_resource type="Script" uid="uid://dcihnm13vy8ra" path="res://game/fog_node_spawner.gd" id="1_1q3b7"]
+
+[node name="FogNodeSpawner" type="Node"]
+script = ExtResource("1_1q3b7")

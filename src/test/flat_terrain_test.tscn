@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b35pl341w5ys3"]
+[gd_scene load_steps=16 format=3 uid="uid://b35pl341w5ys3"]
 
 [ext_resource type="Script" uid="uid://dywvkt87urhsw" path="res://test/flat_terrain_test.gd" id="1_30l3t"]
 [ext_resource type="Script" uid="uid://dephv51hxmknh" path="res://test/sandbox.gd" id="2_762fy"]
 [ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://plane/our_aircraft.tscn" id="3_4hq13"]
+[ext_resource type="PackedScene" uid="uid://cup5h8or24rap" path="res://game/fog_node_spawner.tscn" id="4_axffa"]
 [ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="4_jhrm6"]
+[ext_resource type="PackedScene" uid="uid://56vo5nqgj2qo" path="res://game/fog_node.tscn" id="5_vmrw8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r0du0"]
 sky_top_color = Color(0.246609, 0.468349, 1, 1)
@@ -22,6 +24,8 @@ glow_enabled = true
 fog_enabled = true
 fog_density = 0.001
 fog_sky_affect = 0.161
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 
 [sub_resource type="Gradient" id="Gradient_2db0g"]
 colors = PackedColorArray(0, 1, 0, 1, 0.204149, 0.394064, 0.240407, 1)
@@ -61,6 +65,10 @@ shadow_enabled = true
 
 [node name="Aircraft" parent="." instance=ExtResource("3_4hq13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
+
+[node name="FogNodeSpawner" parent="." node_paths=PackedStringArray("viewer") instance=ExtResource("4_axffa")]
+viewer = NodePath("../Aircraft")
+fog_node_scene = ExtResource("5_vmrw8")
 
 [node name="CameraTripod" parent="." instance=ExtResource("4_jhrm6")]
 TargetNode = NodePath("../Aircraft")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b44slgwlcvl04"]
+
+[ext_resource type="PackedScene" uid="uid://e1oh4huqd64w" path="res://assets/models/plane/dots_deco.gltf" id="1_170hu"]
+[ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="2_64vxd"]
+
+[node name="dots_deco" instance=ExtResource("1_170hu")]
+
+[node name="dots_deco" parent="." index="0"]
+cast_shadow = 0
+surface_material_override/0 = ExtResource("2_64vxd")

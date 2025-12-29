@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://ckssw3wlh12wl"]
+
+[ext_resource type="Texture2D" uid="uid://cuv17nbsugj3a" path="res://assets/materials/metal/green_metal/green_metal_rust_diff_1k.png" id="1_aag0h"]
+[ext_resource type="Texture2D" uid="uid://bgr14kmv88hk1" path="res://assets/materials/metal/green_metal/green_metal_rust_arm_1k.png" id="2_m88ca"]
+[ext_resource type="Texture2D" uid="uid://bk40kh84ukfqb" path="res://assets/materials/metal/green_metal/green_metal_rust_nor_dx_1k.png" id="3_pev54"]
+
+[resource]
+albedo_texture = ExtResource("1_aag0h")
+metallic = 1.0
+metallic_texture = ExtResource("2_m88ca")
+roughness_texture = ExtResource("2_m88ca")
+normal_enabled = true
+normal_texture = ExtResource("3_pev54")
+ao_enabled = true
+ao_texture = ExtResource("2_m88ca")
+uv2_triplanar_sharpness = 150.0
+texture_filter = 0

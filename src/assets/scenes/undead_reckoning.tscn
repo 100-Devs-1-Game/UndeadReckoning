@@ -1,0 +1,198 @@
+[gd_scene load_steps=24 format=3 uid="uid://dvhtcbssi4qit"]
+
+[ext_resource type="PackedScene" uid="uid://m204k2v25wye" path="res://assets/models/plane/plane.tscn" id="1_ikapi"]
+[ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="1_tbl0e"]
+[ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="2_2yjjt"]
+[ext_resource type="PackedScene" uid="uid://b44slgwlcvl04" path="res://assets/models/plane/dots_deco.tscn" id="2_ikapi"]
+[ext_resource type="PackedScene" uid="uid://cchkvfa4tlnrm" path="res://assets/models/instruments/sticks/stick_02.tscn" id="4_6pvl5"]
+[ext_resource type="PackedScene" uid="uid://cbulkattyl6d7" path="res://assets/models/instruments/sticks/stick_01.tscn" id="5_2yjjt"]
+[ext_resource type="PackedScene" uid="uid://cilxl2hi2vgwc" path="res://assets/models/instruments/sticks/stick_03.tscn" id="5_mg2or"]
+[ext_resource type="PackedScene" uid="uid://cy4ciie7pvopa" path="res://assets/models/instruments/radial_01.tscn" id="7_71epr"]
+[ext_resource type="PackedScene" uid="uid://ny3ipxlmvcmn" path="res://assets/models/instruments/throttle_quadrant/throttle_quadrant_02.tscn" id="8_2yjjt"]
+[ext_resource type="PackedScene" uid="uid://2wfljocom7i3" path="res://assets/models/instruments/square_01.tscn" id="8_50mjg"]
+[ext_resource type="PackedScene" uid="uid://d0p7p0bbvhnji" path="res://assets/models/instruments/knob_01.tscn" id="9_1aq8a"]
+[ext_resource type="PackedScene" uid="uid://cwpiqvr12p2vi" path="res://assets/models/instruments/radio_stack.tscn" id="10_ksdu0"]
+[ext_resource type="PackedScene" uid="uid://ib4uys5x1qgc" path="res://assets/models/instruments/radio_stack_02.tscn" id="11_svcld"]
+[ext_resource type="PackedScene" uid="uid://ba30pbymdbihm" path="res://assets/models/instruments/lights/light_knob_01.tscn" id="12_8aobl"]
+[ext_resource type="PackedScene" uid="uid://dbl5fdutfdbaw" path="res://assets/models/instruments/lights/light_knob_02.tscn" id="13_b26la"]
+[ext_resource type="Material" uid="uid://d02aasme3lhsa" path="res://assets/materials/rubber/rubber_01/rubber_01.tres" id="14_i1x18"]
+[ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="15_smpgh"]
+[ext_resource type="PackedScene" uid="uid://dlxr6yggg0gwu" path="res://assets/models/scrap/scrap_01.tscn" id="16_e0oba"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_e8n0q"]
+rayleigh_coefficient = 0.0
+
+[sub_resource type="Sky" id="Sky_cu6rx"]
+sky_material = SubResource("PhysicalSkyMaterial_e8n0q")
+
+[sub_resource type="Environment" id="Environment_64f4e"]
+background_mode = 2
+sky = SubResource("Sky_cu6rx")
+tonemap_mode = 3
+tonemap_exposure = 1.5
+sdfgi_enabled = true
+glow_enabled = true
+glow_intensity = 0.98
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.0687983, 0.0687983, 0.0687983, 1)
+volumetric_fog_sky_affect = 0.98
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w4a4u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q87xp"]
+
+[node name="undead_reckoning" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_64f4e")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.82, -0.146)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.06364, 0)
+light_color = Color(0.803199, 0.887199, 0.992295, 1)
+light_energy = 1.35
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.772, 0)
+light_color = Color(0.887063, 0.920215, 0.924102, 1)
+light_energy = 0.1
+light_specular = 1.15
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_opacity = 0.56
+shadow_blur = 4.56
+omni_range = 1.183
+omni_attenuation = -3.352
+omni_shadow_mode = 0
+
+[node name="small_light_01" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0497859, 1.81227, 0.444524)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
+[node name="small_light_02" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0507388, 1.81227, 0.444524)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
+[node name="small_light_03" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.478, 1.776, 0.354)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
+[node name="small_light_04" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478, 1.776, 0.354)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
+[node name="small_light_05" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376, 1.516, 0.449)
+light_color = Color(0.913725, 0.0980392, 0.0588235, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
+[node name="plane" parent="." instance=ExtResource("1_ikapi")]
+
+[node name="plane_propeller" parent="." instance=ExtResource("2_2yjjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45689, 2)
+
+[node name="blocking_plane_01" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, 0.965926, 4.2222e-08, 0, 1.3745, -0.118947)
+mesh = SubResource("PlaneMesh_w4a4u")
+surface_material_override/0 = ExtResource("1_tbl0e")
+
+[node name="dots_deco" parent="." instance=ExtResource("2_ikapi")]
+
+[node name="stick_01" parent="." instance=ExtResource("5_2yjjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.253, 0.211)
+
+[node name="stick_02" parent="." instance=ExtResource("4_6pvl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.253, 0.211)
+visible = false
+
+[node name="stick_03" parent="." instance=ExtResource("5_mg2or")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.253, 0.211)
+visible = false
+
+[node name="throttle_quadrant_02" parent="." instance=ExtResource("8_2yjjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 1.25, 0.211)
+
+[node name="radial_01" parent="." instance=ExtResource("7_71epr")]
+transform = Transform3D(-1.5, 2.60059e-10, -8.25681e-09, 8.2568e-09, 0.0944468, -1.49702, 2.60336e-10, -1.49702, -0.0944468, 0.10699, 1.71, 0.476)
+
+[node name="radial_02" parent="." instance=ExtResource("7_71epr")]
+transform = Transform3D(-1.5, 2.6217e-07, 5.07484e-09, 5.07484e-09, 0.0580494, -1.49888, -2.6217e-07, -1.49888, -0.0580494, 0.106562, 1.57755, 0.476)
+
+[node name="radial_03" parent="." instance=ExtResource("7_71epr")]
+transform = Transform3D(-1.5, 2.6217e-07, 5.07484e-09, 5.07484e-09, 0.0580494, -1.49888, -2.6217e-07, -1.49888, -0.0580494, 0.24, 1.56889, 0.476)
+
+[node name="radial_04" parent="." instance=ExtResource("7_71epr")]
+transform = Transform3D(-1.5, 2.6217e-07, 5.07484e-09, 5.07484e-09, 0.0580494, -1.49888, -2.6217e-07, -1.49888, -0.0580494, 0.24, 1.69466, 0.476)
+
+[node name="radial_05" parent="." instance=ExtResource("7_71epr")]
+transform = Transform3D(-0.996228, -0.0867079, -0.00335808, 3.38322e-09, 0.0386996, -0.999251, 0.0867729, -0.995482, -0.0385536, 0.341755, 1.63576, 0.472516)
+
+[node name="radial_06" parent="." instance=ExtResource("7_71epr")]
+transform = Transform3D(-0.996228, -0.0867079, -0.00335808, 3.38322e-09, 0.0386996, -0.999251, 0.0867729, -0.995482, -0.0385536, -0.292, 1.636, 0.473)
+
+[node name="square_01" parent="." instance=ExtResource("8_50mjg")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.15, 1.681, 0.46567)
+
+[node name="knob_01" parent="." instance=ExtResource("9_1aq8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1.5, 0.470816)
+
+[node name="radio_stack" parent="." instance=ExtResource("10_ksdu0")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 0.441734, 1.68212, 0.468821)
+visible = false
+
+[node name="radio_stack_02" parent="." instance=ExtResource("11_svcld")]
+transform = Transform3D(-1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0, 2.5, -0.14, 1.528, 0.564571)
+
+[node name="light_knob_01" parent="." instance=ExtResource("12_8aobl")]
+transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0.0484923, 1.81244, 0.462078)
+
+[node name="light_knob_02" parent="." instance=ExtResource("12_8aobl")]
+transform = Transform3D(0.625, 0, 0, 0, 0.624018, 0.03503, 0, -0.03503, 0.624018, -0.0520121, 1.81244, 0.462078)
+
+[node name="light_knob_03" parent="." instance=ExtResource("12_8aobl")]
+transform = Transform3D(0.415375, -0.150466, -0.442096, 0.121157, 0.606133, -0.0924615, 0.45101, -0.0242511, 0.432004, -0.475, 1.771, 0.4)
+
+[node name="light_knob_04" parent="." instance=ExtResource("12_8aobl")]
+transform = Transform3D(0.415092, 0.150367, 0.442395, -0.121121, 0.606152, -0.0923809, -0.451279, -0.0243788, 0.431715, 0.475, 1.771, 0.4)
+
+[node name="light_knob_05" parent="." instance=ExtResource("13_b26la")]
+transform = Transform3D(2.03742, 0, 0.268231, 0, 2.055, 0, -0.268231, 0, 2.03742, 0.375282, 1.528, 0.471)
+
+[node name="label_base" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.198289, 0, 0.000913683, 0, 0.036, 0, -0.0261052, 0, 0.00694011, 0.369, 1.565, 0.466)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_q87xp")
+surface_material_override/0 = ExtResource("14_i1x18")
+
+[node name="label_text" type="Label3D" parent="label_base"]
+transform = Transform3D(-0.498607, 0, -3.72529e-08, 0, 2.8125, 0, 1.43051e-06, 0, -16.5388, 0.00310659, 0, -0.782776)
+shaded = true
+outline_modulate = Color(0, 0, 0, 0)
+text = "low vaccum"
+font = ExtResource("15_smpgh")
+outline_size = 0
+uppercase = true
+
+[node name="scrap_01" parent="." instance=ExtResource("16_e0oba")]
+transform = Transform3D(0.258819, -2.26267e-08, 0.965926, -8.74228e-08, -1, 0, 0.965926, -8.44439e-08, -0.258819, -0.234, 1.461, 0.637)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cchkvfa4tlnrm"]
+
+[ext_resource type="PackedScene" uid="uid://u2hl31ycq5ub" path="res://assets/models/instruments/sticks/stick_02.gltf" id="1_ew5ni"]
+[ext_resource type="Material" uid="uid://clprsu771q71i" path="res://assets/materials/metal/brass_silver/brass_silver.tres" id="2_ew5ni"]
+[ext_resource type="Material" uid="uid://b8f8jtvr2ia8v" path="res://assets/materials/metal/blue_plate/blue_plate.tres" id="3_d1umr"]
+
+[node name="stick_02" instance=ExtResource("1_ew5ni")]
+
+[node name="stick_02" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ew5ni")
+surface_material_override/1 = ExtResource("3_d1umr")

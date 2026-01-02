@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://clprsu771q71i"]
+
+[ext_resource type="Texture2D" uid="uid://cs2l7rn3iysqk" path="res://assets/materials/metal/brass_silver/brass_silver_albedo-small.png" id="1_u6qa2"]
+[ext_resource type="Texture2D" uid="uid://c500jn2ay8lvk" path="res://assets/materials/metal/brass_silver/brass_silver_metal-small.png" id="2_j2js0"]
+[ext_resource type="Texture2D" uid="uid://c1gnip12ncs3d" path="res://assets/materials/metal/brass_silver/brass_silver_norm-small.png" id="3_chgwk"]
+[ext_resource type="Texture2D" uid="uid://cnfhexxadwao3" path="res://assets/materials/metal/brass_silver/brass_silver_rough-small.png" id="4_mrx7h"]
+
+[resource]
+albedo_texture = ExtResource("1_u6qa2")
+metallic = 1.0
+metallic_texture = ExtResource("2_j2js0")
+roughness_texture = ExtResource("4_mrx7h")
+normal_enabled = true
+normal_texture = ExtResource("3_chgwk")

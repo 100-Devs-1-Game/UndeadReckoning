@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6l712hiavyk6"]
+
+[ext_resource type="PackedScene" uid="uid://5whhpl554ts0" path="res://assets/models/plane/plane_propeller.gltf" id="1_ua5aq"]
+[ext_resource type="Material" uid="uid://e2ul3veofr4n" path="res://assets/materials/metal/rusty_painted_metal/rusty_painted_metal.tres" id="2_cxi8p"]
+
+[node name="plane_propeller" instance=ExtResource("1_ua5aq")]
+
+[node name="plane_propeller" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cxi8p")

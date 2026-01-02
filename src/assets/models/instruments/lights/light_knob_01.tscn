@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba30pbymdbihm"]
+
+[ext_resource type="PackedScene" uid="uid://c1q86msacttfp" path="res://assets/models/instruments/lights/light_knob_01.gltf" id="1_2xgcw"]
+[ext_resource type="Material" uid="uid://b8f8jtvr2ia8v" path="res://assets/materials/metal/blue_plate/blue_plate.tres" id="2_byww6"]
+[ext_resource type="Material" uid="uid://cuxb6ax6a64kq" path="res://assets/materials/emission/light_yellow_e.tres" id="3_b3n24"]
+[ext_resource type="Shader" uid="uid://blilge8nrumup" path="res://assets/shaders/light_cone.gdshader" id="4_byww6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2xgcw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3n24"]
+render_priority = 0
+shader = ExtResource("4_byww6")
+shader_parameter/base_color = Color(1, 0.94902, 0.85098, 0.752941)
+shader_parameter/falloff_power = 8.0
+shader_parameter/facing_boost = 1.5
+shader_parameter/facing_power = 4.0
+shader_parameter/boost_along_y = 1.0
+shader_parameter/feather_sharpness = 4.0
+shader_parameter/feather_intensity = 1.0
+shader_parameter/near_fade_start = 0.01
+shader_parameter/near_fade_end = 1.0
+shader_parameter/far_fade_start = 25.0
+shader_parameter/far_fade_end = 80.0
+shader_parameter/max_brightness = 10.0
+shader_parameter/depth_feather_enabled = true
+shader_parameter/depth_fade_distance = 0.5
+
+[node name="light_knob_01" instance=ExtResource("1_2xgcw")]
+
+[node name="light_knob_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_byww6")
+surface_material_override/1 = ExtResource("3_b3n24")
+
+[node name="light_cone" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.0663042, 0, 0, 0, -2.15913e-09, -0.0247228, 0, 0.0493951, -1.08067e-09, 0, 0, -0.0464589)
+visible = false
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_2xgcw")
+surface_material_override/0 = SubResource("ShaderMaterial_b3n24")

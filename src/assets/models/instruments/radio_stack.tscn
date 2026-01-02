@@ -4,11 +4,11 @@
 [ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="2_nk8oi"]
 [ext_resource type="Texture2D" uid="uid://grc0f5kcgq87" path="res://assets/materials/prototype/texture_07.png" id="3_nk8oi"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vocc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nk8oi"]
 albedo_texture = ExtResource("3_nk8oi")
 
 [node name="radio_stack" instance=ExtResource("1_nyoid")]
 
 [node name="radio_stack" parent="." index="0"]
-surface_material_override/0 = ExtResource("2_nk8oi")
-surface_material_override/1 = SubResource("StandardMaterial3D_4vocc")
+surface_material_override/0 = SubResource("StandardMaterial3D_nk8oi")
+surface_material_override/1 = ExtResource("2_nk8oi")

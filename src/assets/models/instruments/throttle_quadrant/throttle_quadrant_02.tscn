@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ny3ipxlmvcmn"]
+
+[ext_resource type="PackedScene" uid="uid://dlpyr8ucp4ir1" path="res://assets/models/instruments/throttle_quadrant/throttle_quadrant_02.gltf" id="1_tp4g7"]
+[ext_resource type="Material" uid="uid://clprsu771q71i" path="res://assets/materials/metal/brass_silver/brass_silver.tres" id="2_oj1qm"]
+[ext_resource type="Material" uid="uid://d3ss6uagky58l" path="res://assets/materials/fabric/fabric_01/fabric_01.tres" id="3_eslfv"]
+
+[node name="throttle_quadrant_02" instance=ExtResource("1_tp4g7")]
+
+[node name="throttle_quadrant_02" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_oj1qm")
+surface_material_override/1 = ExtResource("3_eslfv")

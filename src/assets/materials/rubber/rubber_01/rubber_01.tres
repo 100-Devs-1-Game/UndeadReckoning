@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://d02aasme3lhsa"]
+
+[ext_resource type="Texture2D" uid="uid://cenk8nl3sgx72" path="res://assets/materials/rubber/rubber_01/rubber_01_albedo.jpg" id="1_i3wxk"]
+[ext_resource type="Texture2D" uid="uid://bmh65u6yegr84" path="res://assets/materials/rubber/rubber_01/rubber_01_norm.jpg" id="2_m638j"]
+[ext_resource type="Texture2D" uid="uid://bcpx88x1le272" path="res://assets/materials/rubber/rubber_01/rubber_01_rough.jpg" id="3_6uv8w"]
+
+[resource]
+albedo_texture = ExtResource("1_i3wxk")
+roughness_texture = ExtResource("3_6uv8w")
+normal_enabled = true
+normal_texture = ExtResource("2_m638j")

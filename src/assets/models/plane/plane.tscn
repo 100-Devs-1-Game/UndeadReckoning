@@ -1,94 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://m204k2v25wye"]
+[gd_scene load_steps=5 format=3 uid="uid://m204k2v25wye"]
 
 [ext_resource type="PackedScene" uid="uid://fgr0uv4xtgkl" path="res://assets/models/plane/plane.gltf" id="1_7ts01"]
-[ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="1_hlqws"]
 [ext_resource type="Material" uid="uid://b8f8jtvr2ia8v" path="res://assets/materials/metal/blue_plate/blue_plate.tres" id="2_5cyta"]
-[ext_resource type="Material" uid="uid://fq4rahr5wcgx" path="res://assets/materials/glass/glass_01.tres" id="3_5cyta"]
-[ext_resource type="PackedScene" uid="uid://b44slgwlcvl04" path="res://assets/models/plane/dots_deco.tscn" id="4_5v7an"]
-[ext_resource type="PackedScene" uid="uid://bs8gxj4osnhk3" path="res://assets/models/instruments/instr_flight_stick.tscn" id="5_r7kof"]
-[ext_resource type="PackedScene" uid="uid://cy4ciie7pvopa" path="res://assets/models/instruments/radial_01.tscn" id="6_dyvm2"]
-[ext_resource type="PackedScene" uid="uid://cgct5clwynmgk" path="res://assets/models/instruments/throttle_quadrant.tscn" id="7_xg0v6"]
-[ext_resource type="PackedScene" uid="uid://d0p7p0bbvhnji" path="res://assets/models/instruments/knob_01.tscn" id="8_6ipko"]
-[ext_resource type="PackedScene" uid="uid://cwpiqvr12p2vi" path="res://assets/models/instruments/radio_stack.tscn" id="8_cu6rx"]
-[ext_resource type="PackedScene" uid="uid://ib4uys5x1qgc" path="res://assets/models/instruments/radio_stack_02.tscn" id="11_hdn0j"]
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_hdn0j"]
-rayleigh_coefficient = 0.0
-
-[sub_resource type="Sky" id="Sky_cu6rx"]
-sky_material = SubResource("PhysicalSkyMaterial_hdn0j")
-
-[sub_resource type="Environment" id="Environment_6ipko"]
-background_mode = 2
-sky = SubResource("Sky_cu6rx")
-tonemap_mode = 3
-sdfgi_enabled = true
-glow_enabled = true
-glow_intensity = 0.98
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_xg0v6"]
+[ext_resource type="Material" uid="uid://e2ul3veofr4n" path="res://assets/materials/metal/rusty_painted_metal/rusty_painted_metal.tres" id="4_r18b5"]
+[ext_resource type="Material" uid="uid://drcwnpaxywspu" path="res://assets/materials/glass/glass_03.tres" id="6_r18b5"]
 
 [node name="plane" instance=ExtResource("1_7ts01")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
-environment = SubResource("Environment_6ipko")
-
-[node name="Camera3D" type="Camera3D" parent="." index="1"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.8202, -0.14604)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77172, 0)
+[node name="plane_propeller" parent="." index="0"]
 visible = false
-light_energy = 0.15
-omni_range = 1.102
+surface_material_override/0 = ExtResource("4_r18b5")
 
-[node name="plane_propeller" parent="." index="3"]
-surface_material_override/0 = ExtResource("1_hlqws")
-
-[node name="plane_body" parent="." index="4"]
-surface_material_override/0 = ExtResource("1_hlqws")
+[node name="plane_body" parent="." index="1"]
+surface_material_override/0 = ExtResource("4_r18b5")
 surface_material_override/1 = ExtResource("2_5cyta")
 
-[node name="blocking_plane_01" type="MeshInstance3D" parent="." index="5"]
-transform = Transform3D(-0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, 0.965926, 4.2222e-08, 0, 1.3745, -0.118947)
-mesh = SubResource("PlaneMesh_xg0v6")
-surface_material_override/0 = ExtResource("1_hlqws")
+[node name="plane_dashboard" parent="." index="2"]
+surface_material_override/0 = ExtResource("4_r18b5")
 
-[node name="plane_dashboard" parent="." index="6"]
-surface_material_override/0 = ExtResource("1_hlqws")
-
-[node name="dots_deco" parent="." index="7" instance=ExtResource("4_5v7an")]
-
-[node name="plane_glass" parent="." index="8"]
+[node name="plane_glass" parent="." index="3"]
 cast_shadow = 0
-surface_material_override/0 = ExtResource("3_5cyta")
-
-[node name="flight_stick" parent="." index="9" instance=ExtResource("5_r7kof")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.253, 0.211)
-
-[node name="throttle_quadrant" parent="." index="10" instance=ExtResource("7_xg0v6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.203, 1.575, 0.211)
-
-[node name="radial_01" parent="." index="11" instance=ExtResource("6_dyvm2")]
-transform = Transform3D(-1, 8.74228e-08, 0, 5.50455e-09, 0.0629648, -0.998016, -8.72493e-08, -0.998016, -0.0629648, 0.15, 1.71, 0.476)
-
-[node name="radial_02" parent="." index="12" instance=ExtResource("6_dyvm2")]
-transform = Transform3D(-1, 8.74228e-08, 0, 3.38342e-09, 0.0387018, -0.999251, -8.73573e-08, -0.999251, -0.0387018, 0.15, 1.61, 0.476)
-
-[node name="radial_03" parent="." index="13" instance=ExtResource("6_dyvm2")]
-transform = Transform3D(-1, 8.74228e-08, 0, 3.38342e-09, 0.0387018, -0.999251, -8.73573e-08, -0.999251, -0.0387018, 0.24, 1.61, 0.476)
-
-[node name="radial_04" parent="." index="14" instance=ExtResource("6_dyvm2")]
-transform = Transform3D(-1, 8.74228e-08, 0, 3.38342e-09, 0.0387018, -0.999251, -8.73573e-08, -0.999251, -0.0387018, 0.24, 1.71, 0.476)
-
-[node name="radial_05" parent="." index="15" instance=ExtResource("6_dyvm2")]
-transform = Transform3D(-0.448303, -0.0390186, -0.00151114, 1.52245e-09, 0.0174148, -0.449663, 0.0390478, -0.447967, -0.0173491, 0.310292, 1.63576, 0.472516)
-
-[node name="knob_01" parent="." index="16" instance=ExtResource("8_6ipko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1.5, 0.470816)
-
-[node name="radio_stack" parent="." index="17" instance=ExtResource("8_cu6rx")]
-transform = Transform3D(0.0954287, 0, -0.995436, 0, 1, 0, 0.995436, 0, 0.0954287, 0.348513, 1.68337, 0.492735)
-
-[node name="radio_stack_02" parent="." index="18" instance=ExtResource("11_hdn0j")]
-transform = Transform3D(1.79, 0, 0, 0, 1.79, 0, 0, 0, 1.79, -0.15, 1.68, 0.525853)
+surface_material_override/0 = ExtResource("6_r18b5")

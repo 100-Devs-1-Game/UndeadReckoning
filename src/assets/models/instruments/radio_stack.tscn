@@ -10,5 +10,5 @@ albedo_texture = ExtResource("3_nk8oi")
 [node name="radio_stack" instance=ExtResource("1_nyoid")]
 
 [node name="radio_stack" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_nk8oi")
-surface_material_override/1 = ExtResource("2_nk8oi")
+surface_material_override/0 = ExtResource("2_nk8oi")
+surface_material_override/1 = SubResource("StandardMaterial3D_nk8oi")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bju72umdqajjj"]
+[gd_scene load_steps=4 format=3 uid="uid://bhrkuegnr34rh"]
 
 [ext_resource type="Texture2D" uid="uid://y4ipjk4dky7y" path="res://assets/instruments/fuel/fuel_base.png" id="1_xliaq"]
 [ext_resource type="Texture2D" uid="uid://d23u1wcty7s7t" path="res://assets/instruments/fuel/1_2.png" id="2_r8hdd"]

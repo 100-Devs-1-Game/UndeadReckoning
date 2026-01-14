@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://clrs42gv3p0x7"]
+
+[ext_resource type="Texture2D" uid="uid://y4ipjk4dky7y" path="res://assets/instruments/fuel/fuel_base.png" id="1_xliaq"]
+[ext_resource type="Texture2D" uid="uid://d23u1wcty7s7t" path="res://assets/instruments/fuel/1_2.png" id="2_r8hdd"]
+[ext_resource type="Texture2D" uid="uid://dyklay3n436ja" path="res://assets/instruments/fuel/fuel_needle.png" id="3_1ysnr"]
+
+[node name="fuel" type="Node2D"]
+
+[node name="fuel_base" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_xliaq")
+
+[node name="1_2" type="Sprite2D" parent="."]
+position = Vector2(960, 306)
+texture = ExtResource("2_r8hdd")
+
+[node name="fuel_needle" type="Sprite2D" parent="."]
+position = Vector2(972, 743)
+texture = ExtResource("3_1ysnr")
+offset = Vector2(0, -199.87)

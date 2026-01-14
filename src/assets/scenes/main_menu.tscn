@@ -1,0 +1,243 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv00hn0hrlkyr"]
+
+[ext_resource type="PackedScene" uid="uid://ds6o4gry2nwsq" path="res://assets/models/plane/full_plane.tscn" id="1_uu6ob"]
+[ext_resource type="Texture2D" uid="uid://bylacdh2xt0us" path="res://assets/logo/ur_logo_shadow.png" id="2_v1ppo"]
+[ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="3_obrqb"]
+[ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="4_57ux2"]
+[ext_resource type="Texture2D" uid="uid://dp6ikj1s7ijo4" path="res://assets/materials/prototype/mattePaint_HDRIS012X1077-1_0ev.jpg" id="5_f2xsc"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rfe7q"]
+rayleigh_coefficient = 0.0
+
+[sub_resource type="Sky" id="Sky_cu6rx"]
+sky_material = SubResource("PhysicalSkyMaterial_rfe7q")
+
+[sub_resource type="Environment" id="Environment_uu6ob"]
+background_mode = 2
+sky = SubResource("Sky_cu6rx")
+tonemap_mode = 3
+tonemap_exposure = 1.5
+ssr_enabled = true
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.51
+sdfgi_energy = 1.56
+glow_enabled = true
+glow_intensity = 0.98
+glow_strength = 0.89
+glow_bloom = 0.56
+glow_hdr_threshold = 0.98
+glow_hdr_scale = 1.98
+glow_map_strength = 0.98
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.032833, 0.0660754, 0.138421, 1)
+volumetric_fog_emission = Color(0.0151412, 0.00715948, 0.0273713, 1)
+volumetric_fog_gi_inject = 5.56
+volumetric_fog_detail_spread = 2.15
+volumetric_fog_ambient_inject = 0.56
+volumetric_fog_sky_affect = 0.98
+adjustment_enabled = true
+adjustment_brightness = 1.25
+adjustment_contrast = 1.01
+adjustment_saturation = 1.01
+
+[sub_resource type="Animation" id="Animation_57ux2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("full_plane/plane_propeller:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("full_plane:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.610865, -3.14159, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.49819, -7.848)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("label:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.75, -6.165)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("title:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.705, 4.407)]
+}
+
+[sub_resource type="Animation" id="Animation_obrqb"]
+resource_name = "main_menu"
+length = 100.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("full_plane/plane_propeller:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 100),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 1309)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("full_plane:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 50, 100),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.56, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(19.9333, 20.1, 20.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.610865, -3.14159, 0), Vector3(0.544543, -3.14159, 0), Vector3(-0.610865, -3.14159, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 50, 100),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.49819, -7.848), Vector3(0.555, 4.498, -7.848), Vector3(0, 4.49819, -7.848)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("label:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 50, 100),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.75, -6.165), Vector3(0.54, 1.75, -6.165), Vector3(0, 1.75, -6.165)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("title:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 50, 100),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.705, 4.407), Vector3(0.55, 4.705, 4.407), Vector3(0, 4.705, 4.407)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2xsc"]
+_data = {
+&"RESET": SubResource("Animation_57ux2"),
+&"main_menu": SubResource("Animation_obrqb")
+}
+
+[node name="main_menu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uu6ob")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -3.69465e-08, 7.92319e-08, 0, 0.906308, 0.422618, -8.74228e-08, 0.422618, -0.906308, 0, 4.49819, -7.848)
+current = true
+fov = 80.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.06364, 0)
+light_color = Color(0.803199, 0.887199, 0.992295, 1)
+light_energy = 0.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f2xsc")
+}
+autoplay = "main_menu"
+
+[node name="full_plane" parent="." instance=ExtResource("1_uu6ob")]
+
+[node name="plane_propeller" parent="full_plane" instance=ExtResource("3_obrqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.884007, 4)
+
+[node name="title" type="Sprite3D" parent="."]
+transform = Transform3D(-1.56, -3.52976e-08, 1.31733e-07, 0, 1.50684, 0.403758, -1.3638e-07, 0.403758, -1.50684, 0, 4.705, 4.407)
+cast_shadow = 0
+texture = ExtResource("2_v1ppo")
+
+[node name="label" type="Label3D" parent="."]
+transform = Transform3D(-0.89, -4.46278e-08, 6.37352e-08, 0, 0.729045, 0.510483, -7.78063e-08, 0.510483, -0.729045, 0, 1.75, -6.165)
+text = "Press [KEY] to Begin Your Reckoning"
+font = ExtResource("4_57ux2")
+
+[node name="background" type="Sprite3D" parent="."]
+transform = Transform3D(-3.36, 2.14414e-07, -4.59812e-07, 0, 3.04519, 1.42, 5.07346e-07, 1.42, -3.04519, 0.007, -4.977, 6.525)
+cast_shadow = 0
+texture = ExtResource("5_f2xsc")

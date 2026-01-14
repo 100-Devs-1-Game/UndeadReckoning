@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://8q2y1x4paj3t"]
+
+[ext_resource type="Texture2D" uid="uid://b0a1k8m6otpp6" path="res://assets/instruments/altimeter/altimeter_base.png" id="1_ggbh5"]
+
+[node name="altimeter" type="Node2D"]
+
+[node name="altimeter_base" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_ggbh5")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://i5insp64xiko"]
+
+[ext_resource type="Texture2D" uid="uid://dv7dgrdcisp7t" path="res://assets/instruments/vertical_speed/vertical_speed_base.png" id="1_c7dxf"]
+
+[node name="vertical_speed" type="Node2D"]
+
+[node name="vertical_speed_base" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_c7dxf")

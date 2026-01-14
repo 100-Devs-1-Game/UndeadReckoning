@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gg3rtikdjl6d"]
+
+[ext_resource type="Texture2D" uid="uid://bgxrsuu788df8" path="res://assets/instruments/compass/compass_base.png" id="1_85m32"]
+[ext_resource type="Texture2D" uid="uid://dkpyb2oiapg2d" path="res://assets/instruments/compass/compass_elements.png" id="2_ds6t3"]
+
+[node name="compass" type="Node2D"]
+
+[node name="compass_base" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_85m32")
+
+[node name="compass_elements" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_ds6t3")

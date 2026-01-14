@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://fyorxei3xt2f"]
+
+[ext_resource type="Texture2D" uid="uid://dq86tf5xk4shj" path="res://assets/instruments/airspeed/airspeed_base.png" id="1_b04la"]
+[ext_resource type="Texture2D" uid="uid://bloimbi4vgglc" path="res://assets/instruments/airspeed/airspeed_needle.png" id="2_ryxyx"]
+
+[node name="airspeed" type="Node2D"]
+
+[node name="airspeed_base" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_b04la")
+
+[node name="airspeed_needle" type="Sprite2D" parent="."]
+position = Vector2(969, 545)
+rotation = -3.14159
+texture = ExtResource("2_ryxyx")
+offset = Vector2(0, 38.145)

@@ -1,9 +1,9 @@
-# MinimalProjectTemplate
-The official 100 Devs - 1 Game Minimal Project Template
+![Undead Reckoning's Game Logo](https://raw.githubusercontent.com/100-Devs-1-Game/UndeadReckoning/refs/heads/klipnity/src/assets/logo/ur_logo_shadow.png)
 
-Put your project under `src/`
-
-Put all our artists assets ( Textures, Music, SFX ) under `src/assets/`
-
+Undead Reckoning is part of the 33 games made in 100 days gamejam game hosted by CGGJ (Collaborative Godot Game Jam) 
 
 Join us on [Discord](https://discord.gg/UHN4AjMw4d)
+
+[Undead Reckoning's itch.io page](https://100devs.itch.io/undeadreckoning)
+
+[33 games made in 100 days gamejam](https://itch.io/jam/33-games-in-100-days-collaborative-game-jam)

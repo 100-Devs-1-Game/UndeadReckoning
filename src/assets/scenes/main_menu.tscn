@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv00hn0hrlkyr"]
+[gd_scene load_steps=11 format=3 uid="uid://bv00hn0hrlkyr"]
 
 [ext_resource type="PackedScene" uid="uid://ds6o4gry2nwsq" path="res://assets/models/plane/full_plane.tscn" id="1_uu6ob"]
 [ext_resource type="Texture2D" uid="uid://bylacdh2xt0us" path="res://assets/logo/ur_logo_shadow.png" id="2_v1ppo"]
 [ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="3_obrqb"]
 [ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="4_57ux2"]
-[ext_resource type="Texture2D" uid="uid://dp6ikj1s7ijo4" path="res://assets/materials/prototype/mattePaint_HDRIS012X1077-1_0ev.jpg" id="5_f2xsc"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rfe7q"]
 rayleigh_coefficient = 0.0
@@ -216,6 +215,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.0
 light_color = Color(0.803199, 0.887199, 0.992295, 1)
 light_energy = 0.25
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.31378, 0)
+light_color = Color(0.737483, 0.836677, 0.840718, 1)
+light_energy = 4.48
+light_volumetric_fog_energy = 7.56
+spot_range = 4096.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_f2xsc")
@@ -233,11 +239,6 @@ cast_shadow = 0
 texture = ExtResource("2_v1ppo")
 
 [node name="label" type="Label3D" parent="."]
-transform = Transform3D(-0.89, -4.46278e-08, 6.37352e-08, 0, 0.729045, 0.510483, -7.78063e-08, 0.510483, -0.729045, 0, 1.75, -6.165)
+transform = Transform3D(-0.89, 1.29417e-06, -1.84826e-06, 0, 0.729045, 0.510483, 2.25631e-06, 0.510483, -0.729045, 0, 1.75, -6.165)
 text = "Press [KEY] to Begin Your Reckoning"
 font = ExtResource("4_57ux2")
-
-[node name="background" type="Sprite3D" parent="."]
-transform = Transform3D(-3.36, 2.14414e-07, -4.59812e-07, 0, 3.04519, 1.42, 5.07346e-07, 1.42, -3.04519, 0.007, -4.977, 6.525)
-cast_shadow = 0
-texture = ExtResource("5_f2xsc")

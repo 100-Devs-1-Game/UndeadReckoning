@@ -1,11 +1,37 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds6o4gry2nwsq"]
+[gd_scene load_steps=9 format=3 uid="uid://ds6o4gry2nwsq"]
 
 [ext_resource type="PackedScene" uid="uid://b1s36d2wc6a2r" path="res://assets/models/plane/full_plane.gltf" id="1_wsf0a"]
 [ext_resource type="Material" uid="uid://2vk1ii0cm52m" path="res://assets/materials/metal/blue_plate/blue_plate_bigger_uvs.tres" id="2_31k7d"]
-[ext_resource type="Material" uid="uid://drcwnpaxywspu" path="res://assets/materials/glass/glass_03.tres" id="2_326yo"]
 [ext_resource type="Material" uid="uid://e2ul3veofr4n" path="res://assets/materials/metal/rusty_painted_metal/rusty_painted_metal.tres" id="2_mmrav"]
-[ext_resource type="Material" uid="uid://brhcd5cryq17g" path="res://assets/materials/emission/light_red_e.tres" id="3_di3d6"]
 [ext_resource type="Material" uid="uid://clprsu771q71i" path="res://assets/materials/metal/brass_silver/brass_silver.tres" id="3_do2i3"]
+[ext_resource type="Material" uid="uid://fq4rahr5wcgx" path="res://assets/materials/glass/glass_01.tres" id="4_3n7a5"]
+
+[sub_resource type="Animation" id="Animation_do2i3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("full_plane_body:surface_material_override/4:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [12.56]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("full_plane_body:surface_material_override/4:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.913725, 0.0980392, 0.0588235, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_mmrav"]
 resource_name = "lights"
@@ -35,33 +61,6 @@ tracks/1/keys = {
 "values": [Color(0.913725, 0.0980392, 0.0588235, 1), Color(0, 0, 0, 1), Color(0.913725, 0.0980392, 0.0588235, 1), Color(0, 0, 0, 1), Color(0.913725, 0.0980392, 0.0588235, 1), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_do2i3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("full_plane_body:surface_material_override/4:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [12.56]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("full_plane_body:surface_material_override/4:albedo_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.913725, 0.0980392, 0.0588235, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8t06c"]
 _data = {
 &"RESET": SubResource("Animation_do2i3"),
@@ -74,8 +73,8 @@ _data = {
 surface_material_override/0 = ExtResource("2_mmrav")
 surface_material_override/1 = ExtResource("3_do2i3")
 surface_material_override/2 = ExtResource("3_do2i3")
-surface_material_override/3 = ExtResource("2_326yo")
-surface_material_override/4 = ExtResource("3_di3d6")
+surface_material_override/3 = ExtResource("4_3n7a5")
+surface_material_override/4 = ExtResource("4_3n7a5")
 surface_material_override/5 = ExtResource("2_31k7d")
 
 [node name="full_plane_right_part" parent="." index="1"]

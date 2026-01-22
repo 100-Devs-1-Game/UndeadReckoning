@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv00hn0hrlkyr"]
+[gd_scene load_steps=16 format=3 uid="uid://bv00hn0hrlkyr"]
 
+[ext_resource type="Script" uid="uid://bb2uix8phpq51" path="res://assets/scenes/main_menu.gd" id="1_f2xsc"]
 [ext_resource type="PackedScene" uid="uid://ds6o4gry2nwsq" path="res://assets/models/plane/full_plane.tscn" id="1_uu6ob"]
 [ext_resource type="Texture2D" uid="uid://bylacdh2xt0us" path="res://assets/logo/ur_logo_shadow.png" id="2_v1ppo"]
 [ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="3_obrqb"]
@@ -200,7 +201,28 @@ _data = {
 &"main_menu": SubResource("Animation_obrqb")
 }
 
+[sub_resource type="Gradient" id="Gradient_57ux2"]
+offsets = PackedFloat32Array(0, 0.44186)
+colors = PackedColorArray(0.190762, 0.190762, 0.190762, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f2xsc"]
+frequency = 0.0378
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_v71do"]
+width = 128
+height = 128
+depth = 256
+color_ramp = SubResource("Gradient_57ux2")
+noise = SubResource("FastNoiseLite_f2xsc")
+
+[sub_resource type="FogMaterial" id="FogMaterial_xmmar"]
+density = 8.0
+albedo = Color(0.259294, 0.259294, 0.259294, 1)
+density_texture = SubResource("NoiseTexture3D_v71do")
+
 [node name="main_menu" type="Node3D"]
+script = ExtResource("1_f2xsc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uu6ob")
@@ -242,3 +264,12 @@ texture = ExtResource("2_v1ppo")
 transform = Transform3D(-0.89, 1.29417e-06, -1.84826e-06, 0, 0.729045, 0.510483, 2.25631e-06, 0.510483, -0.729045, 0, 1.75, -6.165)
 text = "Press [KEY] to Begin Your Reckoning"
 font = ExtResource("4_57ux2")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+size = Vector3(100, 100, 100)
+material = SubResource("FogMaterial_xmmar")
+
+[node name="FogVolume2" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
+size = Vector3(100, 100, 100)
+material = SubResource("FogMaterial_xmmar")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://de2v5713aox8m"]
+
+[ext_resource type="PackedScene" uid="uid://clrs42gv3p0x7" path="res://assets/scenes/instruments/fuel.tscn" id="1_3bb63"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_twi24"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x821g"]
+resource_local_to_scene = true
+diffuse_mode = 3
+albedo_texture = SubResource("ViewportTexture_twi24")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t5tkq"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_x821g")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[node name="InstrumentViewport" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1920, 1080)
+
+[node name="fuel" parent="SubViewport" instance=ExtResource("1_3bb63")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_t5tkq")

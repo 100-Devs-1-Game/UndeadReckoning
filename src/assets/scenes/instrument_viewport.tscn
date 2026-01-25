@@ -19,9 +19,10 @@ orientation = 2
 [node name="InstrumentViewport" type="Node3D"]
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(1920, 1080)
+size = Vector2i(192, 108)
 
 [node name="fuel" parent="SubViewport" instance=ExtResource("1_3bb63")]
+scale = Vector2(0.1, 0.1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvhtcbssi4qit"]
+[gd_scene load_steps=35 format=3 uid="uid://dvhtcbssi4qit"]
 
 [ext_resource type="PackedScene" uid="uid://m204k2v25wye" path="res://assets/models/plane/plane.tscn" id="1_ikapi"]
 [ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="1_tbl0e"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cwpiqvr12p2vi" path="res://assets/models/instruments/radio_stack.tscn" id="10_ksdu0"]
 [ext_resource type="PackedScene" uid="uid://ib4uys5x1qgc" path="res://assets/models/instruments/radio_stack_02.tscn" id="11_svcld"]
 [ext_resource type="PackedScene" uid="uid://ba30pbymdbihm" path="res://assets/models/instruments/lights/light_knob_01.tscn" id="12_8aobl"]
+[ext_resource type="Texture2D" uid="uid://b0a1k8m6otpp6" path="res://assets/instruments/altimeter/altimeter_base.png" id="12_50mjg"]
 [ext_resource type="PackedScene" uid="uid://dbl5fdutfdbaw" path="res://assets/models/instruments/lights/light_knob_02.tscn" id="13_b26la"]
 [ext_resource type="Material" uid="uid://d02aasme3lhsa" path="res://assets/materials/rubber/rubber_01/rubber_01.tres" id="14_i1x18"]
 [ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="15_smpgh"]
@@ -33,7 +34,7 @@ rayleigh_coefficient = 0.0
 sky_material = SubResource("PhysicalSkyMaterial_e8n0q")
 
 [sub_resource type="Environment" id="Environment_64f4e"]
-background_mode = 2
+background_energy_multiplier = 0.85
 sky = SubResource("Sky_71epr")
 tonemap_mode = 3
 tonemap_exposure = 1.5
@@ -64,6 +65,23 @@ adjustment_contrast = 1.01
 adjustment_saturation = 1.01
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w4a4u"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_50mjg"]
+viewport_path = NodePath("radial_01/InstrumentViewport/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdu0"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_50mjg")
+metallic = 0.24
+roughness = 0.2
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_svcld"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ksdu0")
+size = Vector2(0.18, 0.1)
+orientation = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_q87xp"]
 
@@ -176,6 +194,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.005, 0.00400001)
 
 [node name="radial_01" parent="." instance=ExtResource("7_71epr")]
 transform = Transform3D(-1.5, 2.60059e-10, -8.25681e-09, 8.2568e-09, 0.0944468, -1.49702, 2.60336e-10, -1.49702, -0.0944468, 0.10699, 1.71, 0.476)
+
+[node name="InstrumentViewport" type="Node3D" parent="radial_01"]
+transform = Transform3D(-1, -8.44957e-08, -5.50445e-09, 1.73376e-10, 0.0629636, -0.998016, 8.46747e-08, -0.998016, -0.0629636, 0, 0.0114484, 0.00072217)
+
+[node name="SubViewport" type="SubViewport" parent="radial_01/InstrumentViewport"]
+canvas_item_default_texture_filter = 2
+size = Vector2i(384, 216)
+size_2d_override = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="altimeter" type="Node2D" parent="radial_01/InstrumentViewport/SubViewport"]
+texture_filter = 4
+
+[node name="altimeter_base" type="Sprite2D" parent="radial_01/InstrumentViewport/SubViewport/altimeter"]
+position = Vector2(960, 540)
+texture = ExtResource("12_50mjg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="radial_01/InstrumentViewport"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_svcld")
 
 [node name="radial_02" parent="." instance=ExtResource("7_71epr")]
 transform = Transform3D(-1.5, 2.6217e-07, 5.07484e-09, 5.07484e-09, 0.0580494, -1.49888, -2.6217e-07, -1.49888, -0.0580494, 0.106562, 1.57755, 0.476)

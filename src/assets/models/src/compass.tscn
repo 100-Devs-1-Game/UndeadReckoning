@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ox73t1u38q"]
+
+[ext_resource type="PackedScene" uid="uid://pxfysl8x508r" path="res://assets/models/src/circle.gltf" id="1_1s8b0"]
+[ext_resource type="Texture2D" uid="uid://bgxrsuu788df8" path="res://assets/instruments/compass/compass_base.png" id="2_1s8b0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s8b0"]
+albedo_texture = ExtResource("2_1s8b0")
+metallic_specular = 0.1
+uv1_offset = Vector3(-0.015, -0.01, 0)
+
+[node name="circle" instance=ExtResource("1_1s8b0")]
+
+[node name="circle" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1s8b0")

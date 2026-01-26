@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Undead Reckoning"
-run/main_scene="uid://igsomxicmlw8"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="uid://ck7w2ofw16nsi"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
+[display]
 
-EventBus="*res://global/event_bus.gd"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
@@ -50,4 +51,3 @@ free_cam_down={
 
 anti_aliasing/quality/msaa_3d=3
 anti_aliasing/quality/screen_space_aa=1
-anti_aliasing/quality/use_taa=true

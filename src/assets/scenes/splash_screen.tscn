@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bafjg0gk5su0o"]
 
-[ext_resource type="Texture2D" uid="uid://8cdyp6as524u" path="res://assets/splash_screen/splash_screen.jpg" id="1_qtr2j"]
+[ext_resource type="Texture2D" uid="uid://8cdyp6as524u" path="res://assets/shared/splash_screen/splash_screen.jpg" id="1_qtr2j"]
 
 [node name="splash_screen" type="Node2D"]
 

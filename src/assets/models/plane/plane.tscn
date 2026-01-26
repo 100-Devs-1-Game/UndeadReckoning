@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://m204k2v25wye"]
+[gd_scene load_steps=7 format=3 uid="uid://m204k2v25wye"]
 
 [ext_resource type="PackedScene" uid="uid://fgr0uv4xtgkl" path="res://assets/models/plane/plane.gltf" id="1_7ts01"]
 [ext_resource type="Material" uid="uid://b8f8jtvr2ia8v" path="res://assets/materials/metal/blue_plate/blue_plate.tres" id="2_5cyta"]
+[ext_resource type="Shader" uid="uid://6ssi851pea32" path="res://assets/shaders/glass_pbr.gdshader" id="4_dyvm2"]
 [ext_resource type="Material" uid="uid://e2ul3veofr4n" path="res://assets/materials/metal/rusty_painted_metal/rusty_painted_metal.tres" id="4_r18b5"]
-[ext_resource type="Material" uid="uid://drcwnpaxywspu" path="res://assets/materials/glass/glass_03.tres" id="6_r18b5"]
+[ext_resource type="Texture2D" uid="uid://cuv17nbsugj3a" path="res://assets/materials/metal/green_metal/green_metal_rust_diff_1k.png" id="5_dyvm2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ipko"]
+render_priority = 0
+shader = ExtResource("4_dyvm2")
+shader_parameter/albedo = Color(1, 1, 1, 0.0980392)
+shader_parameter/albedo_texture = ExtResource("5_dyvm2")
+shader_parameter/roughness = 0.98
+shader_parameter/normal_strength = 8.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [node name="plane" instance=ExtResource("1_7ts01")]
 
@@ -20,4 +30,4 @@ surface_material_override/0 = ExtResource("4_r18b5")
 
 [node name="plane_glass" parent="." index="3"]
 cast_shadow = 2
-surface_material_override/0 = ExtResource("6_r18b5")
+surface_material_override/0 = SubResource("ShaderMaterial_6ipko")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://byq676lrdg284"]
+
+[ext_resource type="PackedScene" uid="uid://pxfysl8x508r" path="res://assets/models/src/circle.gltf" id="1_oyhk7"]
+[ext_resource type="Texture2D" uid="uid://b0a1k8m6otpp6" path="res://assets/instruments/altimeter/altimeter_base.png" id="2_oyhk7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyhk7"]
+albedo_texture = ExtResource("2_oyhk7")
+metallic_specular = 0.1
+uv1_offset = Vector3(-0.005, -0.01, 0)
+
+[node name="circle" instance=ExtResource("1_oyhk7")]
+
+[node name="circle" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_oyhk7")

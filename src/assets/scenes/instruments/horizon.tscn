@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtqiccisam83b"]
-
-[ext_resource type="Texture2D" uid="uid://beanxb5jkm6ti" path="res://assets/instruments/horizon/horizon_base.png" id="1_m3vw4"]
-
-[node name="horizon" type="Node2D"]
-
-[node name="horizon_base" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("1_m3vw4")

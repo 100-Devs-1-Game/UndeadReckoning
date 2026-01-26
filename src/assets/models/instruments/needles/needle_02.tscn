@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://uc6rndiaty0g"]
+
+[ext_resource type="PackedScene" uid="uid://biqm51dduxg22" path="res://assets/models/instruments/needles/needle_02.gltf" id="1_73duo"]
+[ext_resource type="Material" uid="uid://clprsu771q71i" path="res://assets/materials/metal/brass_silver/brass_silver.tres" id="2_5867e"]
+[ext_resource type="Material" uid="uid://bbh04ot0mnaox" path="res://assets/materials/emission/red_s.tres" id="2_uwa8l"]
+
+[node name="needle_02" instance=ExtResource("1_73duo")]
+
+[node name="needle_02" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_uwa8l")
+surface_material_override/1 = ExtResource("2_5867e")

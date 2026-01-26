@@ -1,10 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://bv00hn0hrlkyr"]
+[gd_scene load_steps=23 format=3 uid="uid://bv00hn0hrlkyr"]
 
 [ext_resource type="Script" uid="uid://bb2uix8phpq51" path="res://assets/scenes/main_menu.gd" id="1_f2xsc"]
 [ext_resource type="PackedScene" uid="uid://ds6o4gry2nwsq" path="res://assets/models/plane/full_plane.tscn" id="1_uu6ob"]
-[ext_resource type="Texture2D" uid="uid://bylacdh2xt0us" path="res://assets/logo/ur_logo_shadow.png" id="2_v1ppo"]
+[ext_resource type="Shader" uid="uid://cvoggeb0s5x1x" path="res://assets/shaders/post_fx.gdshader" id="2_xmmar"]
 [ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="3_obrqb"]
 [ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="4_57ux2"]
+[ext_resource type="Texture2D" uid="uid://h0vf2fa416wo" path="res://assets/shared/title_logo/logo_no_sil.png" id="4_66en2"]
+[ext_resource type="Texture2D" uid="uid://bylacdh2xt0us" path="res://assets/shared/title_logo/ur_logo_shadow.png" id="5_xmmar"]
+[ext_resource type="AudioStream" uid="uid://dkgexl31a0uee" path="res://assets/audio/music/theme_song.ogg" id="6_v71do"]
+[ext_resource type="PackedScene" uid="uid://cy4ciie7pvopa" path="res://assets/models/instruments/radial_01.tscn" id="10_tp4c4"]
+[ext_resource type="PackedScene" uid="uid://qa1rniiq3b6p" path="res://assets/models/src/lines.tscn" id="10_uek13"]
+[ext_resource type="PackedScene" uid="uid://c81dl200vyrv2" path="res://assets/models/instruments/needles/needle_01.tscn" id="11_uek13"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rfe7q"]
 rayleigh_coefficient = 0.0
@@ -42,6 +48,22 @@ adjustment_enabled = true
 adjustment_brightness = 1.25
 adjustment_contrast = 1.01
 adjustment_saturation = 1.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66en2"]
+shader = ExtResource("2_xmmar")
+shader_parameter/color_grade = Color(0, 0.466667, 0.713726, 0.219608)
+shader_parameter/chromatic_aberration = 0.1
+shader_parameter/distortion = 0.01
+shader_parameter/film_grain = 0.15
+shader_parameter/film_compression = 0.4
+shader_parameter/film_breath = 0.25
+shader_parameter/gate_weave = 0.15
+shader_parameter/scanline = 0.01
+shader_parameter/vignette = 0.4
+shader_parameter/bloom = 0.3
+shader_parameter/halation = 0.35
+shader_parameter/edge_aa = 0.0
+shader_parameter/false_color = false
 
 [sub_resource type="Animation" id="Animation_57ux2"]
 length = 0.001
@@ -230,7 +252,97 @@ environment = SubResource("Environment_uu6ob")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, -3.69465e-08, 7.92319e-08, 0, 0.906308, 0.422618, -8.74228e-08, 0.422618, -0.906308, 0, 4.49819, -7.848)
 current = true
-fov = 80.0
+fov = 85.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer"]
+material = SubResource("ShaderMaterial_66en2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Camera3D/CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 615.0
+offset_top = 156.0
+offset_right = 695.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Play"
+
+[node name="Label2" type="Label" parent="Camera3D/CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 604.0
+offset_top = 260.0
+offset_right = 706.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Settings"
+
+[node name="Label3" type="Label" parent="Camera3D/CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 607.0
+offset_top = 332.0
+offset_right = 709.0
+offset_bottom = 383.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.815686, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Exit"
+
+[node name="disclaimer" type="Label" parent="Camera3D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.957
+anchor_right = 0.5
+anchor_bottom = 0.957
+offset_left = -450.0
+offset_top = -76.5601
+offset_right = 450.0
+offset_bottom = -17.5601
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.0980392)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 18
+text = "Undead Reckoning is a game developed as part of the 33 Games Game Jam,
+hosted by CGGJ (Collaborative Godot Game Jam)."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title" type="Sprite2D" parent="Camera3D/CanvasLayer"]
+position = Vector2(950, 155)
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("4_66en2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.06364, 0)
@@ -257,11 +369,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.884007, 4)
 
 [node name="title" type="Sprite3D" parent="."]
 transform = Transform3D(-1.56, -3.52976e-08, 1.31733e-07, 0, 1.50684, 0.403758, -1.3638e-07, 0.403758, -1.50684, 0, 4.705, 4.407)
+visible = false
 cast_shadow = 0
-texture = ExtResource("2_v1ppo")
+texture = ExtResource("5_xmmar")
 
 [node name="label" type="Label3D" parent="."]
 transform = Transform3D(-0.89, 1.29417e-06, -1.84826e-06, 0, 0.729045, 0.510483, 2.25631e-06, 0.510483, -0.729045, 0, 1.75, -6.165)
+visible = false
+shaded = true
 text = "Press [KEY] to Begin Your Reckoning"
 font = ExtResource("4_57ux2")
 
@@ -273,3 +388,34 @@ material = SubResource("FogMaterial_xmmar")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
 size = Vector3(100, 100, 100)
 material = SubResource("FogMaterial_xmmar")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_v71do")
+autoplay = true
+
+[node name="radial_01" parent="." instance=ExtResource("10_tp4c4")]
+transform = Transform3D(-29.2193, 6.09569, 3.01268, 0, 13.2921, -26.8946, -6.79954, -26.1947, -12.9462, -2.62417, 2.695, -6.458)
+
+[node name="lines" parent="." instance=ExtResource("10_uek13")]
+transform = Transform3D(-3.40892, 0.711164, 0.351479, 0, 1.55075, -3.1377, -0.793279, -3.05605, -1.51039, -2.58195, 2.76675, -6.62667)
+
+[node name="play" type="Label3D" parent="."]
+transform = Transform3D(-0.973976, -0.0264435, 0.225103, 0.0658236, 0.917363, 0.392571, -0.216882, 0.397172, -0.891749, -2.10141, 3.1038, -6.36831)
+text = "Play"
+font = ExtResource("4_57ux2")
+
+[node name="settings" type="Label3D" parent="."]
+transform = Transform3D(-0.973976, -0.0264435, 0.225103, 0.0658236, 0.917363, 0.392571, -0.216882, 0.397172, -0.891749, -2.1388, 2.76161, -6.55517)
+text = "Settings"
+font = ExtResource("4_57ux2")
+
+[node name="exit" type="Label3D" parent="."]
+transform = Transform3D(-0.973976, -0.0264435, 0.225103, 0.0658236, 0.917363, 0.392571, -0.216882, 0.397172, -0.891749, -2.02834, 2.46641, -6.75483)
+text = "Exit"
+font = ExtResource("4_57ux2")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.827925, 0, 0, 0, 0.827925, 0, 0, 0, 0.827925, -2.47331, 3.04068, -6.8309)
+
+[node name="needle_01" parent="Node3D" instance=ExtResource("11_uek13")]
+transform = Transform3D(-1, 7.9232e-08, 3.69465e-08, 0, 0.422618, -0.906308, -8.74227e-08, -0.906308, -0.422618, 0, 0, 0)

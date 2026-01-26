@@ -1,6 +1,7 @@
 class_name FogNodeSpawner
 extends Node
 
+@export var enabled: bool= true
 @export var viewer: Node3D
 @export var remove_distance: float= 100
 @export var minimum_spread: float= 25
@@ -10,10 +11,14 @@ var last_viewer_pos: Vector3
 
 
 func _ready() -> void:
-	assert(viewer)
 	assert(fog_node_scene)
-	spawn_fog(viewer.global_position)
-
+	if enabled:
+		if viewer:
+			spawn_fog(viewer.global_position)
+		EventBus.aircraft_spawned.connect(func(aircraft: OurAircraft): viewer= aircraft)
+	else:
+		set_physics_process(false)
+	
 
 func _physics_process(delta: float) -> void:
 	if not viewer or not is_instance_valid(viewer):

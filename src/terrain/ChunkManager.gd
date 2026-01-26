@@ -2,12 +2,11 @@
 # Manages the dynamic loading and unloading of terrain chunks based on player position.
 # It also holds the global configuration for world generation features like paths.
 class_name ChunkManager
-extends Node3D
+extends TerrainProvider
 
 # --- Node & Scene References ---
 @export var player: Node3D
 @export var chunk_scene: PackedScene
-@export var terrain_generator: BaseTerrainGenerator
 
 # --- World Generation Parameters ---
 @export var render_distance: int = 4
@@ -20,7 +19,6 @@ extends Node3D
 # --- Chunk & Scale Configuration ---
 @export var chunk_size_x: int = 32
 @export var chunk_size_z: int = 32
-@export var overall_scale: float = 10.0
 
 # --- Path Generation ---
 @export_group("Path Generation")

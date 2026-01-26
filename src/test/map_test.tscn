@@ -22,6 +22,5 @@ layout_mode = 2
 stretch_mode = 2
 script = ExtResource("5_0ofh3")
 terrain_generator = ExtResource("6_yhwk4")
-enable_elevation_lines = false
 pixel_world_scale = 25.0
 elevation_line_steps = 100.0

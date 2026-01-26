@@ -42,18 +42,17 @@ environment = SubResource("Environment_fos0i")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="ChunkManager" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+[node name="ChunkManager" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("1_sqvbp")
 player = NodePath("../Aircraft")
 chunk_scene = ExtResource("2_hri7i")
-terrain_generator = ExtResource("4_3dxm6")
 render_distance = 16
 load_trigger_distance = 6
 update_interval = 0.2
 chunk_size_x = 128
 chunk_size_z = 128
-overall_scale = 1.0
 noise_path = SubResource("FastNoiseLite_r0du0")
+terrain_generator = ExtResource("4_3dxm6")
 
 [node name="Aircraft" parent="." instance=ExtResource("3_wkp8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)

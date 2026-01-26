@@ -9,6 +9,10 @@ extends Node3D
 @onready var camera: Camera3D = $Camera3D
 
 
+func _ready() -> void:
+	EventBus.aircraft_spawned.connect(func(aircraft: OurAircraft): target_node= aircraft)
+	
+
 func _process(delta):
 	if target_node and is_instance_valid(target_node):
 		global_transform.origin = target_node.global_transform.origin

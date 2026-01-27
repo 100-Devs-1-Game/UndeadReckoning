@@ -231,4 +231,6 @@ F, V - Engine throttle up/down
 
 A,D - Ailerons left/right (roll)
 W,S - Elevator up/down (pitch)
-Q,E - Rudder left/right (yaw)"
+Q,E - Rudder left/right (yaw)
+
+R - Pitch Lock"

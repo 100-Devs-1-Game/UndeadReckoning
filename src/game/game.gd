@@ -37,10 +37,11 @@ func _input(event: InputEvent) -> void:
 					break
 
 
-func spawn_aircraft(pos: Vector3, snap_to_ground: bool= false, basis: Basis= Basis.IDENTITY):
+func spawn_aircraft(pos: Vector3, snap_to_ground: bool= false, plane_basis: Basis= Basis.IDENTITY):
 	assert(not aircraft)
 	aircraft= aircraft_scene.instantiate()
 	aircraft.position= pos
+	aircraft.transform.basis= plane_basis
 	if snap_to_ground:
 		aircraft.position.y= terrain_provider.get_height_at(pos.x, pos.z) + 1.5
 	aircraft.crashed.connect(_on_aircraft_crashed)

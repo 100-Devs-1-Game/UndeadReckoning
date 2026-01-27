@@ -16,12 +16,8 @@ fractal_octaves = 7
 
 [resource]
 script = ExtResource("1_if5yo")
-base_noise_scale = 0.1
 noise_height = SubResource("FastNoiseLite_y1egl")
-min_height = 0.0
-max_height = 300.0
 base_mountain_scale = 0.2
 noise_mountains = SubResource("FastNoiseLite_ci04p")
-mountains_threshold = 0.0
 mountain_max_height = 1500.0
 metadata/_custom_type_script = "uid://c1an50gjcejkf"

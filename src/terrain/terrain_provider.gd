@@ -5,5 +5,5 @@ extends Node
 @export var overall_scale: float = 1.0
 
 
-func get_height_at(x: float, z: float)-> float:
+func get_height_at(_x: float, _z: float)-> float:
 	return 0

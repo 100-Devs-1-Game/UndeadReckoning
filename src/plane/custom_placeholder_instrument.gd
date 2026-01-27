@@ -3,5 +3,5 @@ extends PlaceholderInstrument
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_on_update_interface({})

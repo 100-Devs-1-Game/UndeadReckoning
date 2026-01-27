@@ -17,14 +17,14 @@ func _ready() -> void:
 func update()-> void:
 	var min_height: float= 1000
 	var max_height: float= 0
-	var size: Vector2= custom_minimum_size
+	var img_size: Vector2i= custom_minimum_size
 	
-	prints("Map Size", size)
+	prints("Map Size", img_size)
 
-	var image:= Image.create(size.x, size.y, false, Image.FORMAT_RGB8)
+	var image:= Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGB8)
 	
-	for x in size.x:
-		for y in size.y:
+	for x in img_size.x:
+		for y in img_size.y:
 			var pos:= Vector2i(x, y)
 			var height= terrain_generator.get_height_at(Vector2(pos) * pixel_world_scale)
 			stored_height[pos]= height
@@ -44,8 +44,8 @@ func update()-> void:
 	if  enable_elevation_lines:
 		var neighbors: Array[Vector2i]= [ Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT ]
 
-		for x in range(1 , size.x - 1):
-			for y in range(1, size.y - 1):
+		for x in range(1 , img_size.x - 1):
+			for y in range(1, img_size.y - 1):
 				var pos:= Vector2i(x, y)
 				#var heights: Array[float]
 				var height= stored_height[pos]

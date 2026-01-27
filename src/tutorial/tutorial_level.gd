@@ -13,4 +13,4 @@ func _on_aircraft_crashed(_impact_velocity: Variant) -> void:
 
 
 func reset():
-	pass
+	get_tree().reload_current_scene()

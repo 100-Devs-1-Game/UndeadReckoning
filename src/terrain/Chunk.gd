@@ -16,9 +16,6 @@ signal finished_generating
 
 # --- Internal State ---
 var chunk_coords: Vector2i = Vector2i.ZERO
-var _grass_blade_mesh: ArrayMesh
-var _tree_mesh: ArrayMesh
-var _sorted_grass_transforms: Array[Transform3D] = []
 
 
 func initialize_chunk(coords: Vector2i, chunk_manager: ChunkManager) -> void:

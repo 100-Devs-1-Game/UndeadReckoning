@@ -72,14 +72,6 @@ func _process(delta: float) -> void:
 		
 		var player_chunk_pos = get_chunk_coords_from_pos(player.global_position)
 		
-		# Calculate the distance in chunks from the player to the center of the loaded world.
-		# We use Chebyshev distance (the greater of the x or z distance) for square grids.
-		var dist_x = abs(player_chunk_pos.x - world_center_chunk_coords.x)
-		var dist_z = abs(player_chunk_pos.y - world_center_chunk_coords.y)
-		
-		# If the player has moved outside the "safe zone", trigger a world update.
-		#if max(dist_x, dist_z) > load_trigger_distance:
-			# Pass the player's new position to re-center the world.
 		update_chunks(player_chunk_pos)
 
 

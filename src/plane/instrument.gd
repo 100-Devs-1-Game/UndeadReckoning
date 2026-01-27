@@ -26,5 +26,5 @@ func connect_module():
 		spatial_module.update_interface.connect(_on_update_interface)
 
 
-func _on_update_interface(values: Dictionary):
+func _on_update_interface(_values: Dictionary):
 	pass

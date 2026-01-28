@@ -1,0 +1,13 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://kw62hhvelee8"]
+
+[ext_resource type="Sky" uid="uid://djx338cmyvob8" path="res://assets/shaders/flowing-sky/templates/sky.tres" id="1_xslnv"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_xslnv")
+tonemap_mode = 4
+ssr_enabled = true
+glow_enabled = true
+glow_intensity = 0.89
+glow_strength = 1.89
+glow_bloom = 0.45

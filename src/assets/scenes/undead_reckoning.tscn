@@ -1,8 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://dvhtcbssi4qit"]
+[gd_scene load_steps=39 format=3 uid="uid://dvhtcbssi4qit"]
 
 [ext_resource type="Shader" uid="uid://cvoggeb0s5x1x" path="res://assets/shaders/post_fx.gdshader" id="1_50mjg"]
+[ext_resource type="Environment" uid="uid://kw62hhvelee8" path="res://assets/shaders/flowing-sky/worldenviroment_flowingsky.tres" id="1_abxjo"]
 [ext_resource type="PackedScene" uid="uid://m204k2v25wye" path="res://assets/models/plane/plane.tscn" id="1_ikapi"]
-[ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="1_tbl0e"]
 [ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="2_2yjjt"]
 [ext_resource type="PackedScene" uid="uid://b44slgwlcvl04" path="res://assets/models/plane/dots_deco.tscn" id="2_ikapi"]
 [ext_resource type="PackedScene" uid="uid://cchkvfa4tlnrm" path="res://assets/models/instruments/sticks/stick_02.tscn" id="4_6pvl5"]
@@ -35,48 +35,11 @@
 [ext_resource type="PackedScene" uid="uid://d2w1yi2qpov2l" path="res://assets/models/src/fuel.tscn" id="33_smpgh"]
 [ext_resource type="Texture2D" uid="uid://d23u1wcty7s7t" path="res://assets/instruments/fuel/1_2.png" id="34_e0oba"]
 [ext_resource type="PackedScene" uid="uid://bud811bgwdorq" path="res://assets/models/src/vertical_speed.tscn" id="35_04c23"]
-[ext_resource type="PackedScene" uid="uid://bbov0ausqilph" path="res://assets/models/instruments/needles/needle_03.tscn" id="36_8788o"]
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_e8n0q"]
-rayleigh_coefficient = 0.0
-
-[sub_resource type="Sky" id="Sky_71epr"]
-sky_material = SubResource("PhysicalSkyMaterial_e8n0q")
-
-[sub_resource type="Environment" id="Environment_64f4e"]
-background_mode = 2
-sky = SubResource("Sky_71epr")
-tonemap_mode = 3
-tonemap_exposure = 1.5
-ssr_enabled = true
-ssao_enabled = true
-sdfgi_enabled = true
-sdfgi_bounce_feedback = 1.51
-sdfgi_energy = 1.56
-glow_enabled = true
-glow_intensity = 2.56
-glow_strength = 0.89
-glow_bloom = 0.56
-glow_hdr_threshold = 0.98
-glow_hdr_scale = 1.98
-glow_map_strength = 0.98
-fog_mode = 1
-fog_density = 1.0
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.032833, 0.0660754, 0.138421, 1)
-volumetric_fog_emission = Color(0.0151412, 0.00715948, 0.0273713, 1)
-volumetric_fog_gi_inject = 5.56
-volumetric_fog_detail_spread = 2.15
-volumetric_fog_ambient_inject = 0.56
-volumetric_fog_sky_affect = 0.98
-adjustment_enabled = true
-adjustment_brightness = 1.25
-adjustment_contrast = 1.01
-adjustment_saturation = 1.01
+[ext_resource type="PackedScene" uid="uid://dol7wcb8i3oa4" path="res://assets/models/VFX/thunder/thunder_03.tscn" id="37_abxjo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1aq8a"]
 shader = ExtResource("1_50mjg")
-shader_parameter/color_grade = Color(0, 0.466667, 0.713726, 0.219608)
+shader_parameter/color_grade = Color(0, 0.439216, 0.815686, 0.254902)
 shader_parameter/chromatic_aberration = 0.1
 shader_parameter/distortion = 0.01
 shader_parameter/film_grain = 0.15
@@ -85,19 +48,20 @@ shader_parameter/film_breath = 0.1
 shader_parameter/gate_weave = 0.1
 shader_parameter/scanline = 0.01
 shader_parameter/vignette = 0.4
-shader_parameter/bloom = 0.3
+shader_parameter/bloom = 0.35
 shader_parameter/halation = 0.35
 shader_parameter/edge_aa = 0.0
+shader_parameter/protanopia = false
+shader_parameter/deuteranopia = false
+shader_parameter/tritanopia = false
 shader_parameter/false_color = false
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_w4a4u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q87xp"]
 
 [node name="undead_reckoning" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_64f4e")
+environment = ExtResource("1_abxjo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.82, -0.146)
@@ -112,12 +76,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="blocking_plane" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, 0.965926, 4.2222e-08, 0, 1.3745, -0.118947)
-visible = false
-mesh = SubResource("PlaneMesh_w4a4u")
-surface_material_override/0 = ExtResource("1_tbl0e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.06364, 0)
@@ -235,7 +193,8 @@ transform = Transform3D(-0.996228, -0.0867079, -0.00335808, 3.38322e-09, 0.03869
 transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.15, 1.681, 0.46567)
 
 [node name="knob_01" parent="." instance=ExtResource("9_1aq8a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1.5, 0.470816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169387, 1.64534, 0.468078)
+visible = false
 
 [node name="radio_stack" parent="." instance=ExtResource("10_ksdu0")]
 transform = Transform3D(0.394503, 0, -0.918895, 0, 1, 0, 0.918895, 0, 0.394503, 0.441734, 1.68212, 0.468821)
@@ -311,7 +270,7 @@ transform = Transform3D(-1.53701e-10, 0.00351627, 0.0558895, -0.056, -2.44784e-0
 transform = Transform3D(-0.17, 1.48509e-08, 5.70515e-10, 0, 0.00652593, -0.169875, -1.48619e-08, -0.169875, -0.00652593, 0.106499, 1.57767, 0.467429)
 
 [node name="compass_element" type="Sprite3D" parent="."]
-transform = Transform3D(0.007, 0, 0, 0, 0.00699459, -0.000275185, 0, 0.000275185, 0.00699459, 0.106499, 1.57769, 0.466525)
+transform = Transform3D(0.007, 0, 0, 0, 0.00699436, -0.000280923, 0, 0.000280923, 0.00699436, 0.106499, 1.57769, 0.466525)
 texture = ExtResource("32_i1x18")
 
 [node name="fuel_inst" parent="." instance=ExtResource("33_smpgh")]
@@ -327,7 +286,10 @@ texture = ExtResource("34_e0oba")
 transform = Transform3D(0.0446647, -4.95482e-10, 0.0337797, -0.0337797, -1.47656e-09, 0.0446647, 4.95482e-10, -0.056, -1.47656e-09, 0.238651, 1.68501, 0.467615)
 
 [node name="vertical_speed_inst" parent="." instance=ExtResource("35_04c23")]
-transform = Transform3D(-0.17, 4.0512e-08, 9.9339e-10, 5.7515e-10, 0.00657893, -0.169873, -4.05201e-08, -0.169873, -0.00657893, 0.239768, 1.56904, 0.467455)
+transform = Transform3D(-0.17, -1.48509e-08, -5.70516e-10, 0, 0.00652595, -0.169875, 1.48619e-08, -0.169875, -0.00652595, 0.239768, 1.56904, 0.467455)
 
-[node name="needle_04" parent="." instance=ExtResource("36_8788o")]
-transform = Transform3D(5.34992e-17, -1.22392e-09, 0.028, -0.028, -1.22392e-09, 0, 1.22392e-09, -0.028, -1.22392e-09, 0.238651, 1.54857, 0.465201)
+[node name="needle_04" parent="." instance=ExtResource("30_8aobl")]
+transform = Transform3D(-0.0557458, 0.00214972, 0.00487713, -0.00488073, -2.13343e-10, -0.0557869, -0.00214154, -0.0559587, 0.00018736, 0.242471, 1.56293, 0.465576)
+
+[node name="thunder_03" parent="." instance=ExtResource("37_abxjo")]
+transform = Transform3D(0.973976, 0.226651, 0, -0.226651, 0.973976, 0, 0, 0, 1, 3.03, 0.66, 7.073)

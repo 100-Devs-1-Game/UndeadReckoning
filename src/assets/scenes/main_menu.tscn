@@ -1,53 +1,35 @@
-[gd_scene load_steps=23 format=3 uid="uid://bv00hn0hrlkyr"]
+[gd_scene load_steps=24 format=3 uid="uid://bv00hn0hrlkyr"]
 
 [ext_resource type="Script" uid="uid://bb2uix8phpq51" path="res://assets/scenes/main_menu.gd" id="1_f2xsc"]
 [ext_resource type="PackedScene" uid="uid://ds6o4gry2nwsq" path="res://assets/models/plane/full_plane.tscn" id="1_uu6ob"]
+[ext_resource type="Sky" uid="uid://djx338cmyvob8" path="res://assets/shaders/flowing-sky/templates/sky.tres" id="2_k5f6t"]
 [ext_resource type="Shader" uid="uid://cvoggeb0s5x1x" path="res://assets/shaders/post_fx.gdshader" id="2_xmmar"]
 [ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="3_obrqb"]
 [ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="4_57ux2"]
 [ext_resource type="Texture2D" uid="uid://h0vf2fa416wo" path="res://assets/shared/title_logo/logo_no_sil.png" id="4_66en2"]
+[ext_resource type="Texture2D" uid="uid://bb7w15go5g1fe" path="res://assets/shared/title_logo/plane_icon.png" id="5_4hf8p"]
+[ext_resource type="FontFile" uid="uid://fvpkaoonuobw" path="res://assets/font/Helvetica.ttf" id="5_k5f6t"]
 [ext_resource type="Texture2D" uid="uid://bylacdh2xt0us" path="res://assets/shared/title_logo/ur_logo_shadow.png" id="5_xmmar"]
 [ext_resource type="AudioStream" uid="uid://dkgexl31a0uee" path="res://assets/audio/music/theme_song.ogg" id="6_v71do"]
 [ext_resource type="PackedScene" uid="uid://cy4ciie7pvopa" path="res://assets/models/instruments/radial_01.tscn" id="10_tp4c4"]
 [ext_resource type="PackedScene" uid="uid://qa1rniiq3b6p" path="res://assets/models/src/lines.tscn" id="10_uek13"]
 [ext_resource type="PackedScene" uid="uid://c81dl200vyrv2" path="res://assets/models/instruments/needles/needle_01.tscn" id="11_uek13"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rfe7q"]
-rayleigh_coefficient = 0.0
-
-[sub_resource type="Sky" id="Sky_cu6rx"]
-sky_material = SubResource("PhysicalSkyMaterial_rfe7q")
-
-[sub_resource type="Environment" id="Environment_uu6ob"]
+[sub_resource type="Environment" id="Environment_4ny72"]
 background_mode = 2
-sky = SubResource("Sky_cu6rx")
-tonemap_mode = 3
-tonemap_exposure = 1.5
+sky = ExtResource("2_k5f6t")
+tonemap_mode = 4
 ssr_enabled = true
-ssao_enabled = true
-sdfgi_enabled = true
-sdfgi_bounce_feedback = 1.51
-sdfgi_energy = 1.56
 glow_enabled = true
-glow_intensity = 0.98
-glow_strength = 0.89
-glow_bloom = 0.56
-glow_hdr_threshold = 0.98
-glow_hdr_scale = 1.98
-glow_map_strength = 0.98
-fog_mode = 1
-fog_density = 1.0
+glow_intensity = 0.89
+glow_strength = 1.89
+glow_bloom = 0.45
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.032833, 0.0660754, 0.138421, 1)
-volumetric_fog_emission = Color(0.0151412, 0.00715948, 0.0273713, 1)
-volumetric_fog_gi_inject = 5.56
-volumetric_fog_detail_spread = 2.15
+volumetric_fog_density = 0.0035
+volumetric_fog_albedo = Color(0.93845, 0.93845, 0.93845, 1)
+volumetric_fog_detail_spread = 0.5
 volumetric_fog_ambient_inject = 0.56
-volumetric_fog_sky_affect = 0.98
-adjustment_enabled = true
-adjustment_brightness = 1.25
-adjustment_contrast = 1.01
-adjustment_saturation = 1.01
+volumetric_fog_sky_affect = 0.89
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_66en2"]
 shader = ExtResource("2_xmmar")
@@ -63,6 +45,9 @@ shader_parameter/vignette = 0.4
 shader_parameter/bloom = 0.3
 shader_parameter/halation = 0.35
 shader_parameter/edge_aa = 0.0
+shader_parameter/protanopia = false
+shader_parameter/deuteranopia = false
+shader_parameter/tritanopia = false
 shader_parameter/false_color = false
 
 [sub_resource type="Animation" id="Animation_57ux2"]
@@ -106,7 +91,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:position")
+tracks/3/path = NodePath("Camera_01:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -183,7 +168,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:position")
+tracks/3/path = NodePath("Camera_01:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -247,16 +232,15 @@ density_texture = SubResource("NoiseTexture3D_v71do")
 script = ExtResource("1_f2xsc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_uu6ob")
+environment = SubResource("Environment_4ny72")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera_01" type="Camera3D" parent="."]
 transform = Transform3D(-1, -3.69465e-08, 7.92319e-08, 0, 0.906308, 0.422618, -8.74228e-08, 0.422618, -0.906308, 0, 4.49819, -7.848)
-current = true
 fov = 85.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+[node name="main_screen" type="CanvasLayer" parent="Camera_01"]
 
-[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="Camera_01/main_screen"]
 material = SubResource("ShaderMaterial_66en2")
 anchors_preset = 15
 anchor_right = 1.0
@@ -266,59 +250,57 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="Camera3D/CanvasLayer"]
-visible = false
+[node name="Label" type="Label" parent="Camera_01/main_screen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 615.0
-offset_top = 156.0
-offset_right = 695.0
-offset_bottom = 207.0
+offset_left = -343.0
+offset_top = 310.0
+offset_right = -263.0
+offset_bottom = 361.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_57ux2")
 theme_override_font_sizes/font_size = 34
 text = "Play"
 
-[node name="Label2" type="Label" parent="Camera3D/CanvasLayer"]
-visible = false
+[node name="Label2" type="Label" parent="Camera_01/main_screen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 604.0
-offset_top = 260.0
-offset_right = 706.0
-offset_bottom = 311.0
+offset_left = -61.0
+offset_top = 310.0
+offset_right = 41.0
+offset_bottom = 361.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_57ux2")
 theme_override_font_sizes/font_size = 34
 text = "Settings"
 
-[node name="Label3" type="Label" parent="Camera3D/CanvasLayer"]
-visible = false
+[node name="Label3" type="Label" parent="Camera_01/main_screen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 607.0
-offset_top = 332.0
-offset_right = 709.0
-offset_bottom = 383.0
+offset_left = 284.0
+offset_top = 310.0
+offset_right = 386.0
+offset_bottom = 361.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.815686, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_57ux2")
 theme_override_font_sizes/font_size = 34
 text = "Exit"
 
-[node name="disclaimer" type="Label" parent="Camera3D/CanvasLayer"]
+[node name="disclaimer" type="Label" parent="Camera_01/main_screen"]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.957
@@ -332,14 +314,346 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.0980392)
-theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.0588235)
+theme_override_fonts/font = ExtResource("5_k5f6t")
 theme_override_font_sizes/font_size = 18
 text = "Undead Reckoning is a game developed as part of the 33 Games Game Jam,
 hosted by CGGJ (Collaborative Godot Game Jam)."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="title" type="Sprite2D" parent="Camera3D/CanvasLayer"]
+[node name="plane_icon" type="Sprite2D" parent="Camera_01/main_screen"]
+position = Vector2(592.475, 877)
+rotation = 1.5708
+scale = Vector2(0.101667, 0.101667)
+texture = ExtResource("5_4hf8p")
+
+[node name="plane_icon2" type="Sprite2D" parent="Camera_01/main_screen"]
+visible = false
+position = Vector2(874, 877)
+rotation = 1.5708
+scale = Vector2(0.101667, 0.101667)
+texture = ExtResource("5_4hf8p")
+
+[node name="plane_icon3" type="Sprite2D" parent="Camera_01/main_screen"]
+visible = false
+position = Vector2(1216, 877)
+rotation = 1.5708
+scale = Vector2(0.101667, 0.101667)
+texture = ExtResource("5_4hf8p")
+
+[node name="title" type="Sprite2D" parent="Camera_01/main_screen"]
+position = Vector2(950, 155)
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("4_66en2")
+
+[node name="Camera_02" type="Camera3D" parent="."]
+transform = Transform3D(-0.938473, 0.0821057, -0.335452, 0.0871557, 0.996195, 0, 0.334175, -0.0292365, -0.942057, -0.400232, 1.14735, -0.0901909)
+fov = 85.0
+
+[node name="settings_screen" type="CanvasLayer" parent="Camera_02"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Camera_02/settings_screen"]
+material = SubResource("ShaderMaterial_66en2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="black_layer" type="ColorRect" parent="Camera_02/settings_screen"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.647059)
+
+[node name="Label" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -169.0
+offset_right = -44.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k5f6t")
+theme_override_font_sizes/font_size = 34
+text = "AUDIO"
+
+[node name="Label2" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -128.0
+offset_right = 71.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Master Volume"
+
+[node name="Label3" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -78.0
+offset_right = 58.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Music Volume"
+
+[node name="Label4" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -28.0
+offset_right = 58.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "SFX Volume"
+
+[node name="Label5" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 22.0
+offset_right = 92.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Dialogue Volume"
+
+[node name="Label11" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 411.0
+offset_top = -169.0
+offset_right = 519.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k5f6t")
+theme_override_font_sizes/font_size = 34
+text = "EXTRA"
+
+[node name="Label12" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 451.0
+offset_top = -128.0
+offset_right = 634.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Brightness"
+
+[node name="Label13" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 452.0
+offset_top = -78.0
+offset_right = 692.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Sensitivity Controls"
+
+[node name="Label14" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 454.0
+offset_top = -28.0
+offset_right = 662.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Input Remapping"
+
+[node name="Label15" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 456.0
+offset_top = 22.0
+offset_right = 666.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Color Blind Mode"
+
+[node name="Label6" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -788.0
+offset_top = -169.0
+offset_right = -680.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_k5f6t")
+theme_override_font_sizes/font_size = 34
+text = "VIDEO"
+
+[node name="Label7" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -747.0
+offset_top = -128.0
+offset_right = -521.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Display Resolution"
+
+[node name="Label8" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -748.0
+offset_top = -78.0
+offset_right = -578.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Window Type"
+
+[node name="Label9" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -748.0
+offset_top = -28.0
+offset_right = -578.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "VSync"
+
+[node name="Label10" type="Label" parent="Camera_02/settings_screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -748.0
+offset_top = 22.0
+offset_right = -544.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_57ux2")
+theme_override_font_sizes/font_size = 34
+text = "Anti-Aliasing"
+
+[node name="disclaimer" type="Label" parent="Camera_02/settings_screen"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.957
+anchor_right = 0.5
+anchor_bottom = 0.957
+offset_left = -450.0
+offset_top = -76.5601
+offset_right = 450.0
+offset_bottom = -17.5601
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.0980392)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.0588235)
+theme_override_fonts/font = ExtResource("5_k5f6t")
+theme_override_font_sizes/font_size = 18
+text = "Undead Reckoning is a game developed as part of the 33 Games Game Jam,
+hosted by CGGJ (Collaborative Godot Game Jam)."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="plane_icon" type="Sprite2D" parent="Camera_02/settings_screen"]
+position = Vector2(190, 441)
+rotation = 1.5708
+scale = Vector2(0.101667, 0.101667)
+texture = ExtResource("5_4hf8p")
+
+[node name="title" type="Sprite2D" parent="Camera_02/settings_screen"]
 position = Vector2(950, 155)
 scale = Vector2(0.78, 0.78)
 texture = ExtResource("4_66en2")
@@ -395,27 +709,33 @@ autoplay = true
 
 [node name="radial_01" parent="." instance=ExtResource("10_tp4c4")]
 transform = Transform3D(-29.2193, 6.09569, 3.01268, 0, 13.2921, -26.8946, -6.79954, -26.1947, -12.9462, -2.62417, 2.695, -6.458)
+visible = false
 
 [node name="lines" parent="." instance=ExtResource("10_uek13")]
 transform = Transform3D(-3.40892, 0.711164, 0.351479, 0, 1.55075, -3.1377, -0.793279, -3.05605, -1.51039, -2.58195, 2.76675, -6.62667)
+visible = false
 
 [node name="play" type="Label3D" parent="."]
 transform = Transform3D(-0.973976, -0.0264435, 0.225103, 0.0658236, 0.917363, 0.392571, -0.216882, 0.397172, -0.891749, -2.10141, 3.1038, -6.36831)
+visible = false
 text = "Play"
 font = ExtResource("4_57ux2")
 
 [node name="settings" type="Label3D" parent="."]
 transform = Transform3D(-0.973976, -0.0264435, 0.225103, 0.0658236, 0.917363, 0.392571, -0.216882, 0.397172, -0.891749, -2.1388, 2.76161, -6.55517)
+visible = false
 text = "Settings"
 font = ExtResource("4_57ux2")
 
 [node name="exit" type="Label3D" parent="."]
 transform = Transform3D(-0.973976, -0.0264435, 0.225103, 0.0658236, 0.917363, 0.392571, -0.216882, 0.397172, -0.891749, -2.02834, 2.46641, -6.75483)
+visible = false
 text = "Exit"
 font = ExtResource("4_57ux2")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.827925, 0, 0, 0, 0.827925, 0, 0, 0, 0.827925, -2.47331, 3.04068, -6.8309)
+visible = false
 
 [node name="needle_01" parent="Node3D" instance=ExtResource("11_uek13")]
 transform = Transform3D(-1, 7.9232e-08, 3.69465e-08, 0, 0.422618, -0.906308, -8.74227e-08, -0.906308, -0.422618, 0, 0, 0)

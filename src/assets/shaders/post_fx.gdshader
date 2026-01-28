@@ -24,16 +24,45 @@ uniform float halation = 0.35;
 /* Anti-aliasing */
 uniform float edge_aa = 0.0;
 
+/* Color Blindness */
+uniform bool protanopia = false;
+uniform bool deuteranopia = false;
+uniform bool tritanopia = false;
+
 /* Debug */
 uniform bool false_color = false;
 
 float rand(vec2 co) {
-    return fract(sin(dot(co, vec2(12.9898,78.233))) * 43758.5453);
+    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 vec3 film_curve(vec3 c) {
     c = max(c, vec3(0.0));
     return pow(c, vec3(1.0 / (1.0 + film_compression)));
+}
+
+vec3 apply_protanopia(vec3 c) {
+    return vec3(
+        0.56667 * c.r + 0.43333 * c.g,
+        0.55833 * c.r + 0.44167 * c.g,
+        0.24167 * c.g + 0.75833 * c.b
+    );
+}
+
+vec3 apply_deuteranopia(vec3 c) {
+    return vec3(
+        0.625 * c.r + 0.375 * c.g,
+        0.70  * c.r + 0.30  * c.g,
+        0.30  * c.g + 0.70  * c.b
+    );
+}
+
+vec3 apply_tritanopia(vec3 c) {
+    return vec3(
+        0.95 * c.r + 0.05 * c.g,
+        0.43333 * c.g + 0.56667 * c.b,
+        0.475 * c.g + 0.525 * c.b
+    );
 }
 
 void fragment() {
@@ -82,7 +111,16 @@ void fragment() {
     /* Color Grade */
     color = mix(color, color * color_grade.rgb, color_grade.a);
 
-    /* Edge AA */
+    /* Color Blind Application */
+    if (protanopia) {
+        color = apply_protanopia(color);
+    } else if (deuteranopia) {
+        color = apply_deuteranopia(color);
+    } else if (tritanopia) {
+        color = apply_tritanopia(color);
+    }
+
+    /* Edge AA, it doesn't work as intended yet*/
     if (edge_aa > 0.0) {
         vec2 px = SCREEN_PIXEL_SIZE;
 

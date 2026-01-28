@@ -1,0 +1,55 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://c1cf3ifx3x7dj"]
+
+[ext_resource type="Shader" uid="uid://bwrv2ak033f6u" path="res://assets/shaders/sky.gdshader" id="1_g3cdj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vxyx5"]
+shader = ExtResource("1_g3cdj")
+shader_parameter/zenith_color = Color(0.02, 0.03, 0.06, 1)
+shader_parameter/horizon_color = Color(0.08, 0.09, 0.12, 1)
+shader_parameter/night_tint = Color(0.01, 0.01, 0.02, 1)
+shader_parameter/atmosphere_density = 1.5
+shader_parameter/exposure = 1.0
+shader_parameter/sun_direction = Vector3(0, 1, 0.3)
+shader_parameter/sun_color = Color(0.8, 0.85, 1, 1)
+shader_parameter/sun_intensity = 1.0
+shader_parameter/cloud_scale = 62.36
+shader_parameter/cloud_speed = 0.01
+shader_parameter/cloud_density = 0.6
+shader_parameter/cloud_darkness = 0.6
+shader_parameter/cloud_coverage = 0.25
+shader_parameter/cloud_opacity = 1.0
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_71epr"]
+sky_material = SubResource("ShaderMaterial_vxyx5")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_71epr")
+tonemap_mode = 3
+tonemap_exposure = 1.5
+ssr_enabled = true
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.51
+sdfgi_energy = 1.56
+glow_enabled = true
+glow_intensity = 2.56
+glow_strength = 0.89
+glow_bloom = 0.56
+glow_hdr_threshold = 0.98
+glow_hdr_scale = 1.98
+glow_map_strength = 0.98
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.032833, 0.0660754, 0.138421, 1)
+volumetric_fog_emission = Color(0.0151412, 0.00715948, 0.0273713, 1)
+volumetric_fog_gi_inject = 5.56
+volumetric_fog_detail_spread = 2.15
+volumetric_fog_ambient_inject = 0.56
+volumetric_fog_sky_affect = 0.98
+adjustment_enabled = true
+adjustment_brightness = 1.25
+adjustment_contrast = 1.01
+adjustment_saturation = 1.01

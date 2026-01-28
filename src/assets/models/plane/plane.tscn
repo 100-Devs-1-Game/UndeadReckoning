@@ -29,5 +29,4 @@ surface_material_override/1 = ExtResource("2_5cyta")
 surface_material_override/0 = ExtResource("4_r18b5")
 
 [node name="plane_glass" parent="." index="3"]
-cast_shadow = 2
 surface_material_override/0 = SubResource("ShaderMaterial_6ipko")

@@ -1,4 +1,4 @@
-![Undead Reckoning's Game Logo](https://raw.githubusercontent.com/100-Devs-1-Game/UndeadReckoning/refs/heads/klipnity/src/assets/logo/ur_logo_shadow.png)
+![Undead Reckoning's Game Logo](https://github.com/100-Devs-1-Game/UndeadReckoning/blob/klipnity/src/assets/shared/title_logo/ur_logo_shadow.png)
 
 Undead Reckoning is part of the 33 games made in 100 days gamejam game hosted by CGGJ (Collaborative Godot Game Jam) 
 

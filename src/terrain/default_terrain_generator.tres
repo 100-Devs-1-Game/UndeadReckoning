@@ -19,16 +19,7 @@ seed = 60
 [resource]
 script = ExtResource("1_stptp")
 noise_continent = SubResource("FastNoiseLite_lexys")
-continent_slope_scale = 8.0
-continent_min_height = -10.0
-continent_max_height = 25.0
 noise_mountain = SubResource("FastNoiseLite_s3wkh")
-mountain_scale = 220.0
-mountain_start_height = 5.0
-mountain_fade_height = 10.0
 noise_valley = SubResource("FastNoiseLite_r8y4k")
-valley_carve_scale = 15.0
-valley_apply_threshold = 5.0
 noise_erosion = SubResource("FastNoiseLite_fbyps")
-erosion_scale = 2.5
 metadata/_custom_type_script = "uid://baxnfmwgxyqri"

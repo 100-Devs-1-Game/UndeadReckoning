@@ -41,14 +41,13 @@ shadow_enabled = true
 script = ExtResource("2_tpw1s")
 player = NodePath("../Camera3D")
 chunk_scene = ExtResource("3_3i8pq")
-terrain_generator = ExtResource("4_o2urc")
 render_distance = 16
 load_trigger_distance = 6
 update_interval = 0.2
 chunk_size_x = 128
 chunk_size_z = 128
-overall_scale = 1.0
 noise_path = SubResource("FastNoiseLite_r0du0")
+terrain_generator = ExtResource("4_o2urc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)

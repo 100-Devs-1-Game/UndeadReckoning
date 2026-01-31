@@ -12,8 +12,8 @@ fractal_octaves = 2
 width = 128
 height = 128
 depth = 256
-color_ramp = SubResource("Gradient_pwyti")
 noise = SubResource("FastNoiseLite_pwyti")
+color_ramp = SubResource("Gradient_pwyti")
 
 [sub_resource type="FogMaterial" id="FogMaterial_p3j3h"]
 density = 0.1899

@@ -181,5 +181,6 @@ offset_bottom = 30.0
 color = Color(1, 1, 1, 0.501961)
 
 [node name="UIGForce" parent="." instance=ExtResource("6")]
+layout_mode = 0
 offset_left = 216.0
 offset_right = 264.0

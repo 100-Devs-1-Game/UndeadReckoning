@@ -11,9 +11,9 @@ colors = PackedColorArray(3.73013e-07, 0.321645, 0.124654, 1, 1.05286e-07, 0.233
 frequency = 0.0388
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uym3e"]
-seamless = true
-color_ramp = SubResource("Gradient_r8y4k")
 noise = SubResource("FastNoiseLite_j2u7c")
+color_ramp = SubResource("Gradient_r8y4k")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_ni86q"]
 colors = PackedColorArray(0.28102, 0.175632, 0.0517959, 1, 0.233727, 0.138, 0.021423, 1)
@@ -21,8 +21,8 @@ colors = PackedColorArray(0.28102, 0.175632, 0.0517959, 1, 0.233727, 0.138, 0.02
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_x4yda"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0qwu"]
-color_ramp = SubResource("Gradient_ni86q")
 noise = SubResource("FastNoiseLite_x4yda")
+color_ramp = SubResource("Gradient_ni86q")
 
 [sub_resource type="Gradient" id="Gradient_fbyps"]
 colors = PackedColorArray(0.664117, 0.617495, 0.517728, 1, 0.670947, 0.601144, 0.4006, 1)
@@ -31,9 +31,9 @@ colors = PackedColorArray(0.664117, 0.617495, 0.517728, 1, 0.670947, 0.601144, 0
 frequency = 0.0449
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qtmie"]
-seamless = true
-color_ramp = SubResource("Gradient_fbyps")
 noise = SubResource("FastNoiseLite_uym3e")
+color_ramp = SubResource("Gradient_fbyps")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_dw44g"]
 colors = PackedColorArray(0.41598, 0.41598, 0.41598, 1, 0.355314, 0.355314, 0.355314, 1)
@@ -41,9 +41,9 @@ colors = PackedColorArray(0.41598, 0.41598, 0.41598, 1, 0.355314, 0.355314, 0.35
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7cxre"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_05o6f"]
-seamless = true
-color_ramp = SubResource("Gradient_dw44g")
 noise = SubResource("FastNoiseLite_7cxre")
+color_ramp = SubResource("Gradient_dw44g")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_s3wkh"]
 colors = PackedColorArray(0.808998, 0.808998, 0.808998, 1, 1, 1, 1, 1)
@@ -51,9 +51,9 @@ colors = PackedColorArray(0.808998, 0.808998, 0.808998, 1, 1, 1, 1, 1)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_811cv"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j2u7c"]
-seamless = true
-color_ramp = SubResource("Gradient_s3wkh")
 noise = SubResource("FastNoiseLite_811cv")
+color_ramp = SubResource("Gradient_s3wkh")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r8y4k"]
 render_priority = 0
@@ -83,8 +83,8 @@ shader_parameter/world_uv_scale = 0.1
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_beg16"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x4yda"]
-color_ramp = SubResource("Gradient_05o6f")
 noise = SubResource("FastNoiseLite_beg16")
+color_ramp = SubResource("Gradient_05o6f")
 
 [sub_resource type="Gradient" id="Gradient_qtmie"]
 colors = PackedColorArray(0.753984, 0.753984, 0.753984, 1, 1, 1, 1, 1)
@@ -93,9 +93,9 @@ colors = PackedColorArray(0.753984, 0.753984, 0.753984, 1, 1, 1, 1, 1)
 frequency = 0.1307
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ni86q"]
-seamless = true
-color_ramp = SubResource("Gradient_qtmie")
 noise = SubResource("FastNoiseLite_05o6f")
+color_ramp = SubResource("Gradient_qtmie")
+seamless = true
 
 [sub_resource type="Gradient" id="Gradient_811cv"]
 colors = PackedColorArray(0.625597, 0.625597, 0.625597, 1, 1, 1, 1, 1)
@@ -104,18 +104,18 @@ colors = PackedColorArray(0.625597, 0.625597, 0.625597, 1, 1, 1, 1, 1)
 frequency = 0.1455
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dw44g"]
+noise = SubResource("FastNoiseLite_qtmie")
+color_ramp = SubResource("Gradient_811cv")
 seamless = true
 as_normal_map = true
-color_ramp = SubResource("Gradient_811cv")
-noise = SubResource("FastNoiseLite_qtmie")
 
 [sub_resource type="Gradient" id="Gradient_7cxre"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ni86q"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_beg16"]
-color_ramp = SubResource("Gradient_7cxre")
 noise = SubResource("FastNoiseLite_ni86q")
+color_ramp = SubResource("Gradient_7cxre")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_811cv"]
 render_priority = 0

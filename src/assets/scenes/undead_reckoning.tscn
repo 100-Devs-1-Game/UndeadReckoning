@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dvhtcbssi4qit"]
+[gd_scene load_steps=40 format=3 uid="uid://dvhtcbssi4qit"]
 
 [ext_resource type="Shader" uid="uid://cvoggeb0s5x1x" path="res://assets/shaders/post_fx.gdshader" id="1_50mjg"]
 [ext_resource type="Environment" uid="uid://kw62hhvelee8" path="res://assets/shaders/flowing-sky/worldenviroment_flowingsky.tres" id="1_abxjo"]
@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cy4ciie7pvopa" path="res://assets/models/instruments/radial_01.tscn" id="7_71epr"]
 [ext_resource type="PackedScene" uid="uid://ny3ipxlmvcmn" path="res://assets/models/instruments/throttle_quadrant/throttle_quadrant_02.tscn" id="8_2yjjt"]
 [ext_resource type="PackedScene" uid="uid://2wfljocom7i3" path="res://assets/models/instruments/square_01.tscn" id="8_50mjg"]
-[ext_resource type="PackedScene" uid="uid://dregno51acyni" path="res://assets/models/pilot/pilot_left_hand.tscn" id="8_tbl0e"]
+[ext_resource type="PackedScene" uid="uid://bdq36q5snbee" path="res://assets/models/pilot/pilot_left_hand.tscn" id="8_tbl0e"]
 [ext_resource type="PackedScene" uid="uid://d0p7p0bbvhnji" path="res://assets/models/instruments/knob_01.tscn" id="9_1aq8a"]
-[ext_resource type="PackedScene" uid="uid://bygtn1vhu3o18" path="res://assets/models/pilot/pilot_right_hand.tscn" id="9_ikapi"]
+[ext_resource type="PackedScene" uid="uid://buff3s4ukcgs" path="res://assets/models/pilot/pilot_right_hand.tscn" id="9_ikapi"]
 [ext_resource type="PackedScene" uid="uid://cwpiqvr12p2vi" path="res://assets/models/instruments/radio_stack.tscn" id="10_ksdu0"]
 [ext_resource type="PackedScene" uid="uid://ib4uys5x1qgc" path="res://assets/models/instruments/radio_stack_02.tscn" id="11_svcld"]
 [ext_resource type="PackedScene" uid="uid://ba30pbymdbihm" path="res://assets/models/instruments/lights/light_knob_01.tscn" id="12_8aobl"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dpdvsp2trtkeq" path="res://assets/models/tape/tape_04.tscn" id="24_1aq8a"]
 [ext_resource type="PackedScene" uid="uid://bd85d8ahl7hdr" path="res://assets/models/tape/tape_05.tscn" id="25_71epr"]
 [ext_resource type="PackedScene" uid="uid://c2a5qed6ayapu" path="res://assets/models/scrap/scrap_cable_01.tscn" id="26_50mjg"]
+[ext_resource type="PackedScene" uid="uid://duhqtl2r57why" path="res://assets/models/tape/tape_baked_01.tscn" id="26_abxjo"]
 [ext_resource type="PackedScene" uid="uid://dol3uq6hikkmb" path="res://assets/models/src/air_speed.tscn" id="27_1aq8a"]
 [ext_resource type="PackedScene" uid="uid://c81dl200vyrv2" path="res://assets/models/instruments/needles/needle_01.tscn" id="28_ksdu0"]
 [ext_resource type="PackedScene" uid="uid://byq676lrdg284" path="res://assets/models/src/altimeter.tscn" id="29_svcld"]
@@ -64,7 +65,7 @@ shader_parameter/false_color = false
 environment = ExtResource("1_abxjo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.82, -0.146)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.82, -0.146)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
@@ -163,13 +164,13 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.253, 0.211)
 
 [node name="pilot_left_hand" parent="stick_03" instance=ExtResource("8_tbl0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.008, -0.005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.007, -0.006)
 
 [node name="throttle_quadrant_02" parent="." instance=ExtResource("8_2yjjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 1.25, 0.211)
 
 [node name="pilot_right_hand" parent="throttle_quadrant_02" instance=ExtResource("9_ikapi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.005, 0.00400001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00299999, 0.00199997, 0.006)
 
 [node name="radial_01" parent="." instance=ExtResource("7_71epr")]
 transform = Transform3D(-1.5, 2.60059e-10, -8.25681e-09, 8.2568e-09, 0.0944468, -1.49702, 2.60336e-10, -1.49702, -0.0944468, 0.10699, 1.71, 0.476)
@@ -233,23 +234,36 @@ font = ExtResource("15_smpgh")
 outline_size = 0
 uppercase = true
 
-[node name="tape_01" parent="." instance=ExtResource("21_nx5tf")]
+[node name="tape" type="Node3D" parent="."]
 transform = Transform3D(0.215451, -0.460837, 0.860936, -2.06283e-08, 0.881641, 0.47192, -0.976515, -0.101676, 0.189951, -0.0488188, 1.71688, 0.459797)
+visible = false
 
-[node name="tape_02" parent="." instance=ExtResource("22_71epr")]
-transform = Transform3D(-3.46166e-08, -0.0493093, -0.793469, -2.15538e-09, 0.793469, -0.0493093, 0.795, 4.16459e-12, -3.46836e-08, 0.187745, 1.74367, 0.461984)
+[node name="tape_01" parent="tape" instance=ExtResource("21_nx5tf")]
+transform = Transform3D(1, -7.45058e-09, 1.49012e-08, -7.45058e-09, 1, -1.67638e-08, 0, -2.6077e-08, 1, 0, 0, 0)
+visible = false
 
-[node name="tape_03" parent="." instance=ExtResource("23_50mjg")]
-transform = Transform3D(-3.74026e-08, -0.517519, -0.855672, -2.26215e-08, 0.855672, -0.517519, 1, 0, -4.37114e-08, -0.232618, 1.66716, 0.459461)
+[node name="tape_02" parent="tape" instance=ExtResource("22_71epr")]
+transform = Transform3D(-0.776329, -0.0106238, -0.170954, -0.0808321, 0.722279, 0.322187, 0.15101, 0.332002, -0.706396, 0.0488323, -0.0856205, 0.216724)
+visible = false
 
-[node name="tape_06" parent="." instance=ExtResource("22_71epr")]
-transform = Transform3D(-3.33713e-08, -0.645871, -0.763447, -2.82319e-08, 0.763447, -0.645871, 1, 0, -4.37114e-08, -0.138771, 1.60883, 0.461835)
+[node name="tape_03" parent="tape" instance=ExtResource("23_50mjg")]
+transform = Transform3D(-0.976514, -0.1115, -0.184356, -0.101676, 0.992888, -0.0619412, 0.18995, -0.0417414, -0.980906, -0.0392717, 0.0409005, -0.181767)
+visible = false
 
-[node name="tape_04" parent="." instance=ExtResource("24_1aq8a")]
-transform = Transform3D(-4.10004e-08, -0.34669, -0.93798, -1.51543e-08, 0.93798, -0.34669, 1, 0, -4.37114e-08, 0.281091, 1.6461, 0.456105)
+[node name="tape_06" parent="tape" instance=ExtResource("22_71epr")]
+transform = Transform3D(-0.976514, -0.139154, -0.164486, -0.101676, 0.970728, -0.217602, 0.18995, -0.195767, -0.962078, -0.0213705, -0.0540153, -0.128047)
+visible = false
 
-[node name="tape_05" parent="." instance=ExtResource("25_71epr")]
-transform = Transform3D(-3.67303e-08, -0.542134, -0.840292, -2.36974e-08, 0.840292, -0.542134, 1, 0, -4.37114e-08, 0.179661, 1.5877, 0.462114)
+[node name="tape_04" parent="tape" instance=ExtResource("24_1aq8a")]
+transform = Transform3D(-0.976514, -0.0746949, -0.202089, -0.101676, 0.98673, 0.126599, 0.18995, 0.144174, -0.97115, 0.0746848, -0.214062, 0.249927)
+visible = false
+
+[node name="tape_05" parent="tape" instance=ExtResource("25_71epr")]
+transform = Transform3D(-0.976514, -0.116804, -0.181042, -0.101676, 0.990672, -0.0907305, 0.18995, -0.0701915, -0.979281, 0.0469637, -0.219418, 0.136184)
+visible = false
+
+[node name="tape_baked_01" parent="." instance=ExtResource("26_abxjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.084, 1.645, 0.464005)
 
 [node name="scrap_cable_01" parent="." instance=ExtResource("26_50mjg")]
 transform = Transform3D(0.986286, -8.62238e-08, -0.165048, -8.74228e-08, -1, 0, -0.165048, 1.44289e-08, -0.986286, 0.372, 1.482, 0.48)
@@ -293,3 +307,4 @@ transform = Transform3D(-0.0557458, 0.00214972, 0.00487713, -0.00488073, -2.1334
 
 [node name="thunder_03" parent="." instance=ExtResource("37_abxjo")]
 transform = Transform3D(0.973976, 0.226651, 0, -0.226651, 0.973976, 0, 0, 0, 1, 3.03, 0.66, 7.073)
+visible = false

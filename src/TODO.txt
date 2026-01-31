@@ -1,3 +1,13 @@
+cockpit map and plane pos on map
+
+F2 show inputs ( Builtin Interface RichTextLabel)
+
+make PitchLock ( R ) lamp instrument
+
+add vertical speed instrument
+
+rolling rumble effect
+
 Hold Alt for fine input control
 
 Fake dynamic terrain collision

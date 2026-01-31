@@ -17,15 +17,19 @@ var target_steering_joint:= Node3D.new()
 
 
 func _ready() -> void:
+	push_error("Cockpit not connected to aircraft")
 	target_steering_joint.basis= steering_joint.basis
 	
-	await aircraft.setup_finished
+	if aircraft:
+		await aircraft.setup_finished
 	
-	var steering_module: AircraftModule= aircraft.find_modules_by_type("steering")[0]
-	steering_module.update_interface.connect(_on_update_steering)
+		var steering_module: AircraftModule= aircraft.find_modules_by_type("steering")[0]
+		steering_module.update_interface.connect(_on_update_steering)
 
 
 func _process(delta: float) -> void:
+	if not aircraft:
+		return
 	steering_joint.basis= steering_joint.basis.slerp(target_steering_joint.basis, delta * 5).orthonormalized()
 	throttle_offset.position.z= remap(aircraft.engine.current_power, 0.0, 1.0, throttle_min_offset, throttle_max_offset)
 

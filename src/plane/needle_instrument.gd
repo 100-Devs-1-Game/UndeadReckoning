@@ -12,7 +12,7 @@ extends Instrument
 
 func _ready() -> void:
 	super()
-	set_process(connect_to_module.is_empty())
+	set_process(connect_to_module.is_empty() and cockpit.aircraft)
 
 
 func _process(_delta: float) -> void:

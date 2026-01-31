@@ -9,7 +9,7 @@ extends Node3D
 
 func _ready() -> void:
 	assert(cockpit)
-	if connect_to_module:
+	if connect_to_module and cockpit.aircraft:
 		cockpit.aircraft.setup_finished.connect(connect_module)
 
 

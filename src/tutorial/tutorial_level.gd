@@ -1,5 +1,6 @@
 extends Game
 
+@export var instruction_set: TutorialInstructionSet
 
 
 func _ready() -> void:

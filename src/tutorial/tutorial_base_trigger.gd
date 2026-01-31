@@ -1,6 +1,9 @@
 class_name TutorialBaseTrigger
 extends Resource
 
+signal triggered
 
-func initialize(_aircraft: OurAircraft, _instance: TutorialBaseTrigger):
+
+
+func initialize(_aircraft: OurAircraft):
 	pass

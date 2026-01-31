@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TutorialInstructionSet" load_steps=3 format=3 uid="uid://de6xmrs6rlcew"]
+
+[ext_resource type="Script" uid="uid://dk6l60ercrqw6" path="res://tutorial/tutorial_instruction.gd" id="1_k6yfc"]
+[ext_resource type="Script" uid="uid://dxdxlixtn53ty" path="res://tutorial/tutorial_instruction_set.gd" id="2_6ubqg"]
+
+[resource]
+script = ExtResource("2_6ubqg")
+instructions = Array[ExtResource("1_k6yfc")]([null])
+metadata/_custom_type_script = "uid://dxdxlixtn53ty"

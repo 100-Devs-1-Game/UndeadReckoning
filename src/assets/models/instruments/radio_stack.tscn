@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwpiqvr12p2vi"]
+
+[ext_resource type="PackedScene" uid="uid://bfmpr6dtx06xy" path="res://assets/models/instruments/radio_stack.gltf" id="1_nyoid"]
+[ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="2_nk8oi"]
+
+[node name="radio_stack" instance=ExtResource("1_nyoid")]
+
+[node name="radio_stack" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_nk8oi")

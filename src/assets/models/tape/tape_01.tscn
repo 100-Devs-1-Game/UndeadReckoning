@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj3m2ctwynjcw"]
+
+[ext_resource type="PackedScene" uid="uid://daw6oj7oymga8" path="res://assets/models/tape/tape_01.gltf" id="1_b3eo4"]
+[ext_resource type="Material" uid="uid://bva76yuhrhs4i" path="res://assets/models/tape/textures/tape.tres" id="2_v6oc4"]
+
+[node name="tape_01" instance=ExtResource("1_b3eo4")]
+
+[node name="tape_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_v6oc4")

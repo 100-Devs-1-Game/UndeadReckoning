@@ -1,0 +1,19 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://kw62hhvelee8"]
+
+[ext_resource type="Sky" uid="uid://djx338cmyvob8" path="res://assets/shaders/flowing-sky/templates/sky.tres" id="1_xslnv"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_xslnv")
+tonemap_mode = 4
+ssr_enabled = true
+glow_enabled = true
+glow_intensity = 0.89
+glow_strength = 1.89
+glow_bloom = 0.45
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0035
+volumetric_fog_albedo = Color(0.937255, 0.937255, 0.937255, 1)
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_ambient_inject = 0.56
+volumetric_fog_sky_affect = 0.89

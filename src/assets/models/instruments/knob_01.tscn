@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0p7p0bbvhnji"]
+
+[ext_resource type="PackedScene" uid="uid://bfldi2gkg1oqv" path="res://assets/models/instruments/knob_01.gltf" id="1_xvc81"]
+[ext_resource type="Material" uid="uid://dntmm0cjt1eqv" path="res://assets/materials/metal/brass_silver/brass_silver_lighter.tres" id="2_7y63o"]
+[ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="3_3jtff"]
+
+[node name="knob_01" instance=ExtResource("1_xvc81")]
+
+[node name="knob_01" parent="." index="0"]
+transform = Transform3D(0.0039905, 0, 0, 0, 0.00103282, -0.00385452, 0, 0.00385452, 0.00103282, 0, 0, 0.005)
+surface_material_override/0 = ExtResource("2_7y63o")
+
+[node name="knob_base" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_3jtff")

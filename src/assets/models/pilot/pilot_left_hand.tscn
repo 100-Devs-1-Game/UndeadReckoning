@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdq36q5snbee"]
+
+[ext_resource type="PackedScene" uid="uid://qhd6nm7el2cs" path="res://assets/models/pilot/pilot_left_hand.gltf" id="1_fgkot"]
+[ext_resource type="Material" uid="uid://crrd6mml7pmfg" path="res://assets/models/pilot/lightskinned.tres" id="2_hph1g"]
+
+[node name="pilot_left_hand" instance=ExtResource("1_fgkot")]
+
+[node name="pilot_left_hand" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_hph1g")

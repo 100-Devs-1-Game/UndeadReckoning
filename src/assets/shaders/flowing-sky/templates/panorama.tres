@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dbu286k1fhd4q"]
+
+[ext_resource type="Shader" uid="uid://dg6mdrhs3esy8" path="res://assets/shaders/flowing-sky/shaders/panorama.gdshader" id="1_q65x2"]
+[ext_resource type="Texture2D" uid="uid://b1ulqxpu812fl" path="res://assets/shaders/flowing-sky/templates/kloppenheim_07_puresky_2k.hdr" id="2_rosgb"]
+
+[resource]
+shader = ExtResource("1_q65x2")
+shader_parameter/sky_color = Color(0.0900228, 0.0948964, 0.119151, 1)
+shader_parameter/sky_texture = ExtResource("2_rosgb")
+shader_parameter/wind_direction = Vector2(-1, 1)
+shader_parameter/wind_intensity = 0.05
+shader_parameter/wind_speed = 0.05
+shader_parameter/ground_enabled = false
+shader_parameter/ground_threshold = -2.2352e-08
+shader_parameter/ground_blend = 0.2
+shader_parameter/sun_enabled = true
+shader_parameter/sun_rotation = Vector2(25, 120)
+shader_parameter/sun_threshold = 0.94
+shader_parameter/sun_blend = 0.06
+shader_parameter/sun_show = false
+shader_parameter/pole_threshold = 0.96
+shader_parameter/pole_whirlwind = false

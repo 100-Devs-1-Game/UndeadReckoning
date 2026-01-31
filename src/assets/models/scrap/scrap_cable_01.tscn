@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2a5qed6ayapu"]
+
+[ext_resource type="PackedScene" uid="uid://dx0khmfxnbnwl" path="res://assets/models/scrap/scrap_cable_01.gltf" id="1_bdeve"]
+[ext_resource type="Material" uid="uid://ckssw3wlh12wl" path="res://assets/materials/metal/green_metal/green_metal.tres" id="2_dqu15"]
+[ext_resource type="Material" uid="uid://dntmm0cjt1eqv" path="res://assets/materials/metal/brass_silver/brass_silver_lighter.tres" id="3_bw23d"]
+[ext_resource type="Material" uid="uid://clprsu771q71i" path="res://assets/materials/metal/brass_silver/brass_silver.tres" id="4_sf74p"]
+
+[node name="scrap_cable_01" instance=ExtResource("1_bdeve")]
+
+[node name="scrap_cable_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dqu15")
+surface_material_override/1 = ExtResource("3_bw23d")
+surface_material_override/2 = ExtResource("4_sf74p")

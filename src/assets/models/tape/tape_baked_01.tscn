@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://duhqtl2r57why"]
+
+[ext_resource type="PackedScene" uid="uid://b5odfjr4woe68" path="res://assets/models/tape/tape_baked_01.gltf" id="1_k4d8s"]
+[ext_resource type="Material" uid="uid://bva76yuhrhs4i" path="res://assets/models/tape/textures/tape.tres" id="2_orlqd"]
+
+[node name="tape_baked_01" instance=ExtResource("1_k4d8s")]
+
+[node name="tape_baked_01" parent="." index="0"]
+transparency = 0.15
+surface_material_override/0 = ExtResource("2_orlqd")

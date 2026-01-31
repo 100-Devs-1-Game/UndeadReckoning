@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://crrd6mml7pmfg"]
+
+[ext_resource type="Texture2D" uid="uid://dessrrljwrbxy" path="res://assets/models/pilot/lightskinned_albedo.png" id="1_tnmxv"]
+[ext_resource type="Texture2D" uid="uid://b5b68ep0mvjlp" path="res://assets/models/pilot/lightskinned_rough_spec_cav.png" id="2_noth0"]
+[ext_resource type="Texture2D" uid="uid://t5iw3met5uq3" path="res://assets/models/pilot/lightskinned_normal.png" id="3_4fp7d"]
+
+[resource]
+albedo_texture = ExtResource("1_tnmxv")
+metallic_specular = 0.06
+metallic_texture = ExtResource("2_noth0")
+roughness_texture = ExtResource("2_noth0")
+normal_enabled = true
+normal_texture = ExtResource("3_4fp7d")
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.25
+subsurf_scatter_skin_mode = true
+texture_filter = 1

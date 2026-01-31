@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo5lbfdw6njhe"]
+
+[ext_resource type="PackedScene" uid="uid://cvv40r170ya4u" path="res://assets/models/VFX/thunder/thunder_01.gltf" id="1_yilrn"]
+[ext_resource type="Material" uid="uid://cka17opwh2i5e" path="res://assets/materials/emission/blue_e.tres" id="2_2j11v"]
+
+[node name="thunder_01" instance=ExtResource("1_yilrn")]
+
+[node name="thunder_01" parent="." index="0"]
+cast_shadow = 0
+surface_material_override/0 = ExtResource("2_2j11v")

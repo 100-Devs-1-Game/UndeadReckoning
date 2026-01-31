@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2w1yi2qpov2l"]
+
+[ext_resource type="PackedScene" uid="uid://pxfysl8x508r" path="res://assets/models/src/circle.gltf" id="1_dnnxv"]
+[ext_resource type="Texture2D" uid="uid://defeuijyasahf" path="res://assets/instruments/fuel/fuel_base.png" id="2_dnnxv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnnxv"]
+albedo_texture = ExtResource("2_dnnxv")
+metallic_specular = 0.1
+uv1_scale = Vector3(1.11, 1.11, 1.11)
+uv1_offset = Vector3(-0.06, -0.075, 0)
+
+[node name="circle" instance=ExtResource("1_dnnxv")]
+
+[node name="circle" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dnnxv")

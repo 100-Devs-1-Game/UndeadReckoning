@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3iie083tp8bk" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="3_qiacu"]
 [ext_resource type="PackedScene" uid="uid://nhbm7re0glcb" path="res://example/scenes/Airplane/visuals/LandingGear/LandingGear.tscn" id="4_v8d62"]
 [ext_resource type="PackedScene" uid="uid://dl0obdnutyqx3" path="res://example/scenes/Airplane/visuals/Flaps/Flaps.tscn" id="5_oam62"]
-[ext_resource type="PackedScene" uid="uid://bclq6x6hk0cgq" path="res://plane/placeholder_cockpit.tscn" id="6_40qx2"]
+[ext_resource type="PackedScene" uid="uid://dvhtcbssi4qit" path="res://plane/cockpit_modeled.tscn" id="6_j63b1"]
 [ext_resource type="PackedScene" uid="uid://cuhxgecwm28ng" path="res://addons/simplified_flightsim/aircraft_modules/EnergyContainer/EnergyContainer.tscn" id="6_wg0hh"]
 [ext_resource type="PackedScene" uid="uid://2pej6qvsslvh" path="res://addons/simplified_flightsim/aircraft_modules/Engine/Engine.tscn" id="7_ti7pa"]
 [ext_resource type="PackedScene" uid="uid://dwgwme28nhk5s" path="res://addons/simplified_flightsim/aircraft_modules/Steering/Steering.tscn" id="8_h6343"]
@@ -54,9 +54,10 @@ contact_monitor = true
 max_contacts_reported = 3
 angular_damp = 1.0
 script = ExtResource("1_u4a2k")
-cockpit = NodePath("SubViewportContainer/SubViewport/Cockpit")
+cockpit = NodePath("SubViewportContainer/SubViewport/CockpitModeled")
 
 [node name="Model" type="Node3D" parent="."]
+visible = false
 
 [node name="StaticParts" type="Node3D" parent="Model"]
 
@@ -110,9 +111,9 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Cockpit" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("aircraft") instance=ExtResource("6_40qx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.37108)
+[node name="CockpitModeled" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("aircraft") instance=ExtResource("6_j63b1")]
 aircraft = NodePath("../../..")
+steering_angle_factor = Vector2(-0.2, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, 0.015686, -0.22049)

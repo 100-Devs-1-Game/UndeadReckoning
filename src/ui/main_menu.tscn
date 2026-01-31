@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://bv00hn0hrlkyr"]
 
-[ext_resource type="Script" uid="uid://bb2uix8phpq51" path="res://assets/scenes/main_menu.gd" id="1_f2xsc"]
+[ext_resource type="Script" uid="uid://bb2uix8phpq51" path="res://ui/main_menu.gd" id="1_f2xsc"]
 [ext_resource type="PackedScene" uid="uid://ds6o4gry2nwsq" path="res://assets/models/plane/full_plane.tscn" id="1_uu6ob"]
 [ext_resource type="Sky" uid="uid://djx338cmyvob8" path="res://assets/shaders/flowing-sky/templates/sky.tres" id="2_k5f6t"]
 [ext_resource type="Shader" uid="uid://cvoggeb0s5x1x" path="res://assets/shaders/post_fx.gdshader" id="2_xmmar"]

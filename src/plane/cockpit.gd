@@ -4,12 +4,12 @@ extends Node3D
 @export var aircraft: OurAircraft
 
 @export var steering_joint: Node3D
+@export var throttle_offset: Node3D
+@export var steering_angle_factor: Vector2= Vector2.ONE
 @export var throttle_min_offset: float= .1
 @export var throttle_max_offset: float= -.1
-@export var steering_angle_factor: Vector2= Vector2.ONE
 
 @onready var camera: Camera3D = $Camera3D
-@onready var throttle_offset: Node3D = %"Throttle Offset"
 
 var target_steering_joint:= Node3D.new()
 

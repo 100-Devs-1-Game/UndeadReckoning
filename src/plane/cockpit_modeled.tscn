@@ -1,0 +1,299 @@
+[gd_scene load_steps=38 format=3 uid="uid://dvhtcbssi4qit"]
+
+[ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_3csdi"]
+[ext_resource type="Environment" uid="uid://kw62hhvelee8" path="res://assets/shaders/flowing-sky/worldenviroment_flowingsky.tres" id="1_clbiw"]
+[ext_resource type="PackedScene" uid="uid://m204k2v25wye" path="res://assets/models/plane/plane.tscn" id="2_3csdi"]
+[ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="3_04b72"]
+[ext_resource type="PackedScene" uid="uid://b44slgwlcvl04" path="res://assets/models/plane/dots_deco.tscn" id="4_ibri3"]
+[ext_resource type="PackedScene" uid="uid://cy4ciie7pvopa" path="res://assets/models/instruments/radial_01.tscn" id="5_450eq"]
+[ext_resource type="PackedScene" uid="uid://2wfljocom7i3" path="res://assets/models/instruments/square_01.tscn" id="6_41meh"]
+[ext_resource type="PackedScene" uid="uid://d0p7p0bbvhnji" path="res://assets/models/instruments/knob_01.tscn" id="7_bqb5l"]
+[ext_resource type="PackedScene" uid="uid://cwpiqvr12p2vi" path="res://assets/models/instruments/radio_stack.tscn" id="8_kpwpd"]
+[ext_resource type="PackedScene" uid="uid://ib4uys5x1qgc" path="res://assets/models/instruments/radio_stack_02.tscn" id="9_lhoab"]
+[ext_resource type="PackedScene" uid="uid://ba30pbymdbihm" path="res://assets/models/instruments/lights/light_knob_01.tscn" id="10_8x4mx"]
+[ext_resource type="PackedScene" uid="uid://dbl5fdutfdbaw" path="res://assets/models/instruments/lights/light_knob_02.tscn" id="11_y1rr8"]
+[ext_resource type="Material" uid="uid://d02aasme3lhsa" path="res://assets/materials/rubber/rubber_01/rubber_01.tres" id="12_68cij"]
+[ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="13_sv7re"]
+[ext_resource type="PackedScene" uid="uid://cj3m2ctwynjcw" path="res://assets/models/tape/tape_01.tscn" id="14_7qf2p"]
+[ext_resource type="PackedScene" uid="uid://bipccc3tkjfke" path="res://assets/models/tape/tape_02.tscn" id="15_7x0h5"]
+[ext_resource type="PackedScene" uid="uid://cy6wqnokxms7m" path="res://assets/models/tape/tape_03.tscn" id="16_rrnyq"]
+[ext_resource type="PackedScene" uid="uid://dpdvsp2trtkeq" path="res://assets/models/tape/tape_04.tscn" id="17_tbl3u"]
+[ext_resource type="PackedScene" uid="uid://bd85d8ahl7hdr" path="res://assets/models/tape/tape_05.tscn" id="18_sriht"]
+[ext_resource type="PackedScene" uid="uid://duhqtl2r57why" path="res://assets/models/tape/tape_baked_01.tscn" id="19_a2lvp"]
+[ext_resource type="PackedScene" uid="uid://c2a5qed6ayapu" path="res://assets/models/scrap/scrap_cable_01.tscn" id="20_trmth"]
+[ext_resource type="PackedScene" uid="uid://cbulkattyl6d7" path="res://assets/models/instruments/sticks/stick_01.tscn" id="21_77sj2"]
+[ext_resource type="PackedScene" uid="uid://cchkvfa4tlnrm" path="res://assets/models/instruments/sticks/stick_02.tscn" id="22_xkdua"]
+[ext_resource type="PackedScene" uid="uid://cilxl2hi2vgwc" path="res://assets/models/instruments/sticks/stick_03.tscn" id="23_pvv7s"]
+[ext_resource type="PackedScene" uid="uid://bdq36q5snbee" path="res://assets/models/pilot/pilot_left_hand.tscn" id="24_f8u6m"]
+[ext_resource type="PackedScene" uid="uid://ny3ipxlmvcmn" path="res://assets/models/instruments/throttle_quadrant/throttle_quadrant_02.tscn" id="25_s4osy"]
+[ext_resource type="PackedScene" uid="uid://buff3s4ukcgs" path="res://assets/models/pilot/pilot_right_hand.tscn" id="26_ih14e"]
+[ext_resource type="PackedScene" uid="uid://dol3uq6hikkmb" path="res://assets/models/src/air_speed.tscn" id="27_xgons"]
+[ext_resource type="PackedScene" uid="uid://byq676lrdg284" path="res://assets/models/src/altimeter.tscn" id="29_v6evm"]
+[ext_resource type="PackedScene" uid="uid://uc6rndiaty0g" path="res://assets/models/instruments/needles/needle_02.tscn" id="30_dgih4"]
+[ext_resource type="PackedScene" uid="uid://ox73t1u38q" path="res://assets/models/src/compass.tscn" id="31_6boke"]
+[ext_resource type="Texture2D" uid="uid://dkpyb2oiapg2d" path="res://assets/instruments/compass/compass_elements.png" id="32_yyjr3"]
+[ext_resource type="PackedScene" uid="uid://d2w1yi2qpov2l" path="res://assets/models/src/fuel.tscn" id="33_58w4m"]
+[ext_resource type="Texture2D" uid="uid://d23u1wcty7s7t" path="res://assets/instruments/fuel/1_2.png" id="34_jnip2"]
+[ext_resource type="PackedScene" uid="uid://bud811bgwdorq" path="res://assets/models/src/vertical_speed.tscn" id="35_csyyc"]
+[ext_resource type="PackedScene" uid="uid://dol7wcb8i3oa4" path="res://assets/models/VFX/thunder/thunder_03.tscn" id="36_xl3vo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q87xp"]
+
+[node name="CockpitModeled" type="Node3D" node_paths=PackedStringArray("steering_joint", "throttle_offset")]
+script = ExtResource("1_3csdi")
+steering_joint = NodePath("Controls/stick_03")
+throttle_offset = NodePath("Controls/ThrottleOffset")
+steering_angle_factor = Vector2(-0.2, -1)
+throttle_min_offset = -0.1
+throttle_max_offset = 0.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_clbiw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.82, -0.146)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.06364, 0)
+light_color = Color(0.803199, 0.887199, 0.992295, 1)
+light_energy = 0.25
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.772, 0)
+light_color = Color(0.887063, 0.920215, 0.924102, 1)
+light_energy = 0.1
+light_specular = 1.15
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_opacity = 0.56
+shadow_blur = 4.56
+omni_range = 1.183
+omni_attenuation = -3.352
+omni_shadow_mode = 0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00886472, 1.58661, 0.375963)
+light_color = Color(0.975014, 0.962702, 0.848249, 1)
+light_energy = 0.1
+light_indirect_energy = 1.32
+omni_range = 0.56
+omni_attenuation = -2.154
+omni_shadow_mode = 0
+
+[node name="small_light_01" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 1.795, 0.445)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -2.15
+omni_shadow_mode = 0
+
+[node name="small_light_02" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051, 1.795, 0.445)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -2.15
+omni_shadow_mode = 0
+
+[node name="small_light_03" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448058, 1.755, 0.354)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
+[node name="small_light_04" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444737, 1.75546, 0.354)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
+[node name="small_light_05" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385361, 1.49989, 0.400393)
+light_color = Color(0.996496, 0.489188, 0.420708, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -2.15
+omni_shadow_mode = 0
+
+[node name="Static" type="Node3D" parent="."]
+
+[node name="plane" parent="Static" instance=ExtResource("2_3csdi")]
+
+[node name="plane_propeller" parent="Static" instance=ExtResource("3_04b72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45689, 2)
+
+[node name="dots_deco" parent="Static" instance=ExtResource("4_ibri3")]
+
+[node name="radial_01" parent="Static" instance=ExtResource("5_450eq")]
+transform = Transform3D(-1.5, 2.60059e-10, -8.25681e-09, 8.2568e-09, 0.0944468, -1.49702, 2.60336e-10, -1.49702, -0.0944468, 0.10699, 1.71, 0.476)
+
+[node name="radial_02" parent="Static" instance=ExtResource("5_450eq")]
+transform = Transform3D(-1.5, 2.6217e-07, 5.07484e-09, 5.07484e-09, 0.0580494, -1.49888, -2.6217e-07, -1.49888, -0.0580494, 0.106562, 1.57755, 0.476)
+
+[node name="radial_03" parent="Static" instance=ExtResource("5_450eq")]
+transform = Transform3D(-1.5, 2.6217e-07, 5.07484e-09, 5.07484e-09, 0.0580494, -1.49888, -2.6217e-07, -1.49888, -0.0580494, 0.24, 1.56889, 0.476)
+
+[node name="radial_04" parent="Static" instance=ExtResource("5_450eq")]
+transform = Transform3D(-1.5, 2.6217e-07, 5.07484e-09, 5.07484e-09, 0.0580494, -1.49888, -2.6217e-07, -1.49888, -0.0580494, 0.24, 1.69466, 0.476)
+
+[node name="radial_05" parent="Static" instance=ExtResource("5_450eq")]
+transform = Transform3D(-0.996228, -0.0867079, -0.00335808, 3.38322e-09, 0.0386996, -0.999251, 0.0867729, -0.995482, -0.0385536, 0.341755, 1.63576, 0.472516)
+
+[node name="radial_06" parent="Static" instance=ExtResource("5_450eq")]
+transform = Transform3D(-0.996228, -0.0867079, -0.00335808, 3.38322e-09, 0.0386996, -0.999251, 0.0867729, -0.995482, -0.0385536, -0.292, 1.636, 0.473)
+
+[node name="square_01" parent="Static" instance=ExtResource("6_41meh")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.15, 1.681, 0.46567)
+
+[node name="knob_01" parent="Static" instance=ExtResource("7_bqb5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169387, 1.64534, 0.468078)
+visible = false
+
+[node name="radio_stack" parent="Static" instance=ExtResource("8_kpwpd")]
+transform = Transform3D(0.394503, 0, -0.918895, 0, 1, 0, 0.918895, 0, 0.394503, 0.441734, 1.68212, 0.468821)
+visible = false
+
+[node name="radio_stack_02" parent="Static" instance=ExtResource("9_lhoab")]
+transform = Transform3D(-1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0, 2.5, -0.14, 1.528, 0.564571)
+
+[node name="light_knob_01" parent="Static" instance=ExtResource("10_8x4mx")]
+transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0.0484923, 1.81244, 0.462078)
+
+[node name="light_knob_02" parent="Static" instance=ExtResource("10_8x4mx")]
+transform = Transform3D(0.625, 0, 0, 0, 0.624018, 0.03503, 0, -0.03503, 0.624018, -0.0520121, 1.81244, 0.462078)
+
+[node name="light_knob_03" parent="Static" instance=ExtResource("10_8x4mx")]
+transform = Transform3D(0.415375, -0.150466, -0.442096, 0.121157, 0.606133, -0.0924615, 0.45101, -0.0242511, 0.432004, -0.475, 1.771, 0.4)
+
+[node name="light_knob_04" parent="Static" instance=ExtResource("10_8x4mx")]
+transform = Transform3D(0.415092, 0.150367, 0.442395, -0.121121, 0.606152, -0.0923809, -0.451279, -0.0243788, 0.431715, 0.475, 1.771, 0.4)
+
+[node name="light_knob_05" parent="Static" instance=ExtResource("11_y1rr8")]
+transform = Transform3D(2.03742, 0, 0.268231, 0, 2.055, 0, -0.268231, 0, 2.03742, 0.375282, 1.528, 0.471)
+
+[node name="label_base" type="MeshInstance3D" parent="Static"]
+transform = Transform3D(0.198289, 0, 0.000913683, 0, 0.036, 0, -0.0261052, 0, 0.00694011, 0.369, 1.565, 0.466)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_q87xp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_68cij")
+
+[node name="label_text" type="Label3D" parent="Static/label_base"]
+transform = Transform3D(-0.498607, 0, -3.72529e-08, 0, 2.8125, 0, 1.43051e-06, 0, -16.5388, 0.00310659, 0, -0.782776)
+shaded = true
+outline_modulate = Color(0, 0, 0, 0)
+text = "low vaccum"
+font = ExtResource("13_sv7re")
+outline_size = 0
+uppercase = true
+
+[node name="tape" type="Node3D" parent="Static"]
+transform = Transform3D(0.215451, -0.460837, 0.860936, -2.06283e-08, 0.881641, 0.47192, -0.976515, -0.101676, 0.189951, -0.0488188, 1.71688, 0.459797)
+visible = false
+
+[node name="tape_01" parent="Static/tape" instance=ExtResource("14_7qf2p")]
+transform = Transform3D(1, -7.45058e-09, 1.49012e-08, -7.45058e-09, 1, -1.67638e-08, 0, -2.6077e-08, 1, 0, 0, 0)
+visible = false
+
+[node name="tape_02" parent="Static/tape" instance=ExtResource("15_7x0h5")]
+transform = Transform3D(-0.776329, -0.0106238, -0.170954, -0.0808321, 0.722279, 0.322187, 0.15101, 0.332002, -0.706396, 0.0488323, -0.0856205, 0.216724)
+visible = false
+
+[node name="tape_03" parent="Static/tape" instance=ExtResource("16_rrnyq")]
+transform = Transform3D(-0.976514, -0.1115, -0.184356, -0.101676, 0.992888, -0.0619412, 0.18995, -0.0417414, -0.980906, -0.0392717, 0.0409005, -0.181767)
+visible = false
+
+[node name="tape_06" parent="Static/tape" instance=ExtResource("15_7x0h5")]
+transform = Transform3D(-0.976514, -0.139154, -0.164486, -0.101676, 0.970728, -0.217602, 0.18995, -0.195767, -0.962078, -0.0213705, -0.0540153, -0.128047)
+visible = false
+
+[node name="tape_04" parent="Static/tape" instance=ExtResource("17_tbl3u")]
+transform = Transform3D(-0.976514, -0.0746949, -0.202089, -0.101676, 0.98673, 0.126599, 0.18995, 0.144174, -0.97115, 0.0746848, -0.214062, 0.249927)
+visible = false
+
+[node name="tape_05" parent="Static/tape" instance=ExtResource("18_sriht")]
+transform = Transform3D(-0.976514, -0.116804, -0.181042, -0.101676, 0.990672, -0.0907305, 0.18995, -0.0701915, -0.979281, 0.0469637, -0.219418, 0.136184)
+visible = false
+
+[node name="tape_baked_01" parent="Static" instance=ExtResource("19_a2lvp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.084, 1.645, 0.464005)
+
+[node name="scrap_cable_01" parent="Static" instance=ExtResource("20_trmth")]
+transform = Transform3D(0.986286, -8.62238e-08, -0.165048, -8.74228e-08, -1, 0, -0.165048, 1.44289e-08, -0.986286, 0.372, 1.482, 0.48)
+
+[node name="Controls" type="Node3D" parent="."]
+
+[node name="stick_01" parent="Controls" instance=ExtResource("21_77sj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.253, 0.211)
+visible = false
+
+[node name="stick_02" parent="Controls" instance=ExtResource("22_xkdua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.253, 0.211)
+visible = false
+
+[node name="stick_03" parent="Controls" instance=ExtResource("23_pvv7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.253, 0.211)
+
+[node name="pilot_left_hand" parent="Controls/stick_03" instance=ExtResource("24_f8u6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.007, -0.006)
+
+[node name="ThrottleOffset" type="Node3D" parent="Controls"]
+
+[node name="throttle_quadrant_02" parent="Controls/ThrottleOffset" instance=ExtResource("25_s4osy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 1.25, 0.211)
+
+[node name="pilot_right_hand" parent="Controls/ThrottleOffset/throttle_quadrant_02" instance=ExtResource("26_ih14e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00299999, 0.00199997, 0.006)
+
+[node name="Instruments" type="Node3D" parent="."]
+
+[node name="air_speed_inst" parent="Instruments" instance=ExtResource("27_xgons")]
+transform = Transform3D(-0.21, -3.17091e-08, 1.38605e-15, 0, -9.17939e-09, -0.21, 3.17091e-08, -0.21, 9.17939e-09, -0.149541, 1.68142, 0.466769)
+
+[node name="needle_02" parent="Instruments/air_speed_inst" instance=ExtResource("30_dgih4")]
+transform = Transform3D(-1.2632591e-08, 0, -0.289, 0, 0.289, 0, 0.289, 0, -1.2632591e-08, 0, 0, 0)
+
+[node name="altimeter_inst" parent="Instruments" instance=ExtResource("29_v6evm")]
+transform = Transform3D(-0.17, 2.56186e-08, 1.61174e-09, 0, 0.0106741, -0.169665, -2.56693e-08, -0.169665, -0.0106741, 0.106835, 1.71044, 0.467429)
+
+[node name="needle_02" parent="Instruments/altimeter_inst" instance=ExtResource("30_dgih4")]
+transform = Transform3D(-1.4399011e-08, 0, -0.32941177, 0, 0.32941097, 0, 0.32941097, 0, -1.4399046e-08, 0, 0, 0)
+
+[node name="compass_inst" parent="Instruments" instance=ExtResource("31_6boke")]
+transform = Transform3D(-0.17, 1.48509e-08, 5.70515e-10, 0, 0.00652593, -0.169875, -1.48619e-08, -0.169875, -0.00652593, 0.106499, 1.57767, 0.467429)
+
+[node name="Joint" type="Node3D" parent="Instruments/compass_inst"]
+transform = Transform3D(0.9999998, 0, 0, 0, 1.0000002, 0, 0, 0, 0.99999976, 0, 0, 0)
+
+[node name="compass_element" type="Sprite3D" parent="Instruments/compass_inst/Joint"]
+transform = Transform3D(0.041176468, 0, 0, 0, -1.7998774e-09, 0.041176394, 0, -0.041176394, -1.7998774e-09, 0, 0.01, 0)
+texture = ExtResource("32_yyjr3")
+
+[node name="fuel_inst" parent="Instruments" instance=ExtResource("33_58w4m")]
+transform = Transform3D(-0.17, 4.0512e-08, 9.9339e-10, 5.7515e-10, 0.00657893, -0.169873, -4.05201e-08, -0.169873, -0.00657893, 0.24, 1.69501, 0.467071)
+
+[node name="fuel_half" type="Sprite3D" parent="Instruments/fuel_inst"]
+transform = Transform3D(0.041176468, 1.3930906e-10, 6.2147776e-09, -6.2155214e-09, 0.001593506, 0.041145537, -1.0130409e-10, -0.041145537, 0.001593506, -0.010847092, 0.0026726723, -0.09225941)
+visible = false
+transparency = 0.89
+texture = ExtResource("34_jnip2")
+
+[node name="needle_03" parent="Instruments/fuel_inst" instance=ExtResource("30_dgih4")]
+transform = Transform3D(0.2671738, 0, -0.19269174, 0, 0.329411, 0, 0.19269182, 0, 0.2671737, 0.007935047, -0.0054740906, 0.05865574)
+
+[node name="vertical_speed_inst" parent="Instruments" instance=ExtResource("35_csyyc")]
+transform = Transform3D(-0.17, -1.48509e-08, -5.70516e-10, 0, 0.00652595, -0.169875, 1.48619e-08, -0.169875, -0.00652595, 0.239768, 1.56904, 0.467455)
+
+[node name="needle_04" parent="Instruments/vertical_speed_inst" instance=ExtResource("30_dgih4")]
+transform = Transform3D(0.32941183, 0, 0, 0, 0.329411, 0, 0, 0, 0.32941118, 0, 0.015, 0)
+
+[node name="thunder_03" parent="." instance=ExtResource("36_xl3vo")]
+transform = Transform3D(0.973976, 0.226651, 0, -0.226651, 0.973976, 0, 0, 0, 1, 3.03, 0.66, 7.073)
+visible = false

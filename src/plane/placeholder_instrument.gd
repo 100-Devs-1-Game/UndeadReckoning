@@ -1,7 +1,6 @@
 class_name PlaceholderInstrument
 extends Instrument
 
-@export var display_value: String
 @export var value_factor: float= 1.0
 @export_multiline var display_format:String
 

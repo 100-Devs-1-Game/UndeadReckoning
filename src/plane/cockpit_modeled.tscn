@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dvhtcbssi4qit"]
+[gd_scene load_steps=39 format=3 uid="uid://dvhtcbssi4qit"]
 
 [ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_3csdi"]
 [ext_resource type="Environment" uid="uid://kw62hhvelee8" path="res://assets/shaders/flowing-sky/worldenviroment_flowingsky.tres" id="1_clbiw"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dol3uq6hikkmb" path="res://assets/models/src/air_speed.tscn" id="27_xgons"]
 [ext_resource type="PackedScene" uid="uid://byq676lrdg284" path="res://assets/models/src/altimeter.tscn" id="29_v6evm"]
 [ext_resource type="PackedScene" uid="uid://uc6rndiaty0g" path="res://assets/models/instruments/needles/needle_02.tscn" id="30_dgih4"]
+[ext_resource type="Script" uid="uid://c5pn2dr5x32n7" path="res://plane/needle_instrument.gd" id="31_3csdi"]
 [ext_resource type="PackedScene" uid="uid://ox73t1u38q" path="res://assets/models/src/compass.tscn" id="31_6boke"]
 [ext_resource type="Texture2D" uid="uid://dkpyb2oiapg2d" path="res://assets/instruments/compass/compass_elements.png" id="32_yyjr3"]
 [ext_resource type="PackedScene" uid="uid://d2w1yi2qpov2l" path="res://assets/models/src/fuel.tscn" id="33_58w4m"]
@@ -254,44 +255,71 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00299999, 0.00199997, 0.00
 
 [node name="Instruments" type="Node3D" parent="."]
 
-[node name="air_speed_inst" parent="Instruments" instance=ExtResource("27_xgons")]
+[node name="AirSpeed" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
+script = ExtResource("31_3csdi")
+needle = NodePath("air_speed_inst/needle_02")
+min_rotation = 90.0
+max_rotation = -90.0
+max_value = 50.0
+reverse = true
+cockpit = NodePath("../..")
+display_value = "air_velocity"
+
+[node name="air_speed_inst" parent="Instruments/AirSpeed" instance=ExtResource("27_xgons")]
 transform = Transform3D(-0.21, -3.17091e-08, 1.38605e-15, 0, -9.17939e-09, -0.21, 3.17091e-08, -0.21, 9.17939e-09, -0.149541, 1.68142, 0.466769)
 
-[node name="needle_02" parent="Instruments/air_speed_inst" instance=ExtResource("30_dgih4")]
+[node name="needle_02" parent="Instruments/AirSpeed/air_speed_inst" instance=ExtResource("30_dgih4")]
 transform = Transform3D(-1.2632591e-08, 0, -0.289, 0, 0.289, 0, 0.289, 0, -1.2632591e-08, 0, 0, 0)
 
-[node name="altimeter_inst" parent="Instruments" instance=ExtResource("29_v6evm")]
+[node name="Altimeter" type="Node3D" parent="Instruments"]
+
+[node name="altimeter_inst" parent="Instruments/Altimeter" instance=ExtResource("29_v6evm")]
 transform = Transform3D(-0.17, 2.56186e-08, 1.61174e-09, 0, 0.0106741, -0.169665, -2.56693e-08, -0.169665, -0.0106741, 0.106835, 1.71044, 0.467429)
 
-[node name="needle_02" parent="Instruments/altimeter_inst" instance=ExtResource("30_dgih4")]
+[node name="needle_02" parent="Instruments/Altimeter/altimeter_inst" instance=ExtResource("30_dgih4")]
 transform = Transform3D(-1.4399011e-08, 0, -0.32941177, 0, 0.32941097, 0, 0.32941097, 0, -1.4399046e-08, 0, 0, 0)
 
-[node name="compass_inst" parent="Instruments" instance=ExtResource("31_6boke")]
+[node name="Compass" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
+script = ExtResource("31_3csdi")
+needle = NodePath("compass_inst/Joint")
+min_rotation = 0.0
+max_rotation = 360.0
+max_value = 360.0
+reverse = true
+cockpit = NodePath("../..")
+connect_to_module = "InstrumentAttitude"
+display_value = "bearing"
+
+[node name="compass_inst" parent="Instruments/Compass" instance=ExtResource("31_6boke")]
 transform = Transform3D(-0.17, 1.48509e-08, 5.70515e-10, 0, 0.00652593, -0.169875, -1.48619e-08, -0.169875, -0.00652593, 0.106499, 1.57767, 0.467429)
 
-[node name="Joint" type="Node3D" parent="Instruments/compass_inst"]
+[node name="Joint" type="Node3D" parent="Instruments/Compass/compass_inst"]
 transform = Transform3D(0.9999998, 0, 0, 0, 1.0000002, 0, 0, 0, 0.99999976, 0, 0, 0)
 
-[node name="compass_element" type="Sprite3D" parent="Instruments/compass_inst/Joint"]
+[node name="compass_element" type="Sprite3D" parent="Instruments/Compass/compass_inst/Joint"]
 transform = Transform3D(0.041176468, 0, 0, 0, -1.7998774e-09, 0.041176394, 0, -0.041176394, -1.7998774e-09, 0, 0.01, 0)
 texture = ExtResource("32_yyjr3")
 
-[node name="fuel_inst" parent="Instruments" instance=ExtResource("33_58w4m")]
+[node name="Fuel" type="Node3D" parent="Instruments"]
+
+[node name="fuel_inst" parent="Instruments/Fuel" instance=ExtResource("33_58w4m")]
 transform = Transform3D(-0.17, 4.0512e-08, 9.9339e-10, 5.7515e-10, 0.00657893, -0.169873, -4.05201e-08, -0.169873, -0.00657893, 0.24, 1.69501, 0.467071)
 
-[node name="fuel_half" type="Sprite3D" parent="Instruments/fuel_inst"]
+[node name="fuel_half" type="Sprite3D" parent="Instruments/Fuel/fuel_inst"]
 transform = Transform3D(0.041176468, 1.3930906e-10, 6.2147776e-09, -6.2155214e-09, 0.001593506, 0.041145537, -1.0130409e-10, -0.041145537, 0.001593506, -0.010847092, 0.0026726723, -0.09225941)
 visible = false
 transparency = 0.89
 texture = ExtResource("34_jnip2")
 
-[node name="needle_03" parent="Instruments/fuel_inst" instance=ExtResource("30_dgih4")]
+[node name="needle_03" parent="Instruments/Fuel/fuel_inst" instance=ExtResource("30_dgih4")]
 transform = Transform3D(0.2671738, 0, -0.19269174, 0, 0.329411, 0, 0.19269182, 0, 0.2671737, 0.007935047, -0.0054740906, 0.05865574)
 
-[node name="vertical_speed_inst" parent="Instruments" instance=ExtResource("35_csyyc")]
+[node name="VerticalSpeed" type="Node3D" parent="Instruments"]
+
+[node name="vertical_speed_inst" parent="Instruments/VerticalSpeed" instance=ExtResource("35_csyyc")]
 transform = Transform3D(-0.17, -1.48509e-08, -5.70516e-10, 0, 0.00652595, -0.169875, 1.48619e-08, -0.169875, -0.00652595, 0.239768, 1.56904, 0.467455)
 
-[node name="needle_04" parent="Instruments/vertical_speed_inst" instance=ExtResource("30_dgih4")]
+[node name="needle_04" parent="Instruments/VerticalSpeed/vertical_speed_inst" instance=ExtResource("30_dgih4")]
 transform = Transform3D(0.32941183, 0, 0, 0, 0.329411, 0, 0, 0, 0.32941118, 0, 0.015, 0)
 
 [node name="thunder_03" parent="." instance=ExtResource("36_xl3vo")]

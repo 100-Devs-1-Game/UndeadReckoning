@@ -54,12 +54,12 @@ transform = Transform3D(0.6, 0, 0, 0, 0.0206781, -0.599644, 0, 0.599644, 0.02067
 
 [node name="Placeholder Instrument" parent="Panel/Placeholder Instruments" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87586695, 0.38479, 0.048838407)
-display_value = "engine_power"
 value_factor = 100.0
 display_format = "Engine
 Power %d%%"
 cockpit = NodePath("../../..")
 connect_to_module = "engine"
+display_value = "engine_power"
 
 [node name="Placeholder Instrument5" parent="Panel/Placeholder Instruments" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8870292, 0.120354414, 0.048838407)
@@ -69,24 +69,24 @@ cockpit = NodePath("../../..")
 
 [node name="Placeholder Instrument2" parent="Panel/Placeholder Instruments" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4604649, 0.5463911, 0.048838407)
-display_value = "roll"
 display_format = "Roll %d°"
 cockpit = NodePath("../../..")
 connect_to_module = "InstrumentAttitude"
+display_value = "roll"
 
 [node name="Placeholder Instrument3" parent="Panel/Placeholder Instruments" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47675836, 0.33553842, 0.048838407)
-display_value = "pitch"
 display_format = "Pitch %d°"
 cockpit = NodePath("../../..")
 connect_to_module = "InstrumentAttitude"
+display_value = "pitch"
 
 [node name="Placeholder Instrument4" parent="Panel/Placeholder Instruments" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47830206, 0.11132756, 0.048838407)
-display_value = "bearing"
 display_format = "Bearing %d°"
 cockpit = NodePath("../../..")
 connect_to_module = "InstrumentAttitude"
+display_value = "bearing"
 
 [node name="Placeholder Instrument6" parent="Panel/Placeholder Instruments" node_paths=PackedStringArray("cockpit") instance=ExtResource("2_02xg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37314013, 0.43651307, 0.048838407)

@@ -3,7 +3,7 @@ extends Node3D
 
 @export var cockpit: Cockpit
 @export var connect_to_module: String
-
+@export var display_value: String
 
 
 

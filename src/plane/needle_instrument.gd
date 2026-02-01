@@ -22,10 +22,7 @@ func _process(_delta: float) -> void:
 func _on_update_interface(values: Dictionary):
 	var min_rot= min_rotation
 	var max_rot= max_rotation
-	if reverse:
-		min_rot= max_rotation
-		max_rot= min_rotation
-		
+
 	var val: float
 	
 	if connect_to_module:
@@ -33,8 +30,5 @@ func _on_update_interface(values: Dictionary):
 	else:
 		val= cockpit.aircraft.get(display_value)
 	
-	var deg: float= remap(val, min_value, max_rotation, min_rot, max_rot)
-	needle.rotation.y= deg_to_rad(deg)
-
-	if not connect_to_module:
-		prints(val, deg)
+	var deg: float= remap(val, min_value, max_value, min_rot, max_rot)
+	needle.rotation.y= deg_to_rad(deg) * ( -1 if reverse else 1 )

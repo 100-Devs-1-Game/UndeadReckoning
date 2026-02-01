@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dvhtcbssi4qit"]
+[gd_scene load_steps=40 format=3 uid="uid://dvhtcbssi4qit"]
 
 [ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_3csdi"]
 [ext_resource type="Environment" uid="uid://kw62hhvelee8" path="res://assets/shaders/flowing-sky/worldenviroment_flowingsky.tres" id="1_clbiw"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://byq676lrdg284" path="res://assets/models/src/altimeter.tscn" id="29_v6evm"]
 [ext_resource type="PackedScene" uid="uid://uc6rndiaty0g" path="res://assets/models/instruments/needles/needle_02.tscn" id="30_dgih4"]
 [ext_resource type="Script" uid="uid://c5pn2dr5x32n7" path="res://plane/needle_instrument.gd" id="31_3csdi"]
+[ext_resource type="Script" uid="uid://37d62tm1gt6k" path="res://plane/double_needle_instrument.gd" id="31_04b72"]
 [ext_resource type="PackedScene" uid="uid://ox73t1u38q" path="res://assets/models/src/compass.tscn" id="31_6boke"]
 [ext_resource type="Texture2D" uid="uid://dkpyb2oiapg2d" path="res://assets/instruments/compass/compass_elements.png" id="32_yyjr3"]
 [ext_resource type="PackedScene" uid="uid://d2w1yi2qpov2l" path="res://assets/models/src/fuel.tscn" id="33_58w4m"]
@@ -64,7 +65,7 @@ light_energy = 0.25
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.772, 0)
 light_color = Color(0.887063, 0.920215, 0.924102, 1)
-light_energy = 0.1
+light_energy = 0.5
 light_specular = 1.15
 shadow_enabled = true
 shadow_bias = 0.0
@@ -77,7 +78,7 @@ omni_shadow_mode = 0
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00886472, 1.58661, 0.375963)
 light_color = Color(0.975014, 0.962702, 0.848249, 1)
-light_energy = 0.1
+light_energy = 0.5
 light_indirect_energy = 1.32
 omni_range = 0.56
 omni_attenuation = -2.154
@@ -257,27 +258,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00299999, 0.00199997, 0.00
 
 [node name="AirSpeed" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
 script = ExtResource("31_3csdi")
-needle = NodePath("air_speed_inst/needle_02")
-min_rotation = 90.0
-max_rotation = -90.0
+needle = NodePath("air_speed_inst/Joint")
+min_rotation = 0.0
+max_rotation = -315.0
 max_value = 50.0
-reverse = true
 cockpit = NodePath("../..")
 display_value = "air_velocity"
 
 [node name="air_speed_inst" parent="Instruments/AirSpeed" instance=ExtResource("27_xgons")]
 transform = Transform3D(-0.21, -3.17091e-08, 1.38605e-15, 0, -9.17939e-09, -0.21, 3.17091e-08, -0.21, 9.17939e-09, -0.149541, 1.68142, 0.466769)
 
-[node name="needle_02" parent="Instruments/AirSpeed/air_speed_inst" instance=ExtResource("30_dgih4")]
-transform = Transform3D(-1.2632591e-08, 0, -0.289, 0, 0.289, 0, 0.289, 0, -1.2632591e-08, 0, 0, 0)
+[node name="Joint" type="Node3D" parent="Instruments/AirSpeed/air_speed_inst"]
+transform = Transform3D(0.2890001, 0, 0, 0, 0.28900006, 0, 0, 0, 0.2890001, 0, 0, 0)
 
-[node name="Altimeter" type="Node3D" parent="Instruments"]
+[node name="needle_02" parent="Instruments/AirSpeed/air_speed_inst/Joint" instance=ExtResource("30_dgih4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Altimeter" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
+script = ExtResource("31_04b72")
+needle = NodePath("altimeter_inst/Joint")
+min_rotation = 0.0
+max_rotation = 360.0
+reverse = true
+cockpit = NodePath("../..")
+display_value = "local_altitude"
 
 [node name="altimeter_inst" parent="Instruments/Altimeter" instance=ExtResource("29_v6evm")]
 transform = Transform3D(-0.17, 2.56186e-08, 1.61174e-09, 0, 0.0106741, -0.169665, -2.56693e-08, -0.169665, -0.0106741, 0.106835, 1.71044, 0.467429)
 
-[node name="needle_02" parent="Instruments/Altimeter/altimeter_inst" instance=ExtResource("30_dgih4")]
-transform = Transform3D(-1.4399011e-08, 0, -0.32941177, 0, 0.32941097, 0, 0.32941097, 0, -1.4399046e-08, 0, 0, 0)
+[node name="Joint" type="Node3D" parent="Instruments/Altimeter/altimeter_inst"]
+transform = Transform3D(0.32941097, 0, 0, 0, 0.32941097, 0, 0, 0, 0.32941177, 0, 0, 0)
+
+[node name="needle_02" parent="Instruments/Altimeter/altimeter_inst/Joint" instance=ExtResource("30_dgih4")]
+transform = Transform3D(-4.371139e-08, 0, -0.99999994, 0, 1, 0, 1, 0, -4.3711385e-08, 0, 0, 0)
 
 [node name="Compass" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
 script = ExtResource("31_3csdi")
@@ -300,7 +313,15 @@ transform = Transform3D(0.9999998, 0, 0, 0, 1.0000002, 0, 0, 0, 0.99999976, 0, 0
 transform = Transform3D(0.041176468, 0, 0, 0, -1.7998774e-09, 0.041176394, 0, -0.041176394, -1.7998774e-09, 0, 0.01, 0)
 texture = ExtResource("32_yyjr3")
 
-[node name="Fuel" type="Node3D" parent="Instruments"]
+[node name="Fuel" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
+script = ExtResource("31_3csdi")
+needle = NodePath("fuel_inst/needle_03")
+min_rotation = -35.0
+max_rotation = -140.0
+max_value = 1.0
+cockpit = NodePath("../..")
+connect_to_module = "energy_container"
+display_value = "energy_soc"
 
 [node name="fuel_inst" parent="Instruments/Fuel" instance=ExtResource("33_58w4m")]
 transform = Transform3D(-0.17, 4.0512e-08, 9.9339e-10, 5.7515e-10, 0.00657893, -0.169873, -4.05201e-08, -0.169873, -0.00657893, 0.24, 1.69501, 0.467071)
@@ -312,15 +333,23 @@ transparency = 0.89
 texture = ExtResource("34_jnip2")
 
 [node name="needle_03" parent="Instruments/Fuel/fuel_inst" instance=ExtResource("30_dgih4")]
-transform = Transform3D(0.2671738, 0, -0.19269174, 0, 0.329411, 0, 0.19269182, 0, 0.2671737, 0.007935047, -0.0054740906, 0.05865574)
+transform = Transform3D(-0.25690374, 0.012236487, -0.20582178, -0.00066761347, 0.3287792, 0.020379888, 0.20618418, 0.016311126, -0.25638616, 0.007935047, -0.0054740906, 0.05865574)
 
-[node name="VerticalSpeed" type="Node3D" parent="Instruments"]
+[node name="VerticalSpeed" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
+script = ExtResource("31_3csdi")
+needle = NodePath("vertical_speed_inst/needle_04")
+min_rotation = -175.0
+max_rotation = 175.0
+min_value = -20.0
+max_value = 20.0
+cockpit = NodePath("../..")
+display_value = "vertical_speed"
 
 [node name="vertical_speed_inst" parent="Instruments/VerticalSpeed" instance=ExtResource("35_csyyc")]
 transform = Transform3D(-0.17, -1.48509e-08, -5.70516e-10, 0, 0.00652595, -0.169875, 1.48619e-08, -0.169875, -0.00652595, 0.239768, 1.56904, 0.467455)
 
 [node name="needle_04" parent="Instruments/VerticalSpeed/vertical_speed_inst" instance=ExtResource("30_dgih4")]
-transform = Transform3D(0.32941183, 0, 0, 0, 0.329411, 0, 0, 0, 0.32941118, 0, 0.015, 0)
+transform = Transform3D(0.3293993, 0, 0.0028746184, 0, 0.329411, 0, -0.002874624, 0, 0.32939863, 0, 0.015, 0)
 
 [node name="thunder_03" parent="." instance=ExtResource("36_xl3vo")]
 transform = Transform3D(0.973976, 0.226651, 0, -0.226651, 0.973976, 0, 0, 0, 1, 3.03, 0.66, 7.073)

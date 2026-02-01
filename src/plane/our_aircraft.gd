@@ -9,6 +9,8 @@ extends Aircraft
 @onready var engine: AircraftModule_Engine = $Engine
 
 
+var vertical_speed: float
+
 
 func _ready() -> void:
 	super()
@@ -17,3 +19,8 @@ func _ready() -> void:
 	builtin_interface.visible= enable_builtin_interface
 
 	$Steering.update_interface.connect($Model/MovingParts/Steering._on_Steering_update_interface)
+
+
+func _physics_process(delta):
+	super(delta)
+	vertical_speed= air_velocity_vector.y

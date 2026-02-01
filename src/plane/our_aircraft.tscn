@@ -113,7 +113,6 @@ render_target_update_mode = 4
 
 [node name="CockpitModeled" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("aircraft") instance=ExtResource("6_j63b1")]
 aircraft = NodePath("../../..")
-steering_angle_factor = Vector2(-0.2, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, 0.015686, -0.22049)

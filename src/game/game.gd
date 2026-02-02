@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 		if event.keycode == KEY_F1:
 			var mode:= DisplayServer.window_get_mode(0)
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if mode == DisplayServer.WINDOW_MODE_WINDOWED else DisplayServer.WINDOW_MODE_FULLSCREEN)
-		if event.keycode == KEY_C:
+		if event.keycode == KEY_X:
 			cockpit_view= not cockpit_view
 			update_camera()
 

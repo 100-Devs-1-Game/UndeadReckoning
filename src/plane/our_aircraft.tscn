@@ -129,6 +129,7 @@ ModuleType = "Fuel"
 [node name="Engine" parent="." instance=ExtResource("7_ti7pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-08, 0, 0)
 auto_start = true
+FuelRate = 0.1
 UINode = NodePath("../Builtin Interface/Interface/UIEnginePower")
 ProcessPhysics = true
 ModuleType = "engine"

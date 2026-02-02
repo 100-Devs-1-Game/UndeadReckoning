@@ -51,6 +51,7 @@ size = Vector3(1.6, 1.4, 3.4)
 [node name="Aircraft" type="RigidBody3D" node_paths=PackedStringArray("cockpit")]
 gravity_scale = 0.0
 center_of_mass_mode = 1
+can_sleep = false
 contact_monitor = true
 max_contacts_reported = 3
 angular_damp = 1.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://dvhtcbssi4qit"]
+[gd_scene load_steps=41 format=3 uid="uid://dvhtcbssi4qit"]
 
 [ext_resource type="Script" uid="uid://bfmg7h717xk3f" path="res://plane/cockpit.gd" id="1_3csdi"]
 [ext_resource type="Environment" uid="uid://kw62hhvelee8" path="res://assets/shaders/flowing-sky/worldenviroment_flowingsky.tres" id="1_clbiw"]
 [ext_resource type="PackedScene" uid="uid://m204k2v25wye" path="res://assets/models/plane/plane.tscn" id="2_3csdi"]
 [ext_resource type="PackedScene" uid="uid://c6l712hiavyk6" path="res://assets/models/plane/plane_propeller.tscn" id="3_04b72"]
+[ext_resource type="Script" uid="uid://bhjohigvk1csv" path="res://plane/cockpit_camera.gd" id="3_ibri3"]
 [ext_resource type="PackedScene" uid="uid://b44slgwlcvl04" path="res://assets/models/plane/dots_deco.tscn" id="4_ibri3"]
 [ext_resource type="PackedScene" uid="uid://cy4ciie7pvopa" path="res://assets/models/instruments/radial_01.tscn" id="5_450eq"]
 [ext_resource type="PackedScene" uid="uid://2wfljocom7i3" path="res://assets/models/instruments/square_01.tscn" id="6_41meh"]
@@ -54,6 +55,7 @@ environment = ExtResource("1_clbiw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.82, -0.146)
+script = ExtResource("3_ibri3")
 
 [node name="Lights" type="Node3D" parent="."]
 

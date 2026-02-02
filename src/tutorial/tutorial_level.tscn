@@ -49,7 +49,6 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="FogNodeSpawner" parent="." instance=ExtResource("5_qhktc")]
-enabled = false
 remove_distance = 150.0
 minimum_spread = 60.0
 fog_node_scene = ExtResource("6_h60v3")

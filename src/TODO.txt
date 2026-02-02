@@ -1,16 +1,18 @@
+should the speed instrument show forward speed or absolute speed?
+
+smooth throttle animation
+
+throttle input != engine power ( so throttle doesnt go to 0% when fuel is empty )
+
 cockpit map and plane pos on map
-
-F2 show inputs ( Builtin Interface RichTextLabel)
-
-make PitchLock ( R ) lamp instrument
-
-add vertical speed instrument
-
-rolling rumble effect
 
 Hold Alt for fine input control
 
+propeller
+
 Fake dynamic terrain collision
+
+whats up with the cockpit viewport size
 
 Input plugin
 

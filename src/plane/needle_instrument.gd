@@ -20,6 +20,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_update_interface(values: Dictionary):
+	update_needle(needle, values)
+
+
+func update_needle(p_needle: Node3D, values: Dictionary, value_factor: float= 1.0):
 	var min_rot= min_rotation
 	var max_rot= max_rotation
 
@@ -30,5 +34,5 @@ func _on_update_interface(values: Dictionary):
 	else:
 		val= cockpit.aircraft.get(display_value)
 	
-	var deg: float= remap(val, min_value, max_value, min_rot, max_rot)
-	needle.rotation.y= deg_to_rad(deg) * ( -1 if reverse else 1 )
+	var deg: float= remap(val * value_factor, min_value, max_value, min_rot, max_rot)
+	p_needle.rotation.y= deg_to_rad(deg) * ( -1 if reverse else 1 )

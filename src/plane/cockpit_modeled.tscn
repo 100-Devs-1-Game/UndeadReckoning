@@ -274,8 +274,9 @@ transform = Transform3D(0.2890001, 0, 0, 0, 0.28900006, 0, 0, 0, 0.2890001, 0, 0
 [node name="needle_02" parent="Instruments/AirSpeed/air_speed_inst/Joint" instance=ExtResource("30_dgih4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Altimeter" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]
+[node name="Altimeter" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle2", "needle", "cockpit")]
 script = ExtResource("31_04b72")
+needle2 = NodePath("altimeter_inst/Joint2")
 needle = NodePath("altimeter_inst/Joint")
 min_rotation = 0.0
 max_rotation = 360.0
@@ -287,9 +288,15 @@ display_value = "local_altitude"
 transform = Transform3D(-0.17, 2.56186e-08, 1.61174e-09, 0, 0.0106741, -0.169665, -2.56693e-08, -0.169665, -0.0106741, 0.106835, 1.71044, 0.467429)
 
 [node name="Joint" type="Node3D" parent="Instruments/Altimeter/altimeter_inst"]
-transform = Transform3D(0.32941097, 0, 0, 0, 0.32941097, 0, 0, 0, 0.32941177, 0, 0, 0)
+transform = Transform3D(0.32941097, 0, 0, 0, 0.32941097, 0, 0, 0, 0.32941177, 0, 0.02, 0)
 
-[node name="needle_02" parent="Instruments/Altimeter/altimeter_inst/Joint" instance=ExtResource("30_dgih4")]
+[node name="needle" parent="Instruments/Altimeter/altimeter_inst/Joint" instance=ExtResource("30_dgih4")]
+transform = Transform3D(-4.371139e-08, 0, -0.99999994, 0, 1, 0, 1, 0, -4.3711385e-08, 0, 0, 0)
+
+[node name="Joint2" type="Node3D" parent="Instruments/Altimeter/altimeter_inst"]
+transform = Transform3D(0.234, 0, 0, 0, 0.234, 0, 0, 0, 0.234, 0, 0, 0)
+
+[node name="needle" parent="Instruments/Altimeter/altimeter_inst/Joint2" instance=ExtResource("30_dgih4")]
 transform = Transform3D(-4.371139e-08, 0, -0.99999994, 0, 1, 0, 1, 0, -4.3711385e-08, 0, 0, 0)
 
 [node name="Compass" type="Node3D" parent="Instruments" node_paths=PackedStringArray("needle", "cockpit")]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccr1lljxdffuo"]
+
+[ext_resource type="Script" uid="uid://cb7hu3bki7a6b" path="res://game/game_ui.gd" id="1_0occc"]
+[ext_resource type="FontFile" uid="uid://bhgpm5wmome6e" path="res://assets/font/Oswald-VariableFont_wght.ttf" id="2_qe77m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pyphj"]
+font = ExtResource("2_qe77m")
+font_size = 48
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qe77m"]
+resource_name = "fade_message_label"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pyphj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xnou0"]
+_data = {
+&"RESET": SubResource("Animation_pyphj"),
+&"fade_message_label": SubResource("Animation_qe77m")
+}
+
+[node name="GameUI" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_0occc")
+
+[node name="MessageLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -72.0
+offset_right = 151.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "This is a message"
+label_settings = SubResource("LabelSettings_pyphj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_xnou0")
+}

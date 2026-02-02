@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://igsomxicmlw8"]
+[gd_scene load_steps=17 format=3 uid="uid://igsomxicmlw8"]
 
 [ext_resource type="Script" uid="uid://cl3vcbs4ggh4k" path="res://tutorial/tutorial_level.gd" id="1_3qavo"]
 [ext_resource type="Script" uid="uid://dephv51hxmknh" path="res://test/sandbox.gd" id="2_2rqam"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://56vo5nqgj2qo" path="res://game/fog_node.tscn" id="6_h60v3"]
 [ext_resource type="PackedScene" uid="uid://4hscsbd3ay4s" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="7_sd0jd"]
 [ext_resource type="Script" uid="uid://b2nnrv0mb875" path="res://terrain/terrain_provider.gd" id="8_2rqam"]
+[ext_resource type="PackedScene" uid="uid://ccr1lljxdffuo" path="res://game/game_ui.tscn" id="10_e0gbw"]
 
 [sub_resource type="Gradient" id="Gradient_2db0g"]
 colors = PackedColorArray(0, 1, 0, 1, 0.204149, 0.394064, 0.240407, 1)
@@ -67,3 +68,5 @@ mesh = SubResource("PlaneMesh_jv7bj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_wkp8b")
+
+[node name="GameUI" parent="." instance=ExtResource("10_e0gbw")]

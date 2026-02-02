@@ -6,6 +6,9 @@ extends Game
 func _ready() -> void:
 	super()
 	spawn_aircraft(Vector3.ZERO, true)
+	
+	await aircraft.setup_finished
+	instruction_set.start(aircraft)
 
 
 func _on_aircraft_crashed(_impact_velocity: Variant) -> void:

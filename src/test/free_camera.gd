@@ -12,11 +12,5 @@ func _process(delta: float) -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if not event.is_pressed():
-			return
-
-		if event.keycode == KEY_F1:
-			current= true
-	elif event is InputEventMouseMotion:
+	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x) * 0.1)

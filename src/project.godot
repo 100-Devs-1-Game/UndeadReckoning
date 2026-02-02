@@ -20,6 +20,13 @@ config/icon="uid://bb7w15go5g1fe"
 
 EventBus="*res://global/event_bus.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")

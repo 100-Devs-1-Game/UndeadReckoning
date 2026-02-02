@@ -351,6 +351,7 @@ min_rotation = -175.0
 max_rotation = 175.0
 min_value = -20.0
 max_value = 20.0
+reverse = true
 cockpit = NodePath("../..")
 display_value = "vertical_speed"
 

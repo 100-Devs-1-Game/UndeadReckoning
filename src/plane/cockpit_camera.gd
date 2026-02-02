@@ -7,7 +7,8 @@ extends Camera3D
 func _ready() -> void:
 	var cockpit: Cockpit= get_parent()
 	await cockpit.ready
-	cockpit.aircraft.rumble.connect(on_rumble)
+	if cockpit.aircraft:
+		cockpit.aircraft.rumble.connect(on_rumble)
 
 
 func _process(delta: float) -> void:

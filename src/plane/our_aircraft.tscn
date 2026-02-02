@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://2yq1l46lpknc"]
+[gd_scene load_steps=28 format=3 uid="uid://2yq1l46lpknc"]
 
 [ext_resource type="Script" uid="uid://yoc1xpjtiwtk" path="res://plane/our_aircraft.gd" id="1_u4a2k"]
 [ext_resource type="PackedScene" uid="uid://bpna5btnwpvpr" path="res://example/scenes/Airplane/visuals/Engine/Engine.tscn" id="2_jd2wb"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bafvgx2bkxkvh" path="res://addons/simplified_flightsim/aircraft_modules/Instruments/InstrumentAttitude.tscn" id="18_n3epa"]
 [ext_resource type="PackedScene" uid="uid://bu2hixfhu8ndm" path="res://example/ui/UIEnginePower/UIEnginePower.tscn" id="19_ti7pa"]
 [ext_resource type="PackedScene" uid="uid://dsel16gi76dnm" path="res://example/ui/UIEnergyContainer/UIFuelLevel.tscn" id="20_h6343"]
+[ext_resource type="Script" uid="uid://celr5axcwxaao" path="res://plane/input_overview.gd" id="20_v80w6"]
 [ext_resource type="PackedScene" uid="uid://dhg4sb4ifrvh8" path="res://example/ui/UIAttitude/UIAttitude.tscn" id="23_ljo44"]
 [ext_resource type="PackedScene" uid="uid://bmut2y2xaqj6x" path="res://example/ui/UIAltSpeed/UIAltSpeed.tscn" id="24_8uiky"]
 
@@ -209,23 +210,27 @@ offset_bottom = -11.0
 grow_vertical = 0
 AircraftNode = NodePath("../../..")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Builtin Interface/Interface"]
-layout_mode = 1
+[node name="InputOverview" type="CanvasLayer" parent="."]
+script = ExtResource("20_v80w6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InputOverview"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -177.0
 offset_top = 26.0
-offset_bottom = 279.0
+offset_bottom = 437.0
 grow_horizontal = 0
+size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/paragraph_separation = 3
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-text = "CONTROLS
+text = "[center]CONTROLS[/center]
 
 P - Start engine
 O - Cut engine off
-F, V - Engine throttle up/down
+F, V - Throttle up/down
 1 - 0% Power
 2 - 50% Power
 3 - 100% Power 
@@ -234,6 +239,10 @@ A,D - Ailerons left/right (roll)
 W,S - Elevator up/down (pitch)
 Q,E - Rudder left/right (yaw)
 
-R - Pitch Lock"
+LMB / R - Pitch Lock
+RMB - Center Stick
+
+[center]F2 to toggle this window[/center]"
+scroll_active = false
 
 [connection signal="pitch_lock_toggled" from="ControlSteering" to="." method="_on_control_steering_pitch_lock_toggled"]

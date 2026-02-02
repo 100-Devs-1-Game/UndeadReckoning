@@ -65,7 +65,7 @@ light_energy = 0.25
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.772, 0)
 light_color = Color(0.887063, 0.920215, 0.924102, 1)
-light_energy = 0.5
+light_energy = 0.15
 light_specular = 1.15
 shadow_enabled = true
 shadow_bias = 0.0
@@ -78,7 +78,7 @@ omni_shadow_mode = 0
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00886472, 1.58661, 0.375963)
 light_color = Color(0.975014, 0.962702, 0.848249, 1)
-light_energy = 0.5
+light_energy = 0.15
 light_indirect_energy = 1.32
 omni_range = 0.56
 omni_attenuation = -2.154

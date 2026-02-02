@@ -6,6 +6,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rnra"]
 albedo_texture = ExtResource("2_2wcg1")
 metallic_specular = 0.1
+emission = Color(1, 1, 1, 1)
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
 uv1_offset = Vector3(-0.005, -0.04, 0)
 
 [node name="circle" instance=ExtResource("1_bo6vx")]

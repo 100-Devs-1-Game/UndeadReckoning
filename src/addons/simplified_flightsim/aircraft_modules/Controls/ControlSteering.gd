@@ -5,6 +5,8 @@
 extends AircraftModule
 class_name AircraftModule_ControlSteering
 
+signal pitch_lock_toggled(toggled_on: bool)
+
 @export var ControlActive: bool = true
 @export var enable_mouse_steering: bool = true
 @export var input_limit:= Vector3(0.5, 0.3, 0.1)
@@ -94,4 +96,4 @@ func toggle_pitch_lock():
 		mouse_steer_target= Vector2.ZERO
 		steering_module.set_x(0)
 		steering_module.set_z(0)
-		
+	pitch_lock_toggled.emit(is_pitch_locked)

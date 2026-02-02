@@ -234,3 +234,5 @@ W,S - Elevator up/down (pitch)
 Q,E - Rudder left/right (yaw)
 
 R - Pitch Lock"
+
+[connection signal="pitch_lock_toggled" from="ControlSteering" to="." method="_on_control_steering_pitch_lock_toggled"]

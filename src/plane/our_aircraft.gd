@@ -24,3 +24,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	super(delta)
 	vertical_speed= air_velocity_vector.y
+
+
+func _on_control_steering_pitch_lock_toggled(toggled_on: bool) -> void:
+	cockpit.pitch_lock_toggled.emit(toggled_on)

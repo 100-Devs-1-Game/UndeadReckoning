@@ -1,6 +1,8 @@
 class_name Cockpit
 extends Node3D
 
+signal pitch_lock_toggled(toggled_on: bool)
+
 @export var aircraft: OurAircraft
 
 @export var steering_joint: Node3D
@@ -15,9 +17,10 @@ var target_steering_joint:= Node3D.new()
 
 
 
-
 func _ready() -> void:
-	push_error("Cockpit not connected to aircraft")
+	if not aircraft:
+		push_error("Cockpit not connected to aircraft")
+	
 	target_steering_joint.basis= steering_joint.basis
 	
 	if aircraft:
@@ -33,7 +36,11 @@ func _process(delta: float) -> void:
 	steering_joint.basis= steering_joint.basis.slerp(target_steering_joint.basis, delta * 5).orthonormalized()
 	throttle_offset.position.z= remap(aircraft.engine.current_power, 0.0, 1.0, throttle_min_offset, throttle_max_offset)
 
+
 func _on_update_steering(values: Dictionary):
 	target_steering_joint.rotation_degrees.x= values["axis_x"] * 100 * steering_angle_factor.x
 	target_steering_joint.rotation_degrees.z= -values["axis_z"] * 100 * steering_angle_factor.y
+
 	
+func toggle_pitch_lock(toggled_on: bool):
+	pitch_lock_toggled.emit(toggled_on)

@@ -55,6 +55,7 @@ environment = ExtResource("1_clbiw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.82, -0.146)
+near = 0.1
 script = ExtResource("3_ibri3")
 
 [node name="Lights" type="Node3D" parent="."]

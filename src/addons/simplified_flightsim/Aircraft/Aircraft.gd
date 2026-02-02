@@ -184,6 +184,7 @@ func _on_Aircraft_body_shape_entered(body_rid, body, body_shape_index, local_sha
 		var landing_force = linear_velocity.dot(global_transform.basis.y)
 		land(landing_force, impact_force)
 	else:
+		print("Hit ground with wrong collider")
 		crash(impact_force)
 	
 
@@ -498,6 +499,7 @@ func load_energy(energy_type: String, value: float) -> bool:
 	return (not is_at_least_one_container_not_full)
 
 func land(landing_velocity: float, impact_velocity: float):
+	prints("Landed with ", landing_velocity, impact_velocity)
 	if landing_velocity > MaxLandingForce:
 		crash(landing_velocity)
 

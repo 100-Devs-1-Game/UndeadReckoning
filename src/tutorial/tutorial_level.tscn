@@ -21,6 +21,7 @@ noise = SubResource("FastNoiseLite_30l3t")
 color_ramp = SubResource("Gradient_2db0g")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhrm6"]
+albedo_color = Color(0, 0, 0, 1)
 albedo_texture = SubResource("NoiseTexture2D_4hq13")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jv7bj"]

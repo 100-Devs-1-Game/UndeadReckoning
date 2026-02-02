@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://2yq1l46lpknc"]
+[gd_scene load_steps=29 format=3 uid="uid://2yq1l46lpknc"]
 
 [ext_resource type="Script" uid="uid://yoc1xpjtiwtk" path="res://plane/our_aircraft.gd" id="1_u4a2k"]
 [ext_resource type="PackedScene" uid="uid://bpna5btnwpvpr" path="res://example/scenes/Airplane/visuals/Engine/Engine.tscn" id="2_jd2wb"]
@@ -20,6 +20,9 @@
 [ext_resource type="Script" uid="uid://celr5axcwxaao" path="res://plane/input_overview.gd" id="20_v80w6"]
 [ext_resource type="PackedScene" uid="uid://dhg4sb4ifrvh8" path="res://example/ui/UIAttitude/UIAttitude.tscn" id="23_ljo44"]
 [ext_resource type="PackedScene" uid="uid://bmut2y2xaqj6x" path="res://example/ui/UIAltSpeed/UIAltSpeed.tscn" id="24_8uiky"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v80w6"]
+friction = 0.1
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_154ft"]
 radius = 0.7
@@ -49,6 +52,7 @@ size = Vector3(8, 1, 6)
 size = Vector3(1.6, 1.4, 3.4)
 
 [node name="Aircraft" type="RigidBody3D" node_paths=PackedStringArray("cockpit")]
+physics_material_override = SubResource("PhysicsMaterial_v80w6")
 gravity_scale = 0.0
 center_of_mass_mode = 1
 can_sleep = false

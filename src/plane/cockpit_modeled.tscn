@@ -84,38 +84,6 @@ omni_range = 0.56
 omni_attenuation = -2.154
 omni_shadow_mode = 0
 
-[node name="small_light_01" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 1.795, 0.445)
-light_color = Color(0.933333, 0.866667, 0.509804, 1)
-light_specular = 45.56
-omni_range = 0.1
-omni_attenuation = -2.15
-omni_shadow_mode = 0
-
-[node name="small_light_02" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051, 1.795, 0.445)
-light_color = Color(0.933333, 0.866667, 0.509804, 1)
-light_specular = 45.56
-omni_range = 0.1
-omni_attenuation = -2.15
-omni_shadow_mode = 0
-
-[node name="small_light_03" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448058, 1.755, 0.354)
-light_color = Color(0.933333, 0.866667, 0.509804, 1)
-light_specular = 45.56
-omni_range = 0.1
-omni_attenuation = -1.428
-omni_shadow_mode = 0
-
-[node name="small_light_04" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444737, 1.75546, 0.354)
-light_color = Color(0.933333, 0.866667, 0.509804, 1)
-light_specular = 45.56
-omni_range = 0.1
-omni_attenuation = -1.428
-omni_shadow_mode = 0
-
 [node name="Static" type="Node3D" parent="."]
 
 [node name="plane" parent="Static" instance=ExtResource("2_3csdi")]
@@ -160,14 +128,46 @@ transform = Transform3D(-1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0, 2.5, 
 [node name="light_knob_01" parent="Static" instance=ExtResource("10_8x4mx")]
 transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0.0484923, 1.81244, 0.462078)
 
+[node name="small_light_01" type="OmniLight3D" parent="Static/light_knob_01"]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0.0024123192, -0.027904034, -0.027324796)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -2.15
+omni_shadow_mode = 0
+
 [node name="light_knob_02" parent="Static" instance=ExtResource("10_8x4mx")]
 transform = Transform3D(0.625, 0, 0, 0, 0.624018, 0.03503, 0, -0.03503, 0.624018, -0.0520121, 1.81244, 0.462078)
+
+[node name="small_light_02" type="OmniLight3D" parent="Static/light_knob_02"]
+transform = Transform3D(1.5999999, 0, 0, 0, 1.5974835, -0.08967666, 0, 0.08967666, 1.5974835, 0.0016193613, -0.026328564, -0.028845787)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -2.15
+omni_shadow_mode = 0
 
 [node name="light_knob_03" parent="Static" instance=ExtResource("10_8x4mx")]
 transform = Transform3D(0.415375, -0.150466, -0.442096, 0.121157, 0.606133, -0.0924615, 0.45101, -0.0242511, 0.432004, -0.475, 1.771, 0.4)
 
+[node name="small_light_03" type="OmniLight3D" parent="Static/light_knob_03"]
+transform = Transform3D(1.0633591, 0.31016183, 1.1545838, -0.38519284, 1.5516989, -0.062082283, -1.1317648, -0.23670079, 1.1059285, -0.029424459, -0.032349348, -0.07757741)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
+
 [node name="light_knob_04" parent="Static" instance=ExtResource("10_8x4mx")]
 transform = Transform3D(0.415092, 0.150367, 0.442395, -0.121121, 0.606152, -0.0923809, -0.451279, -0.0243788, 0.431715, 0.475, 1.771, 0.4)
+
+[node name="small_light_04" type="OmniLight3D" parent="Static/light_knob_04"]
+transform = Transform3D(1.0626371, -0.3100704, -1.1552758, 0.38493943, 1.5517498, -0.062409755, 1.13253, -0.23649506, 1.1051892, 0.025802583, -0.032892942, -0.08143732)
+light_color = Color(0.933333, 0.866667, 0.509804, 1)
+light_specular = 45.56
+omni_range = 0.1
+omni_attenuation = -1.428
+omni_shadow_mode = 0
 
 [node name="light_knob_05" parent="Static" instance=ExtResource("11_y1rr8")]
 transform = Transform3D(2.03742, 0, 0.268231, 0, 2.055, 0, -0.268231, 0, 2.03742, 0.375282, 1.528, 0.471)

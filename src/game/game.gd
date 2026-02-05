@@ -41,7 +41,7 @@ func spawn_aircraft(pos: Vector3, snap_to_ground: bool= false, plane_basis: Basi
 	aircraft.crashed.connect(_on_aircraft_crashed)
 	add_child(aircraft)
 	EventBus.aircraft_spawned.emit(aircraft)
-	update_camera()
+	#update_camera()
 
 
 func update_camera():

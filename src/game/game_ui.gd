@@ -23,12 +23,14 @@ func on_message_sent(msg: String, color: Color, voice: AudioStream):
 
 
 func on_play_dialog(dialog: TutorialStoryDialog):
+	Input.mouse_mode= Input.MOUSE_MODE_CONFINED
 	dialog_line_label.text= dialog.line
 	dialog_answer_label.text= dialog.answer
 	dialog_container.show()
 
 
 func on_dialog_segment_finished():
+	Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
 	var tween:= create_tween()
 	tween.tween_property(dialog_container, "modulate:a", 0.0, 2.0)
 	await tween.finished

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cl3vcbs4ggh4k" path="res://tutorial/tutorial_level.gd" id="1_3qavo"]
 [ext_resource type="Script" uid="uid://dephv51hxmknh" path="res://test/sandbox.gd" id="2_2rqam"]
-[ext_resource type="Resource" uid="uid://de6xmrs6rlcew" path="res://tutorial/tutorial_instruction_set.tres" id="2_l153n"]
+[ext_resource type="Resource" uid="uid://dkgqk4ohglkjj" path="res://tutorial/data/tutorial_chain.tres" id="2_e0gbw"]
 [ext_resource type="Environment" uid="uid://drwq2ulntec4g" path="res://game/level_environment.tres" id="3_l153n"]
 [ext_resource type="PackedScene" uid="uid://2yq1l46lpknc" path="res://plane/our_aircraft.tscn" id="4_e0gbw"]
 [ext_resource type="PackedScene" uid="uid://cup5h8or24rap" path="res://game/fog_node_spawner.tscn" id="5_qhktc"]
@@ -33,7 +33,7 @@ size = Vector2(10000, 10000)
 
 [node name="TutorialLevel" type="Node3D" node_paths=PackedStringArray("terrain_provider", "tripod")]
 script = ExtResource("1_3qavo")
-instruction_set = ExtResource("2_l153n")
+tutorial_chain = ExtResource("2_e0gbw")
 terrain_provider = NodePath("TerrainProvider")
 tripod = NodePath("CameraTripod")
 aircraft_scene = ExtResource("4_e0gbw")

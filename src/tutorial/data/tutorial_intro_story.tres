@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TutorialStorySegment" load_steps=6 format=3 uid="uid://dj0bthm05qm00"]
+
+[ext_resource type="Script" uid="uid://c33nl43e0oc4b" path="res://tutorial/tutorial_story_dialog.gd" id="1_eqv02"]
+[ext_resource type="Script" uid="uid://bjuu4r40qekj4" path="res://tutorial/tutorial_story_segment.gd" id="2_pntv8"]
+
+[sub_resource type="Resource" id="Resource_tdcw7"]
+script = ExtResource("1_eqv02")
+line = "You don’t remember how long you’ve been walking."
+answer = "Keep walking."
+metadata/_custom_type_script = "uid://c33nl43e0oc4b"
+
+[sub_resource type="Resource" id="Resource_so11s"]
+script = ExtResource("1_eqv02")
+line = "You watched the final broadcast from the cabin before the stations went dead and the sun dropped below the horizon."
+answer = "Keep walking."
+metadata/_custom_type_script = "uid://c33nl43e0oc4b"
+
+[sub_resource type="Resource" id="Resource_dqadk"]
+script = ExtResource("1_eqv02")
+line = "They said it would rise again. It didn’t."
+answer = "Keep walking."
+metadata/_custom_type_script = "uid://c33nl43e0oc4b"
+
+[resource]
+script = ExtResource("2_pntv8")
+dialog_list = Array[ExtResource("1_eqv02")]([SubResource("Resource_tdcw7"), SubResource("Resource_so11s"), SubResource("Resource_dqadk")])
+auto_advance = false
+metadata/_custom_type_script = "uid://bjuu4r40qekj4"

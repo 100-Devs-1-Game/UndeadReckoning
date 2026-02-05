@@ -1,17 +1,12 @@
 class_name TutorialInstructionSet
-extends Resource
-
-signal finished
-signal failed
+extends TutorialSegment
 
 @export var instructions: Array[TutorialInstruction]
 
 var current_index:= -1
-var aircraft: OurAircraft
 
 
-func start(p_aircraft: OurAircraft):
-	aircraft= p_aircraft
+func start():
 	advance.call_deferred()
 
 
@@ -25,8 +20,8 @@ func advance():
 	current_instruction.success.connect(on_success)
 	current_instruction.failed.connect(on_failed)
 	if current_index > 0:
-		await aircraft.get_tree().create_timer(5).timeout
-	current_instruction.initialize(aircraft)
+		await GlobalRefs.aircraft.get_tree().create_timer(5).timeout
+	current_instruction.initialize()
 
 
 func on_success():
@@ -35,4 +30,4 @@ func on_success():
 
 func on_failed():
 	failed.emit()
-	aircraft.get_tree().quit()
+	GlobalRefs.game.get_tree().quit()

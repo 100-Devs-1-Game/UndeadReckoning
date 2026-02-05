@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TutorialChain" load_steps=5 format=3 uid="uid://dkgqk4ohglkjj"]
+
+[ext_resource type="Script" uid="uid://b78wya0w8qbth" path="res://tutorial/tutorial_chain.gd" id="1_xeit2"]
+[ext_resource type="Script" uid="uid://djyvpmkus51bi" path="res://tutorial/tutorial_segment.gd" id="2_ypmrv"]
+[ext_resource type="Resource" uid="uid://dj0bthm05qm00" path="res://tutorial/data/tutorial_intro_story.tres" id="3_f4ljr"]
+[ext_resource type="Resource" uid="uid://de6xmrs6rlcew" path="res://tutorial/data/tutorial_instruction_set_1.tres" id="4_lgm81"]
+
+[resource]
+script = ExtResource("1_xeit2")
+segments = Array[ExtResource("2_ypmrv")]([ExtResource("3_f4ljr"), ExtResource("4_lgm81")])
+metadata/_custom_type_script = "uid://b78wya0w8qbth"

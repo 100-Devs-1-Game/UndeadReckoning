@@ -15,6 +15,7 @@ var vertical_speed: float
 
 
 func _ready() -> void:
+	GlobalRefs.aircraft= self
 	super()
 	Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
 	

@@ -6,20 +6,18 @@ extends TutorialBaseTrigger
 @export var threshold: float
 @export var greater_than: bool= true
 
-var aircraft: OurAircraft
 var on_destroy: Callable
 
 
-func initialize(p_aircraft: OurAircraft):
-	aircraft= p_aircraft
+func initialize():
 	if connect_to_module:
 		connect_module()
 	else:
-		aircraft.get_tree().process_frame.connect(_on_update_interface)
+		GlobalRefs.aircraft.get_tree().process_frame.connect(_on_update_interface)
 
 
 func connect_module():
-	var module= aircraft.find_modules_by_type(connect_to_module)[0]
+	var module= GlobalRefs.aircraft.find_modules_by_type(connect_to_module)[0]
 	var generic_module: AircraftModule
 	var spatial_module: AircraftModuleSpatial
 	
@@ -36,7 +34,7 @@ func connect_module():
 func _on_update_interface(values: Dictionary= {}):
 	var val
 	if not connect_to_module:
-		val= aircraft.get(key)
+		val= GlobalRefs.aircraft.get(key)
 	else:
 		assert(values.has(key))
 		val= values[key]
@@ -45,5 +43,5 @@ func _on_update_interface(values: Dictionary= {}):
 		if on_destroy:
 			on_destroy.call()
 		if not connect_to_module:
-			aircraft.get_tree().process_frame.disconnect(_on_update_interface)
+			GlobalRefs.aircraft.get_tree().process_frame.disconnect(_on_update_interface)
 		triggered.emit()

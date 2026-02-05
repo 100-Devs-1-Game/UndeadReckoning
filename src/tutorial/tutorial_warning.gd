@@ -9,6 +9,6 @@ signal triggered
 @export var voice: AudioStream
 
 
-func initialize(aircraft: OurAircraft):
-	trigger.initialize(aircraft)
+func initialize():
+	trigger.initialize()
 	trigger.triggered.connect(func(): triggered.emit(), CONNECT_ONE_SHOT)

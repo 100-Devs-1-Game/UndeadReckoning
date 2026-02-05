@@ -18,15 +18,15 @@ signal failed
 
 
 
-func initialize(aircraft: OurAircraft):
-	success_trigger.initialize(aircraft)
+func initialize():
+	success_trigger.initialize()
 	success_trigger.triggered.connect(on_success, CONNECT_ONE_SHOT)
 	if fail_trigger:
-		fail_trigger.initialize(aircraft)
+		fail_trigger.initialize()
 		fail_trigger.triggered.connect(on_fail, CONNECT_ONE_SHOT)
 
 	for warning in warnings:
-		warning.initialize(aircraft)
+		warning.initialize()
 		warning.triggered.connect(on_warning.bind(warning), CONNECT_ONE_SHOT)
 
 	EventBus.send_message.emit(message, Color.WHITE,voice)

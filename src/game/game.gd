@@ -15,7 +15,7 @@ var cameras: Array[Camera3D]
 
 
 func _ready() -> void:
-	#update_camera()
+	GlobalRefs.game= self
 	pass
 
 func _input(event: InputEvent) -> void:

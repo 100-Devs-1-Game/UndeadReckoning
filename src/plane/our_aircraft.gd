@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	super(delta)
-	vertical_speed= air_velocity_vector.y
+	vertical_speed= linear_velocity.y
 
 	if not is_flying() and RngUtils.chance100(air_velocity):
 		var strength: float= air_velocity / 1000.0

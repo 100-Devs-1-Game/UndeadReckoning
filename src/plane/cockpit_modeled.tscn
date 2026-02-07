@@ -267,6 +267,7 @@ min_rotation = 0.0
 max_rotation = -315.0
 max_value = 200.0
 factor = 1.94
+limit = true
 cockpit = NodePath("../..")
 display_value = "air_velocity"
 
@@ -357,6 +358,7 @@ max_rotation = 175.0
 min_value = -20.0
 max_value = 20.0
 factor = 1.968
+limit = true
 reverse = true
 cockpit = NodePath("../..")
 display_value = "vertical_speed"

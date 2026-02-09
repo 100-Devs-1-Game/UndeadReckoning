@@ -6,4 +6,5 @@
 [node name="tape_03" instance=ExtResource("1_6572n")]
 
 [node name="tape_03" parent="." index="0"]
+transparency = 0.15
 surface_material_override/0 = ExtResource("2_esee7")

@@ -2,7 +2,7 @@
 
 [resource]
 resource_local_to_scene = true
-albedo_color = Color(0.913725, 0.0980392, 0.0588235, 1)
+albedo_color = Color(0.9033568, 0, 0.1032014, 1)
 emission_enabled = true
 emission = Color(0.913725, 0.0980392, 0.0588235, 1)
 emission_energy_multiplier = 12.56

@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbl5fdutfdbaw"]
+[gd_scene load_steps=5 format=3 uid="uid://dbl5fdutfdbaw"]
 
 [ext_resource type="PackedScene" uid="uid://bhs2p1qxntw6h" path="res://assets/models/instruments/lights/light_knob_02.gltf" id="1_1wisa"]
-[ext_resource type="Material" uid="uid://brhcd5cryq17g" path="res://assets/materials/emission/light_red_e.tres" id="2_5rwwx"]
 [ext_resource type="Script" uid="uid://dpre0l5wubfqf" path="res://plane/light_knob.gd" id="2_tgdeg"]
 [ext_resource type="Shader" uid="uid://6ssi851pea32" path="res://assets/shaders/glass_pbr.gdshader" id="3_af4tq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_af4tq"]
 render_priority = 0
-next_pass = ExtResource("2_5rwwx")
 shader = ExtResource("3_af4tq")
 shader_parameter/albedo = Color(1, 1, 1, 0)
 shader_parameter/roughness = 0.15

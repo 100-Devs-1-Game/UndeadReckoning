@@ -31,7 +31,6 @@ fog_sky_affect = 0.161
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("tripod", "aircraft")]
 script = ExtResource("1_3dxm6")
-cockpit_view = true
 tripod = NodePath("CameraTripod")
 aircraft = NodePath("Aircraft")
 

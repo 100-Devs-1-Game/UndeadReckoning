@@ -688,7 +688,7 @@ cast_shadow = 0
 texture = ExtResource("5_xmmar")
 
 [node name="label" type="Label3D" parent="."]
-transform = Transform3D(-0.89, 1.2941663e-06, -1.848262e-06, 0, 0.72904515, 0.51048267, 2.2563117e-06, 0.51048267, -0.72904515, 0, 1.75, -6.165)
+transform = Transform3D(-0.89, 1.2941662e-06, -1.8482618e-06, 0, 0.72904515, 0.5104826, 2.2563117e-06, 0.5104826, -0.72904515, 0, 1.75, -6.165)
 visible = false
 shaded = true
 text = "Press [KEY] to Begin Your Reckoning"

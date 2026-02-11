@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbl5fdutfdbaw"]
+[gd_scene load_steps=6 format=3 uid="uid://dbl5fdutfdbaw"]
 
 [ext_resource type="PackedScene" uid="uid://bhs2p1qxntw6h" path="res://assets/models/instruments/lights/light_knob_02.gltf" id="1_1wisa"]
 [ext_resource type="Script" uid="uid://dpre0l5wubfqf" path="res://plane/light_knob.gd" id="2_tgdeg"]
 [ext_resource type="Shader" uid="uid://6ssi851pea32" path="res://assets/shaders/glass_pbr.gdshader" id="3_af4tq"]
+[ext_resource type="Material" uid="uid://brhcd5cryq17g" path="res://assets/materials/emission/light_red_e.tres" id="3_objql"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_af4tq"]
 render_priority = 0
@@ -14,6 +15,7 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [node name="light_knob_02" instance=ExtResource("1_1wisa")]
 script = ExtResource("2_tgdeg")
+light_emission_material = ExtResource("3_objql")
 
 [node name="light_knob_02" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

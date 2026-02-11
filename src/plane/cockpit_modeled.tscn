@@ -209,9 +209,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.18093054, 1.489339, 0.4705
 
 [node name="small_light_05" type="OmniLight3D" parent="Static/light_knob_05"]
 transform = Transform3D(0.4824547, 0, -0.063516274, 0, 0.48661795, 0, 0.063516274, 0, 0.4824547, 0.004074529, -0.009922504, -0.020053)
-light_color = Color(0.996496, 0.489188, 0.420708, 1)
+light_color = Color(0.67447495, 0.0643017, 0.027421726, 1)
 light_specular = 45.56
-omni_range = 0.1
+omni_range = 0.065
 omni_attenuation = -2.15
 omni_shadow_mode = 0
 

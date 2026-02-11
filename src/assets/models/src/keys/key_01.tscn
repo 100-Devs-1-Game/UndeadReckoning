@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://b26xrkdnhw7gy"]
+
+[ext_resource type="PackedScene" uid="uid://0x810wgyfw5x" path="res://assets/models/src/keys/key_01.gltf" id="1_q203s"]
+[ext_resource type="Material" uid="uid://clprsu771q71i" path="res://assets/materials/metal/brass_silver/brass_silver.tres" id="2_4rmkg"]
+[ext_resource type="Material" uid="uid://dntmm0cjt1eqv" path="res://assets/materials/metal/brass_silver/brass_silver_lighter.tres" id="3_6vkew"]
+[ext_resource type="Material" uid="uid://d02aasme3lhsa" path="res://assets/materials/rubber/rubber_01/rubber_01.tres" id="4_siixi"]
+
+[node name="key_01" instance=ExtResource("1_q203s")]
+
+[node name="key_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4rmkg")
+surface_material_override/1 = ExtResource("3_6vkew")
+surface_material_override/2 = ExtResource("4_siixi")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwy2csna7xbav"]
+
+[ext_resource type="PackedScene" uid="uid://bdfe55eonscw7" path="res://assets/models/src/buttons/button_01.gltf" id="1_dektr"]
+[ext_resource type="Material" uid="uid://clprsu771q71i" path="res://assets/materials/metal/brass_silver/brass_silver.tres" id="2_dektr"]
+
+[node name="button_01" instance=ExtResource("1_dektr")]
+
+[node name="button_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dektr")

@@ -1,7 +1,9 @@
 class_name LightKnob
 extends Node3D
 
-var material: StandardMaterial3D
+@export var light_emission_material: StandardMaterial3D
+
+var material: ShaderMaterial
 var light: OmniLight3D
 
 var toggled: bool= true
@@ -16,11 +18,9 @@ func _ready() -> void:
 
 func toggle(toggled_on: bool):
 	if toggled_on:
-		material.color= Color.RED
-		material.emission_enabled= true
+		material.next_pass= light_emission_material
 		light.show()
 	else:
-		material.color= Color.WHITE
-		material.emission_enabled= false
+		material.next_pass= null
 		light.hide()
 	
